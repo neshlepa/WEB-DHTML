@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 // импорты для работы CORS-настроек
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -22,6 +23,12 @@ import java.util.List;
 // @EnableWebSecurity включает защиту проекта инструментами Spring Security
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private final JwtFilter jwtFilter; // Добавили ссылку на наш фильтр токенов
+
+    public SecurityConfig(JwtFilter jwtFilter) {
+        this.jwtFilter = jwtFilter;
+    }
 
     // @Bean означает, что мы вызываем этот метод один раз на старте программы и отдаем объект спрингу, а тот
     // использует его в ходе программы, вместо того, чтобы снова создавать объект
@@ -61,17 +68,18 @@ public class SecurityConfig {
         http.csrf(disableCsrf);
 
         // ШАГ 2. Создаем отдельное правило для доступа к сетевым адресам (эндпоинтам):
-        // Здесь мы по шагам настраиваем объект rules (правила)
         Customizer<AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry> accessRules = rules -> {
-            // Выбираем абсолютно все входящие HTTP-запросы
-            var anyEndpoint = rules.anyRequest();
+            // Открываем полный доступ (без токена) только для регистрации и логина
+            rules.requestMatchers("/api/users/register", "/api/users/login").permitAll();
 
-            // Разрешаем к ним доступ любому пользователю без пароля
-            anyEndpoint.permitAll();
+            // Все остальные запросы к серверу требуют обязательной авторизации (наличия валидного токена)
+            rules.anyRequest().authenticated();
         };
 
-        // Применяем подготовленные правила доступа к строителю http
         http.authorizeHttpRequests(accessRules);
+
+        // Вставляем наш JwtFilter перед стандартным фильтром проверки логина/пароля
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
 
         // ШАГ 3. Финальная сборка:
