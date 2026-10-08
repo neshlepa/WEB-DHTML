@@ -1,5 +1,7 @@
 package com.planfood.backend.controller;
 
+import com.planfood.backend.dto.AuthResponseDto;
+import com.planfood.backend.dto.LoginRequestDto;
 import com.planfood.backend.dto.RegisterRequest;
 import com.planfood.backend.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +19,10 @@ public class UserController {
         this.userService = userService;
     }
 
+
     // @PostMapping указывает, что метод сработает только при HTTP-запросе типа POST
     // на адрес /api/users/register (POST используется для отправки скрытых данных и создания записей)
     @PostMapping("/register")
-
     // @RequestBody берет сырой JSON из входящего запроса и автоматически конвертирует его в Java-объект RegisterRequest
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
         /** это системный Java-класс из Spring Web, который представляет собой полноценный HTTP-ответ целиком
@@ -35,6 +37,19 @@ public class UserController {
         } catch (IllegalArgumentException e) {
             // Если сервис выбросил ошибку, возвращаем клиенту статус HTTP 400 (Bad Request)
             return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequestDto request) {
+        try {
+            String jwtToken = userService.authenticateUser(request); // отдаем данные в сервис
+            AuthResponseDto responseBody = new AuthResponseDto(jwtToken); // упаковываем строку токена в будущий json
+            return ResponseEntity.ok(responseBody); // Возвращаем статус 200 OK и JSON с токеном
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(401).body(e.getMessage()); // 401 Unauthorized в случае ошибки
         }
     }
 }

@@ -1,9 +1,12 @@
 package com.planfood.backend.service;
 
+import com.planfood.backend.dto.LoginRequestDto;
 import com.planfood.backend.entity.User;
 import com.planfood.backend.repository.UserRepository;
+import com.planfood.backend.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 import java.util.regex.Pattern;
 
@@ -13,17 +16,19 @@ import java.util.regex.Pattern;
 public class UserService {
 
     private final UserRepository userRepository; // Ссылка на интерфейс общения с таблицей users
-    private final PasswordEncoder passwordEncoder; // Ссылка на тот самый алгоритм BCrypt (из папки security)
-
+    private final PasswordEncoder passwordEncoder; // Ссылка на алгоритм BCrypt (из папки security)
+    private final JwtUtil jwtUtil; // ссылка на класс для выдачи токенов
     // Регулярное выражение из ТЗ: только латинские буквы, цифры и знак подчеркивания.
     // "^" означает начало строки, "$" - конец строки
     // "[a-zA-Z0-9_]" означает любой разрешенный символ. "+" означает, что их может быть сколько угодно, но минимум один
     private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9_]+$");
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) { // конструктор
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) { // конструктор
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.jwtUtil = jwtUtil;
     }
+
 
     // Главный метод регистрации. Он принимает email и пароль в открытом виде.
     public User registerUser(String email, String rawPassword) {
@@ -41,5 +46,27 @@ public class UserService {
         user.setPasswordHash(passwordEncoder.encode(rawPassword)); // шифруем пароль алгоритмом и кладем в пользователя
 
         return userRepository.save(user); // обращаемся к репозиторию и сохраняем объект в таблицу
+    }
+
+    // метод для проверки пользователя и выдачи токена
+    public String authenticateUser(LoginRequestDto loginRequest) {
+
+        Optional<User> optionalUser = userRepository.findByEmail(loginRequest.getEmail()); // Ищем пользователя в базе по email
+
+        if (optionalUser.isEmpty()) {
+            throw new RuntimeException("Неверный email или пароль");
+        }
+
+        User user = optionalUser.get();
+
+        // Сверяем пароли.
+        boolean isPasswordMatch = passwordEncoder.matches(loginRequest.getPassword(), user.getPasswordHash());
+
+        if (!isPasswordMatch) {
+            throw new RuntimeException("Неверный email или пароль");
+        }
+
+        // Если всё верно — генерируем и возвращаем JWT токен
+        return jwtUtil.generateToken(user.getEmail());
     }
 }
