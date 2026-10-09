@@ -6,6 +6,8 @@ import com.planfood.backend.dto.RegisterRequest;
 import com.planfood.backend.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.planfood.backend.dto.UserProfileDto;
+import java.security.Principal;
 
 @RestController // значит, что класс принимает и возвращает ответы в json формате
 // @RequestMapping задает базовый адрес. Все методы внутри этого класса будут доступны по ссылке,
@@ -50,6 +52,33 @@ public class UserController {
 
         } catch (RuntimeException e) {
             return ResponseEntity.status(401).body(e.getMessage()); // 401 Unauthorized в случае ошибки
+        }
+    }
+
+
+    // Получить данные профиля
+    @GetMapping("/profile")
+    public ResponseEntity<?> getProfile(Principal principal) {
+        try {
+            // principal.getName() возвращает email пользователя из JWT токена
+            String email = principal.getName();
+            UserProfileDto profile = userService.getUserProfile(email);
+            return ResponseEntity.ok(profile);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
+
+
+    // Сохранить изменения профиля
+    @PutMapping("/profile")
+    public ResponseEntity<?> updateProfile(Principal principal, @RequestBody UserProfileDto updateDto) {
+        try {
+            String email = principal.getName();
+            UserProfileDto updatedProfile = userService.updateUserProfile(email, updateDto);
+            return ResponseEntity.ok(updatedProfile);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }
