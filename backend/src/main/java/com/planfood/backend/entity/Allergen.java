@@ -8,5 +8,7 @@ public enum Allergen {
     FISH,
     SEAFOOD,
     SOY,
-    PEANUTS // арахис
+    PEANUTS, // арахис
+    CITRUSES
+
 }
