@@ -1,0 +1,2015 @@
+{
+  "ingredients": [
+    { "name": "Лапша пшеничная (сухая)", "calories": 350.0, "protein": 10.4, "fat": 1.1, "carbohydrates": 71.5, "basePrice": 20.0 },
+    { "name": "Куриное филе", "calories": 120.0, "protein": 21.0, "fat": 2.5, "carbohydrates": 0.0, "basePrice": 35.0 },
+    { "name": "Морковь", "calories": 35.0, "protein": 1.3, "fat": 0.2, "carbohydrates": 7.0, "basePrice": 10.0 },
+    { "name": "Перец болгарский", "calories": 31.0, "protein": 1.0, "fat": 0.3, "carbohydrates": 6.0, "basePrice": 30.0 },
+    { "name": "Лук репчатый", "calories": 40.0, "protein": 1.1, "fat": 0.1, "carbohydrates": 9.0, "basePrice": 15.0 },
+    { "name": "Соевый соус", "calories": 53.0, "protein": 8.1, "fat": 0.0, "carbohydrates": 4.9, "basePrice": 15.0 },
+    { "name": "Имбирь свежий", "calories": 80.0, "protein": 1.8, "fat": 0.8, "carbohydrates": 15.7, "basePrice": 40.0 },
+    { "name": "Чеснок", "calories": 143.0, "protein": 6.5, "fat": 0.5, "carbohydrates": 29.9, "basePrice": 25.0 },
+    { "name": "Масло подсолнечное", "calories": 899.0, "protein": 0.0, "fat": 99.9, "carbohydrates": 0.0, "basePrice": 12.0 },
+    { "name": "Яйцо куриное", "calories": 155.0, "protein": 13.0, "fat": 11.0, "carbohydrates": 1.0, "basePrice": 12.0 },
+    { "name": "Помидор", "calories": 18.0, "protein": 0.9, "fat": 0.2, "carbohydrates": 3.9, "basePrice": 25.0 },
+    { "name": "Укроп свежий", "calories": 40.0, "protein": 2.5, "fat": 0.5, "carbohydrates": 6.3, "basePrice": 30.0 },
+    { "name": "Молоко 2.5%", "calories": 52.0, "protein": 2.8, "fat": 2.5, "carbohydrates": 4.7, "basePrice": 9.0 },
+    { "name": "Сыр твердый", "calories": 350.0, "protein": 25.0, "fat": 27.0, "carbohydrates": 0.0, "basePrice": 60.0 },
+    { "name": "Масло сливочное", "calories": 717.0, "protein": 0.9, "fat": 81.1, "carbohydrates": 0.8, "basePrice": 55.0 },
+    { "name": "Сливки 20%", "calories": 206.0, "protein": 2.8, "fat": 20.0, "carbohydrates": 3.7, "basePrice": 25.0 },
+    { "name": "Страчателла", "calories": 290.0, "protein": 18.0, "fat": 24.0, "carbohydrates": 3.0, "basePrice": 90.0 },
+    { "name": "Картофель", "calories": 77.0, "protein": 2.0, "fat": 0.4, "carbohydrates": 16.3, "basePrice": 6.0 },
+    { "name": "Паста сухая", "calories": 350.0, "protein": 12.0, "fat": 1.5, "carbohydrates": 70.0, "basePrice": 15.0 },
+    { "name": "Лаваш тонкий", "calories": 277.0, "protein": 9.0, "fat": 1.0, "carbohydrates": 55.0, "basePrice": 18.0 },
+    { "name": "Сметана 15%", "calories": 158.0, "protein": 2.6, "fat": 15.0, "carbohydrates": 3.0, "basePrice": 20.0 },
+    { "name": "Колбаса вареная", "calories": 257.0, "protein": 12.8, "fat": 22.9, "carbohydrates": 1.5, "basePrice": 40.0 },
+    { "name": "Огурец свежий", "calories": 15.0, "protein": 0.8, "fat": 0.1, "carbohydrates": 3.6, "basePrice": 20.0 },
+    { "name": "Горошек зеленый консервированный", "calories": 55.0, "protein": 3.1, "fat": 0.2, "carbohydrates": 9.9, "basePrice": 20.0 },
+    { "name": "Майонез", "calories": 624.0, "protein": 1.0, "fat": 67.0, "carbohydrates": 2.6, "basePrice": 22.0 },
+    { "name": "Гречка (сухая)", "calories": 343.0, "protein": 13.3, "fat": 3.4, "carbohydrates": 61.5, "basePrice": 12.0 },
+    { "name": "Тушенка говяжья", "calories": 250.0, "protein": 16.0, "fat": 20.0, "carbohydrates": 0.0, "basePrice": 45.0 },
+    { "name": "Мука пшеничная", "calories": 342.0, "protein": 9.2, "fat": 1.2, "carbohydrates": 70.2, "basePrice": 8.0 },
+    { "name": "Кефир 2.5%", "calories": 50.0, "protein": 2.9, "fat": 2.5, "carbohydrates": 4.0, "basePrice": 12.0 },
+    { "name": "Сахар", "calories": 399.0, "protein": 0.0, "fat": 0.0, "carbohydrates": 99.7, "basePrice": 6.0 },
+    { "name": "Яблоки", "calories": 52.0, "protein": 0.3, "fat": 0.2, "carbohydrates": 13.8, "basePrice": 15.0 },
+    { "name": "Свекла", "calories": 43.0, "protein": 1.6, "fat": 0.2, "carbohydrates": 9.6, "basePrice": 8.0 },
+    { "name": "Огурец соленый", "calories": 11.0, "protein": 0.8, "fat": 0.1, "carbohydrates": 1.7, "basePrice": 18.0 },
+    { "name": "Лапша удон (сухая)", "calories": 340.0, "protein": 9.0, "fat": 1.0, "carbohydrates": 70.0, "basePrice": 25.0 },
+    { "name": "Фунчоза (сухая)", "calories": 320.0, "protein": 0.5, "fat": 0.2, "carbohydrates": 78.0, "basePrice": 30.0 },
+    { "name": "Креветки", "calories": 95.0, "protein": 20.0, "fat": 1.7, "carbohydrates": 0.0, "basePrice": 90.0 },
+    { "name": "Рис белый (сухой)", "calories": 350.0, "protein": 7.0, "fat": 0.7, "carbohydrates": 78.0, "basePrice": 8.0 },
+    { "name": "Говядина", "calories": 187.0, "protein": 18.9, "fat": 12.4, "carbohydrates": 0.0, "basePrice": 55.0 },
+    { "name": "Баранина", "calories": 209.0, "protein": 19.0, "fat": 15.0, "carbohydrates": 0.0, "basePrice": 65.0 },
+    { "name": "Лапша рамен (сухая)", "calories": 350.0, "protein": 9.5, "fat": 1.2, "carbohydrates": 70.0, "basePrice": 22.0 },
+    { "name": "Лук зеленый", "calories": 32.0, "protein": 1.8, "fat": 0.5, "carbohydrates": 6.5, "basePrice": 35.0 },
+    { "name": "Листы лазаньи (сухие)", "calories": 350.0, "protein": 12.0, "fat": 1.5, "carbohydrates": 70.0, "basePrice": 28.0 },
+    { "name": "Тесто слоеное", "calories": 370.0, "protein": 5.0, "fat": 22.0, "carbohydrates": 38.0, "basePrice": 9.0},
+    { "name": "Корица", "calories": 247.0, "protein": 4.0, "fat": 1.0, "carbohydrates": 89.0, "basePrice": 19.0},
+    { "name": "Хлеб черный", "calories": 200.0, "protein": 6.0, "fat": 1.0, "carbohydrates": 40.0, "basePrice": 18.0},
+    { "name": "Томатная паста", "calories": 82.0, "protein": 1.6, "fat": 0.2, "carbohydrates": 16.9, "basePrice": 12.0 },
+    { "name": "Уксус столовый 9%", "calories": 11.0, "protein": 0.0, "fat": 0.0, "carbohydrates": 3.3, "basePrice": 5.0 },
+    { "name": "Кабачок", "calories": 17.0, "protein": 1.2, "fat": 0.3, "carbohydrates": 3.1, "basePrice": 20.0 },
+    { "name": "Минтай (филе)", "calories": 72.0, "protein": 15.5, "fat": 1.6, "carbohydrates": 0.0, "basePrice": 30.0 },
+    { "name": "Хлеб пшеничный", "calories": 265.0, "protein": 8.0, "fat": 1.0, "carbohydrates": 49.0, "basePrice": 10.0 },
+    { "name": "Бекон", "calories": 500.0, "protein": 11.0, "fat": 50.0, "carbohydrates": 0.0, "basePrice": 50.0 },
+    { "name": "Тыква", "calories": 26.0, "protein": 1.0, "fat": 0.1, "carbohydrates": 6.5, "basePrice": 10.0 },
+    { "name": "Индейка (филе)", "calories": 115.0, "protein": 23.5, "fat": 1.5, "carbohydrates": 0.0, "basePrice": 40.0 },
+    { "name": "Тунец консервированный", "calories": 116.0, "protein": 25.5, "fat": 0.8, "carbohydrates": 0.0, "basePrice": 90.0 },
+    { "name": "Салат листовой", "calories": 15.0, "protein": 1.4, "fat": 0.2, "carbohydrates": 2.9, "basePrice": 25.0 },
+    { "name": "Шампиньоны", "calories": 27.0, "protein": 2.1, "fat": 1.0, "carbohydrates": 3.3, "basePrice": 30.0 },
+    { "name": "Капуста белокочанная", "calories": 25.0, "protein": 1.3, "fat": 0.1, "carbohydrates": 5.8, "basePrice": 10.0 },
+    { "name": "Кокосовое молоко", "calories": 197.0, "protein": 2.0, "fat": 20.0, "carbohydrates": 3.0, "basePrice": 35.0 },
+    { "name": "Лайм", "calories": 30.0, "protein": 0.7, "fat": 0.2, "carbohydrates": 10.5, "basePrice": 25.0 },
+    { "name": "Перец чили", "calories": 40.0, "protein": 1.9, "fat": 0.4, "carbohydrates": 8.8, "basePrice": 45.0 },
+    { "name": "Базилик (сушеный)", "calories": 250.0, "protein": 23.0, "fat": 4.0, "carbohydrates": 60.0, "basePrice": 60.0 },
+    { "name": "Творог 5%", "calories": 121.0, "protein": 17.2, "fat": 5.0, "carbohydrates": 1.8, "basePrice": 35.0 },
+    { "name": "Разрыхлитель теста", "calories": 79.0, "protein": 0.1, "fat": 0.0, "carbohydrates": 19.6, "basePrice": 20.0 },
+    { "name": "Печенье песочное", "calories": 417.0, "protein": 7.5, "fat": 11.8, "carbohydrates": 67.0, "basePrice": 25.0 },
+    { "name": "Сгущенное молоко", "calories": 329.0, "protein": 7.2, "fat": 8.5, "carbohydrates": 56.0, "basePrice": 30.0 },
+    { "name": "Какао-порошок", "calories": 289.0, "protein": 24.3, "fat": 15.0, "carbohydrates": 10.2, "basePrice": 40.0 },
+    { "name": "Сливочный сыр", "calories": 342.0, "protein": 6.3, "fat": 33.0, "carbohydrates": 5.5, "basePrice": 45.0 },
+    { "name": "Сыр фета", "calories": 264.0, "protein": 14.0, "fat": 21.0, "carbohydrates": 4.0, "basePrice": 55.0 },
+    { "name": "Маслины", "calories": 115.0, "protein": 0.8, "fat": 10.7, "carbohydrates": 6.3, "basePrice": 40.0 },
+    { "name": "Масло оливковое", "calories": 898.0, "protein": 0.0, "fat": 99.8, "carbohydrates": 0.0, "basePrice": 60.0 },
+    { "name": "Манная крупа", "calories": 333.0, "protein": 10.3, "fat": 1.0, "carbohydrates": 73.3, "basePrice": 10.0 },
+    { "name": "Пшенная крупа", "calories": 348.0, "protein": 11.5, "fat": 3.3, "carbohydrates": 69.3, "basePrice": 12.0 },
+    { "name": "Ветчина", "calories": 260.0, "protein": 16.0, "fat": 21.0, "carbohydrates": 0.0, "basePrice": 45.0 },
+    { "name": "Сайра консервированная", "calories": 200.0, "protein": 19.0, "fat": 13.0, "carbohydrates": 0.0, "basePrice": 60.0 },
+    { "name": "Фасоль красная консервированная", "calories": 120.0, "protein": 8.0, "fat": 0.5, "carbohydrates": 20.0, "basePrice": 25.0 },
+    { "name": "Сухарики ржаные", "calories": 350.0, "protein": 10.0, "fat": 5.0, "carbohydrates": 65.0, "basePrice": 20.0 },
+    { "name": "Горох колотый", "calories": 300.0, "protein": 20.0, "fat": 2.0, "carbohydrates": 50.0, "basePrice": 15.0 },
+    { "name": "Перловая крупа", "calories": 320.0, "protein": 9.3, "fat": 1.1, "carbohydrates": 73.7, "basePrice": 12.0 },
+    { "name": "Брокколи", "calories": 34.0, "protein": 2.8, "fat": 0.4, "carbohydrates": 6.6, "basePrice": 30.0 },
+    { "name": "Сыр плавленый", "calories": 280.0, "protein": 15.0, "fat": 22.0, "carbohydrates": 5.0, "basePrice": 40.0 },
+    { "name": "Мед", "calories": 304.0, "protein": 0.3, "fat": 0.0, "carbohydrates": 82.0, "basePrice": 50.0 },
+    { "name": "Куриные крылья", "calories": 200.0, "protein": 18.0, "fat": 14.0, "carbohydrates": 0.0, "basePrice": 30.0 },
+    { "name": "Зира", "calories": 375.0, "protein": 17.8, "fat": 14.6, "carbohydrates": 44.2, "basePrice": 80.0 },
+    { "name": "Треска (филе)", "calories": 78.0, "protein": 17.0, "fat": 0.7, "carbohydrates": 0.0, "basePrice": 45.0 },
+    { "name": "Баклажан", "calories": 25.0, "protein": 1.2, "fat": 0.1, "carbohydrates": 4.5, "basePrice": 35.0 },
+    { "name": "Паприка (сушеная)", "calories": 282.0, "protein": 14.1, "fat": 12.9, "carbohydrates": 53.9, "basePrice": 50.0 },
+    { "name": "Дрожжи сухие", "calories": 325.0, "protein": 40.0, "fat": 7.0, "carbohydrates": 40.0, "basePrice": 40.0 },
+    { "name": "Сыр Сулугуни", "calories": 286.0, "protein": 20.0, "fat": 22.0, "carbohydrates": 0.4, "basePrice": 65.0 },
+    { "name": "Ванильный сахар", "calories": 395.0, "protein": 0.0, "fat": 0.0, "carbohydrates": 99.0, "basePrice": 30.0 },
+    { "name": "Овсяные хлопья", "calories": 350.0, "protein": 12.0, "fat": 6.0, "carbohydrates": 60.0, "basePrice": 15.0},
+    { "name": "Вишня", "calories": 52.0, "protein": 0.8, "fat": 0.2, "carbohydrates": 10.6, "basePrice": 40.0 },
+    { "name": "Фарш говяжий", "calories": 254.0, "protein": 17.0, "fat": 20.0, "carbohydrates": 0.0, "basePrice": 50.0 },
+    { "name": "Изюм", "calories": 299.0, "protein": 2.9, "fat": 0.6, "carbohydrates": 79.0, "basePrice": 35.0 },
+    { "name": "Шоколад горький", "calories": 539.0, "protein": 6.2, "fat": 35.0, "carbohydrates": 48.0, "basePrice": 80.0 },
+    { "name": "Желатин", "calories": 355.0, "protein": 87.0, "fat": 0.4, "carbohydrates": 0.7, "basePrice": 60.0 },
+    { "name": "Ягоды замороженные", "calories": 60.0, "protein": 1.0, "fat": 0.5, "carbohydrates": 14.0, "basePrice": 45.0 },
+    { "name": "Лавровый лист", "calories": 313.0, "protein": 7.6, "fat": 8.4, "carbohydrates": 75.0, "basePrice": 50.0 },
+    { "name": "Перец черный горошком", "calories": 251.0, "protein": 10.4, "fat": 3.3, "carbohydrates": 64.0, "basePrice": 60.0 },
+    { "name": "Квас", "calories": 27.0, "protein": 0.2, "fat": 0.0, "carbohydrates": 5.2, "basePrice": 15.0 },
+    { "name": "Редис", "calories": 14.0, "protein": 1.2, "fat": 0.1, "carbohydrates": 2.4, "basePrice": 25.0 },
+    { "name": "Грецкие орехи", "calories": 654.0, "protein": 15.2, "fat": 65.2, "carbohydrates": 13.7, "basePrice": 120.0 },
+    { "name": "Ананас консервированный", "calories": 57.0, "protein": 0.4, "fat": 0.2, "carbohydrates": 13.0, "basePrice": 40.0 },
+    { "name": "Каперсы", "calories": 23.0, "protein": 2.4, "fat": 0.9, "carbohydrates": 1.7, "basePrice": 70.0 },
+    { "name": "Лимон", "calories": 34.0, "protein": 1.1, "fat": 0.3, "carbohydrates": 9.0, "basePrice": 30.0 },
+    { "name": "Колбаса копченая", "calories": 420.0, "protein": 16.0, "fat": 40.0, "carbohydrates": 0.0, "basePrice": 55.0 },
+    { "name": "Нут", "calories": 364.0, "protein": 19.0, "fat": 6.0, "carbohydrates": 61.0, "basePrice": 35.0 },
+    { "name": "Тахини", "calories": 595.0, "protein": 17.0, "fat": 54.0, "carbohydrates": 21.0, "basePrice": 90.0 },
+    { "name": "Чечевица красная", "calories": 314.0, "protein": 24.0, "fat": 1.1, "carbohydrates": 54.0, "basePrice": 30.0 },
+    { "name": "Булгур", "calories": 342.0, "protein": 12.3, "fat": 1.3, "carbohydrates": 57.6, "basePrice": 25.0 },
+    { "name": "Кукурузная крупа", "calories": 337.0, "protein": 8.3, "fat": 1.2, "carbohydrates": 71.0, "basePrice": 15.0 },
+    { "name": "Тофу", "calories": 76.0, "protein": 8.0, "fat": 4.8, "carbohydrates": 1.9, "basePrice": 60.0 },
+    { "name": "Киноа", "calories": 368.0, "protein": 14.1, "fat": 6.1, "carbohydrates": 64.2, "basePrice": 70.0 }
+    ],
+  
+
+
+  "recipes": [
+    {
+      "name": "Китайская лапша с курицей и овощами",
+      "photoUrl": "https://i.pinimg.com/736x/50/a0/22/50a0228280cb0ca039d4514a366b34f8.jpg",
+      "time": 30,
+      "difficulty": 3,
+      "instruction": "1. Отварите лапшу до полуготовности согласно инструкции на упаковке.\n2. Нарежьте куриное филе тонкими полосками и обжарьте на масле 5 минут.\n3. Добавьте нарезанные соломкой морковь, перец и лук, готовьте еще 5 минут.\n4. Добавьте лапшу, соевый соус, тертый имбирь и чеснок, перемешайте и прогрейте 3 минуты.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "SOY"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Лапша пшеничная (сухая)", "amountGrams": 100 },
+        { "ingredientName": "Куриное филе", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 50 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 50 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Соевый соус", "amountGrams": 30 },
+        { "ingredientName": "Имбирь свежий", "amountGrams": 10 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Шакшука",
+      "photoUrl": "https://i.pinimg.com/1200x/c8/d4/91/c8d491bf7a82e5aaaedae3f62760e9df.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте нарезанные лук и перец на масле 5 минут.\n2. Добавьте тертые помидоры и чеснок, тушите 7 минут до загустения.\n3. Сделайте углубления и вбейте яйца, не повредив желтки.\n4. Готовьте под крышкой 5 минут, посыпьте зеленью.",
+      
+      "dietaryPreferences": ["LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Помидор", "amountGrams": 200 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Омлет с сыром и помидорами",
+      "photoUrl": "https://i.pinimg.com/1200x/1a/b1/75/1ab175f6353a839216b3aea504db4142.jpg",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Взбейте яйца с молоком и щепоткой соли.\n2. Вылейте смесь на сковороду с маслом и готовьте 3 минуты.\n3. Выложите ломтики помидоров и тертый сыр.\n4. Накройте крышкой и готовьте еще 4 минуты до расплавления сыра.",
+      
+      "dietaryPreferences": ["LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["EGGS", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 50 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 40 },
+        { "ingredientName": "Помидор", "amountGrams": 80 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Скрамбл со страчателлой",
+      "photoUrl": "https://avatars.mds.yandex.net/get-sprav-products/5236693/2a0000018bcef38c66726427b3bee7384a2d/XXL",
+      "time": 12,
+      "difficulty": 2,
+      "dietaryPreferences": ["LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "LACTOSE"],
+      "instruction": "1. Взбейте яйца со сливками.\n2. Вылейте на сковороду с маслом и постоянно помешивайте на слабом огне 3-4 минуты.\n3. Снимите с огня, когда яйца еще слегка влажные.\n4. Выложите страчателлу и половинки помидоров, подавайте сразу.",
+      
+      "dietaryPreferences": ["LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 30 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 15 },
+        { "ingredientName": "Страчателла", "amountGrams": 60 },
+        { "ingredientName": "Помидор", "amountGrams": 60 }
+      ]
+    },
+    {
+      "name": "Яичница по-Ленинградски",
+      "photoUrl": "https://kaliningradtv.ru/userfiles/picmedia/image-1787575394_4564.png.webp",
+      "time": 20,
+      "difficulty": 2,
+      "instruction": "1. Нарезать чеснок на мелкие слайсы.\n2. Обжарить чеснок на сливочном масле.\n3. Нарезанный кубиками черный хлеб выложить на сковороду.\n4. Обжарить хлеб минуты 2 и разбить яйца. \n5. Готовить до момента схватывания яиц",
+      
+      "dietaryPreferences": ["LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Хлеб черный", "amountGrams": 60 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 5 }
+      ]
+    },
+    {
+      "name": "Паста альфредо",
+      "photoUrl": "https://i.pinimg.com/736x/83/33/cb/8333cbf6a20d880ab5add8f7698185b4.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Отварите пасту до состояния аль денте.\n2. Растопите масло и прогрейте измельченный чеснок 1 минуту.\n3. Влейте сливки и доведите до легкого загустения.\n4. Добавьте пасту и тертый сыр, перемешайте до однородного соуса.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Паста сухая", "amountGrams": 120 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 150 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 50 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 }
+      ]
+    },
+    {
+      "name": "Конвертики из лаваша с курицей",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=e612e9a37084a49dd852868a9e0379cb_l-4936408-images-thumbs&n=13",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте куриное филе небольшими кусочками до готовности.\n2. Нарежьте помидор и зелень, натрите сыр.\n3. Смешайте начинку со сметаной и заверните в лаваш конвертиками.\n4. Обжарьте конвертики на сухой сковороде по 2 минуты с каждой стороны.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"], 
+
+      "recipeIngredients": [
+        { "ingredientName": "Лаваш тонкий", "amountGrams": 100 },
+        { "ingredientName": "Куриное филе", "amountGrams": 150 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 50 },
+        { "ingredientName": "Помидор", "amountGrams": 80 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Оливье",
+      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4466156/0102e539-67ae-4992-aa91-303b1d484358.jpg/1600x1600",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Отварите картофель, морковь и яйца до готовности и остудите.\n2. Нарежьте все ингредиенты мелкими кубиками.\n3. Добавьте зеленый горошек и нарезанный огурец.\n4. Заправьте майонезом, посолите и перемешайте.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Колбаса вареная", "amountGrams": 150 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 100 },
+        { "ingredientName": "Горошек зеленый консервированный", "amountGrams": 80 },
+        { "ingredientName": "Майонез", "amountGrams": 60 }
+      ]
+    },
+    {
+      "name": "Гречка с тушенкой",
+      "photoUrl": "https://vkusvill.ru/upload/resize/950098/950098_1504x1044x90_c_o.webp",
+      "time": 35,
+      "difficulty": 1,
+      "instruction": "1. Обжарьте нарезанные лук и морковь на масле 5 минут.\n2. Добавьте тушенку и прогрейте, разминая мясо вилкой.\n3. Всыпьте промытую гречку и залейте водой в пропорции 1:2.\n4. Варите под крышкой 20 минут до впитывания воды.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Гречка (сухая)", "amountGrams": 150 },
+        { "ingredientName": "Тушенка говяжья", "amountGrams": 150 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Драники",
+      "photoUrl": "https://img.povar.ru/main-micro/52/f5/e9/70/draniki_recept_klassicheskii-880538.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Натрите картофель и чеснок на мелкой терке и отожмите лишнюю жидкость.\n2. Добавьте яйцо, муку и соль, перемешайте до однородности.\n3. Выкладывайте тесто ложкой на разогретое масло и жарьте по 3 минуты с каждой стороны.\n4. Подавайте со сметаной.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 400 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 40 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 50 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 }
+      ]
+    },
+
+ 
+
+    {
+      "name": "Оладьи на кефире",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=25f07f579e6a95e7bf67aa58dbb13536_l-12630875-images-thumbs&n=13",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Взбейте яйцо с сахаром и кефиром.\n2. Введите муку и перемешайте до густоты сметаны.\n3. Жарьте оладьи на разогретом масле по 2-3 минуты с каждой стороны.\n4. Подавайте со сметаной.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Кефир 2.5%", "amountGrams": 250 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 200 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Сахар", "amountGrams": 20 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Блины классические",
+      "photoUrl": "https://media.mts.ru/upload/images/materials/maslenica-2025-v-rossiimain.jpg",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Взбейте яйца с сахаром и половиной молока.\n2. Введите муку и замесите густое тесто без комочков.\n3. Разведите оставшимся молоком до жидкой консистенции, добавьте масло.\n4. Жарьте тонкие блины на разогретой сковороде по 1-2 минуты с каждой стороны.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 500 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 250 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сахар", "amountGrams": 30 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Тарт татен",
+      "photoUrl": "https://images.news.ru/2025/10/01/vxlT3LoV9t8PHbKOS92BwZhK4TmOVYvxV6dL4faf_780.png",
+      "time": 60,
+      "difficulty": 4,
+      "instruction": "1. Растопите масло с сахаром в форме и выложите яблоки дольками.\n2. Карамелизуйте яблоки на плите 10 минут.\n3. Накройте раскатанным тестом, заправив края внутрь формы.\n4. Запекайте при 190 градусах 25 минут и переверните горячим.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яблоки", "amountGrams": 400 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 150 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 100 },
+        { "ingredientName": "Сахар", "amountGrams": 120 },
+        { "ingredientName": "Корица", "amountGrams": 2 },
+        { "ingredientName": "Тесто слоеное", "amountGrams": 250}
+      ]
+    },
+    {
+      "name": "Винегрет",
+      "photoUrl": "https://img.povar.ru/mobile/0e/55/22/2a/vinegret_s_kvashenoi_kapustoi-880113.jpg",
+      "time": 50,
+      "difficulty": 2,
+      "instruction": "1. Отварите свеклу, картофель и морковь до готовности и остудите.\n2. Нарежьте все овощи мелкими кубиками.\n3. Добавьте горошек, нарезанный соленый огурец и лук.\n4. Заправьте маслом, перемешайте и дайте настояться 15 минут.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Свекла", "amountGrams": 150 },
+        { "ingredientName": "Картофель", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 100 },
+        { "ingredientName": "Огурец соленый", "amountGrams": 80 },
+        { "ingredientName": "Горошек зеленый консервированный", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 40 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Удон с курицей и овощами",
+      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4220003/735f8829-c4c9-41d4-8419-bdaba5e24610.jpg/1600x1600",
+      "time": 30,
+      "difficulty": 3,
+      "instruction": "1. Отварите удон до готовности и промойте.\n2. Обжарьте курицу полосками 5 минут на сильном огне.\n3. Добавьте овощи соломкой и жарьте еще 4 минуты.\n4. Верните лапшу, влейте соевый соус с имбирем и чесноком, прогрейте 2 минуты.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "SOY"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Лапша удон (сухая)", "amountGrams": 120 },
+        { "ingredientName": "Куриное филе", "amountGrams": 150 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 60 },
+        { "ingredientName": "Морковь", "amountGrams": 50 },
+        { "ingredientName": "Соевый соус", "amountGrams": 30 },
+        { "ingredientName": "Имбирь свежий", "amountGrams": 8 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Фунчоза с овощами",
+      "photoUrl": "https://img.povar.ru/mobile/60/84/04/19/funchoza_po_koreiski-289644.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Залейте фунчозу кипятком на 5 минут и откиньте на дуршлаг.\n2. Нарежьте овощи тонкой соломкой.\n3. Соедините лапшу с овощами, чесноком и соевым соусом.\n4. Заправьте маслом и охладите 10 минут перед подачей.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Фунчоза (сухая)", "amountGrams": 100 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 80 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 60 },
+        { "ingredientName": "Соевый соус", "amountGrams": 25 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Макароны с креветками в сливочном соусе",
+      "photoUrl": "https://www.koolinar.ru/all_image/article/4/4095/article-19851e77-21c3-438e-b652-977e0dbb2885_large.webp",
+      "time": 25,
+      "difficulty": 3,
+      "instruction": "1. Отварите пасту до состояния аль денте.\n2. Обжарьте креветки на сливочном масле с чесноком 3 минуты.\n3. Влейте сливки, добавьте нарезанный помидор и прогрейте 4 минуты.\n4. Соедините соус с пастой и перемешайте.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "SEAFOOD"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Паста сухая", "amountGrams": 120 },
+        { "ingredientName": "Креветки", "amountGrams": 150 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 120 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 },
+        { "ingredientName": "Помидор", "amountGrams": 80 }
+      ]
+    },
+    {
+      "name": "Плов с бараниной",
+      "photoUrl": "https://static.1000.menu/files/user-v2/b3/e0/258890/foto/f_12-11-2021-04-54-14.1636736055.jpg",
+      "time": 60,
+      "difficulty": 4,
+      "instruction": "1. Обжарьте мясо кусочками на масле до корочки.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше и добавьте чеснок.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
+        { "ingredientName": "Баранина", "amountGrams": 200 },
+        { "ingredientName": "Морковь", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Чеснок", "amountGrams": 15 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 25 }
+      ]
+    },
+    {
+      "name": "Рамен с курицей",
+      "photoUrl": "https://cdnstatic.rg.ru/crop1000x667/uploads/images/2025/06/09/istock-1357491413_cb4.jpg",
+      "time": 45,
+      "difficulty": 4,
+      "instruction": "1. Сварите бульон из филе с имбирем и чесноком 20 минут.\n2. Отдельно отварите лапшу и яйцо всмятку.\n3. Соберите тарелку: лапша, нарезанное филе, половинка яйца.\n4. Залейте бульоном с соевым соусом и посыпьте зеленым луком.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "EGGS", "SOY"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Лапша рамен (сухая)", "amountGrams": 100 },
+        { "ingredientName": "Куриное филе", "amountGrams": 150 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Соевый соус", "amountGrams": 30 },
+        { "ingredientName": "Имбирь свежий", "amountGrams": 10 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Лук зеленый", "amountGrams": 15 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Лазанья болоньезе",
+      "photoUrl": "https://www.chefmarket.ru/blog/wp-content/uploads/2021/01/a-piece-of-chicken--2000x1200.jpg",
+      "time": 90,
+      "difficulty": 5,
+      "instruction": "1. Обжарьте говядину с луком и чесноком, добавьте тертые помидоры и тушите 15 минут.\n2. Сварите соус бешамель из молока, муки и сливочного масла.\n3. Соберите лазанью слоями: листы, мясной соус, бешамель, сыр.\n4. Запекайте при 180 градусах 40 минут до румяной корочки.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Листы лазаньи (сухие)", "amountGrams": 120 },
+        { "ingredientName": "Говядина", "amountGrams": 250 },
+        { "ingredientName": "Помидор", "amountGrams": 200 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 300 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 30 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 80 }
+      ]
+    },
+
+ 
+
+    {
+      "name": "Курица в кисло-сладком соусе",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=5e4e9acfca9c198290bb309085fb6f31_l-4569110-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 3,
+      "instruction": "1. Обжарьте курицу кусочками на сильном огне 7 минут.\n2. Добавьте овощи соломкой и жарьте еще 5 минут.\n3. Влейте соус из соевого соуса, томатной пасты, сахара, уксуса и чеснока, тушите 5 минут.\n4. Подавайте с отварным рисом.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["SOY", "GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 300 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 80 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Соевый соус", "amountGrams": 40 },
+        { "ingredientName": "Томатная паста", "amountGrams": 30 },
+        { "ingredientName": "Сахар", "amountGrams": 20 },
+        { "ingredientName": "Уксус столовый 9%", "amountGrams": 15 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 120 }
+      ]
+    },
+    {
+      "name": "Гречка на молоке",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=721bf96567e76e600a1abd81923ee101_l-5434761-images-thumbs&n=13",
+      "time": 30,
+      "difficulty": 1,
+      "instruction": "1. Промойте гречку и отварите в воде 10 минут до полуготовности.\n2. Влейте горячее молоко, добавьте сахар и соль.\n3. Варите на слабом огне 15 минут до мягкости крупы.\n4. Снимите с огня и добавьте сливочное масло.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Гречка (сухая)", "amountGrams": 150 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 400 },
+        { "ingredientName": "Сахар", "amountGrams": 20 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Куриное филе с овощами в сливочном соусе",
+      "photoUrl": "https://i.ytimg.com/vi/SFfJ_holgF4/maxresdefault.jpg",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте курицу кусочками 7 минут до румяности.\n2. Добавьте нарезанные кабачок, перец, морковь и лук, готовьте 7 минут.\n3. Влейте сливки с чесноком и тушите под крышкой 10 минут.\n4. Посолите и подавайте горячим.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 250 },
+        { "ingredientName": "Кабачок", "amountGrams": 150 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 80 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 150 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Рыбные котлеты с картофельным пюре",
+      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4469561/8fcd6a7b-470b-4fd1-acfc-8ca6b6347ca2.jpg/1600x1600",
+      "time": 50,
+      "difficulty": 3,
+      "instruction": "1. Пропустите филе минтая, размоченный хлеб и лук через мясорубку, добавьте яйцо.\n2. Сформуйте котлеты, обваляйте в муке и обжарьте по 4 минуты с каждой стороны.\n3. Отварите картофель и приготовьте пюре с молоком и сливочным маслом.\n4. Подавайте котлеты с пюре.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["FISH", "GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Минтай (филе)", "amountGrams": 300 },
+        { "ingredientName": "Хлеб пшеничный", "amountGrams": 60 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 200 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Картофель", "amountGrams": 400 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 40 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 25 }
+      ]
+    },
+    {
+      "name": "Карбонара со сливками",
+      "photoUrl": "https://profile.ru/wp-content/uploads/1820740-fb.jpeg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Отварите пасту до состояния аль денте.\n2. Обжарьте бекон с чесноком до хруста.\n3. Влейте сливки, прогрейте 2 минуты и снимите с огня.\n4. Смешайте пасту с соусом, яйцом и тертым сыром, быстро перемешайте.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Паста сухая", "amountGrams": 150 },
+        { "ingredientName": "Бекон", "amountGrams": 100 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 100 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 50 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 }
+      ]
+    },
+    {
+      "name": "Сливочный суп-пюре из тыквы",
+      "photoUrl": "https://pic.rtbcdn.ru/video/7e/3b/7e3bf5a64ce7b30a8505ecbd2d5c5fa0.jpg",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте лук и чеснок на сливочном масле 3 минуты.\n2. Добавьте кубики тыквы, залейте водой и варите 15 минут до мягкости.\n3. Пробейте суп блендером до однородности.\n4. Влейте сливки, прогрейте 3 минуты и подавайте.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Тыква", "amountGrams": 400 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 100 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 }
+      ]
+    },
+    {
+      "name": "Овощное рагу с индейкой и томатной пастой",
+      "photoUrl": "https://www.russianfood.com/dycontent/images_upl/300/big_299790.jpg",
+      "time": 50,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте индейку кусочками 7 минут.\n2. Добавьте картофель, кабачок, морковь и лук, жарьте 10 минут.\n3. Разведите томатную пасту с чесноком в стакане воды и влейте в рагу.\n4. Тушите под крышкой 25 минут до мягкости овощей.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Индейка (филе)", "amountGrams": 200 },
+        { "ingredientName": "Картофель", "amountGrams": 250 },
+        { "ingredientName": "Кабачок", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Томатная паста", "amountGrams": 40 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Салат с тунцом и яйцом",
+      "photoUrl": "https://cdn.food.ru/unsigned/fit/640/480/ce/0/czM6Ly9tZWRpYS9waWN0dXJlcy8yMDI1MDIwOS8zVmhwaWYuanBlZw.jpg",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Отварите яйца вкрутую и нарежьте кубиками.\n2. Нарежьте огурец и порвите листья салата руками.\n3. Добавьте тунца, размятый вилкой.\n4. Заправьте майонезом и аккуратно перемешайте.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["FISH", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Тунец консервированный", "amountGrams": 120 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 100 },
+        { "ingredientName": "Салат листовой", "amountGrams": 50 },
+        { "ingredientName": "Майонез", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Курица с грибами в сливочном соусе",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=8c1b87d2576a7f3f79844ddcade1a135_l-4841042-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте курицу кусочками 7 минут до румяности.\n2. Добавьте шампиньоны пластинами и лук, жарьте 8 минут.\n3. Влейте сливки с чесноком и тушите 10 минут на слабом огне.\n4. Подавайте с любым гарниром.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 250 },
+        { "ingredientName": "Шампиньоны", "amountGrams": 200 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 150 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 }
+      ]
+    },
+    {
+      "name": "Жюльен с грибами",
+      "photoUrl": "https://www.koolinar.ru/all_image/article/3/3640/article-2ba585cf-bd24-4d63-9b75-2cd923138b02_large.webp",
+      "time": 45,
+      "difficulty": 3,
+      "instruction": "1. Обжарьте шампиньоны с луком до выпаривания жидкости.\n2. Влейте сливки и тушите 5 минут до загустения.\n3. Разложите массу по кокотницам и посыпьте тертым сыром.\n4. Запекайте при 200 градусах 15 минут до золотистой корочки.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Шампиньоны", "amountGrams": 300 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 100 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 60 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 }
+      ]
+    },
+
+ 
+
+    {
+      "name": "Борщ",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=9f17687b793e394a3c38e06ef0ac132e_l-12615842-images-thumbs&n=13",
+      "time": 90,
+      "difficulty": 4,
+      "instruction": "1. Сварите бульон из говядины 40 минут.\n2. Спассеруйте лук, морковь и свеклу с томатной пастой.\n3. Добавьте в бульон картофель и капусту, варите 15 минут.\n4. Введите пассеровку и чеснок, варите еще 10 минут; подавайте со сметаной и укропом.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Говядина", "amountGrams": 250 },
+        { "ingredientName": "Свекла", "amountGrams": 200 },
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Капуста белокочанная", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Томатная паста", "amountGrams": 30 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Том ям",
+      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4466156/Tayskiy_sup_s_moreproduktami_Tom_Yam.jpg_1776162783690/1600x1600",
+      "time": 40,
+      "difficulty": 4,
+      "instruction": "1. Сварите бульон с имбирем, чесноком и чили 10 минут.\n2. Добавьте грибы и помидоры, варите 5 минут.\n3. Влейте кокосовое молоко и соевый соус, доведите до кипения.\n4. Положите креветки и влейте сок лайма, варите еще 3 минуты.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["SEAFOOD", "SOY"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Креветки", "amountGrams": 200 },
+        { "ingredientName": "Шампиньоны", "amountGrams": 100 },
+        { "ingredientName": "Кокосовое молоко", "amountGrams": 200 },
+        { "ingredientName": "Помидор", "amountGrams": 100 },
+        { "ingredientName": "Лайм", "amountGrams": 60 },
+        { "ingredientName": "Перец чили", "amountGrams": 10 },
+        { "ingredientName": "Имбирь свежий", "amountGrams": 15 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Соевый соус", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Цезарь с курицей",
+      "photoUrl": "https://cookyt.pro/static/uploads/recipes/uhEPO1_46HI.webp",
+      "time": 30,
+      "difficulty": 3,
+      "instruction": "1. Приготовьте сухарики из хлеба с чесноком и маслом в духовке 10 минут.\n2. Обжарьте филе до готовности и нарежьте ломтиками.\n3. Смешайте соус из яйца, майонеза и тертого сыра.\n4. Соберите салат: листья, курица, помидоры, сухарики, соус.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 200 },
+        { "ingredientName": "Салат листовой", "amountGrams": 80 },
+        { "ingredientName": "Помидор", "amountGrams": 100 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 40 },
+        { "ingredientName": "Хлеб пшеничный", "amountGrams": 80 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 },
+        { "ingredientName": "Майонез", "amountGrams": 50 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 }
+      ]
+    },
+    {
+      "name": "Курица с картофелем в рукаве для запекания",
+      "photoUrl": "https://i.ytimg.com/vi/YadjJZ_Fu-w/maxresdefault.jpg",
+      "time": 60,
+      "difficulty": 2,
+      "instruction": "1. Замаринуйте филе в майонезе с чесноком на 15 минут.\n2. Смешайте с картофелем и морковью крупными кусками.\n3. Переложите в рукав для запекания и закрепите края.\n4. Запекайте при 190 градусах 40 минут.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 400 },
+        { "ingredientName": "Картофель", "amountGrams": 400 },
+        { "ingredientName": "Морковь", "amountGrams": 100 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 },
+        { "ingredientName": "Майонез", "amountGrams": 40 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Бефстроганов",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=cd2b37e5b37e1e5024f7af3a84bca396_l-4774101-images-thumbs&n=13",
+      "time": 50,
+      "difficulty": 3,
+      "instruction": "1. Нарежьте говядину тонкими полосками и обжарьте на масле 7 минут.\n2. Добавьте лук и жарьте еще 5 минут.\n3. Посыпьте мукой, влейте сметану и тушите 10 минут.\n4. Подавайте с отварными макаронами.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Говядина", "amountGrams": 300 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 80 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 120 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 20 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 },
+        { "ingredientName": "Паста сухая", "amountGrams": 120 }
+      ]
+    },
+    {
+      "name": "Паста по-итальянски",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=3cb52a8901e0ca9906f6cc0e5ce72dd7_l-5876235-images-thumbs&n=13",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Отварите пасту до состояния аль денте.\n2. Спассеруйте лук и чеснок на масле 3 минуты.\n3. Добавьте нарезанные помидоры и базилик, тушите 10 минут.\n4. Смешайте соус с пастой и посыпьте тертым сыром.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Паста сухая", "amountGrams": 150 },
+        { "ingredientName": "Помидор", "amountGrams": 200 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 40 },
+        { "ingredientName": "Базилик (сушеный)", "amountGrams": 3 }
+      ]
+    },
+    {
+      "name": "Творог со сметаной",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=10d9a60c7abdda2b9337abce6227055a_l-5236341-images-thumbs&n=13",
+      "time": 5,
+      "difficulty": 1,
+      "instruction": "1. Выложите творог в тарелку.\n2. Добавьте сахар, мед, джем или варенье и перемешайте.\n3. Полейте сметаной.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Творог 5%", "amountGrams": 200 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 50 },
+        { "ingredientName": "Сахар", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Картошка в мундире",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=179fd12a03bfdf11d239e8ed118ddb9c_l-5642274-images-thumbs&n=13",
+      "time": 45,
+      "difficulty": 1,
+      "instruction": "1. Тщательно вымойте картофель и нарежьте дольками, не очищая.\n2. Смешайте с маслом, чесноком и солью.\n3. Запекайте при 200 градусах 30 минут до румяности.\n4. Посыпьте укропом и подавайте со сметаной.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 500 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Панкейки",
+      "photoUrl": "https://static.1000.menu/files/user-v2/34/7d/489397/foto/f_11-04-2026-03-59-09.1775923149.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Взбейте яйца с сахаром и молоком.\n2. Смешайте муку с разрыхлителем и введите в жидкую часть без комочков.\n3. Жарьте на сливочном масле по 2 минуты с каждой стороны.\n4. Сложите стопкой и подавайте.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 160 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 250 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сахар", "amountGrams": 40 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 50 },
+        { "ingredientName": "Разрыхлитель теста", "amountGrams": 5 }
+      ]
+    },
+    {
+      "name": "Пирожное картошка",
+      "photoUrl": "https://photobooth.cdn.sports.ru/preset/wysiwyg/4/40/8a6dcdd1d4e539a2c47f4faa178fb.jpeg?f=webp&q=90&s=2x&w=730",
+      "time": 40,
+      "difficulty": 3,
+      "instruction": "1. Измельчите печенье в мелкую крошку.\n2. Смешайте размягченное масло со сгущенкой и какао.\n3. Соедините с крошкой и сформуйте пирожные.\n4. Охладите в холодильнике 2 часа.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Печенье песочное", "amountGrams": 300 },
+        { "ingredientName": "Сгущенное молоко", "amountGrams": 150 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 100 },
+        { "ingredientName": "Какао-порошок", "amountGrams": 20 }
+      ]
+    },
+
+ 
+
+    {
+      "name": "Чизкейк",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=c4db716267055f1e3798f96741047d2b_l-7012067-images-thumbs&n=13",
+      "time": 90,
+      "difficulty": 4,
+      "instruction": "1. Измельчите печенье и смешайте с растопленным сливочным маслом, утрамбуйте на дно формы.\n2. Взбейте сливочный сыр с яйцами и сахаром до однородности.\n3. Вылейте массу на основу и выпекайте при 160 градусах 50 минут.\n4. Остудите и охладите в холодильнике 4 часа перед подачей.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Печенье песочное", "amountGrams": 200 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 80 },
+        { "ingredientName": "Сливочный сыр", "amountGrams": 500 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Сахар", "amountGrams": 100 }
+      ]
+    },
+    {
+      "name": "Греческий салат",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=7ca44eb8977af40b01ea1c378ddb4b11_l-5350948-images-thumbs&n=13",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Нарежьте помидоры, огурцы и перец крупными кубиками.\n2. Добавьте кольца красного лука и маслины.\n3. Сверху положите кубики сыра фета.\n4. Заправьте оливковым маслом, посолите и аккуратно перемешайте.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Помидор", "amountGrams": 150 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 150 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 40 },
+        { "ingredientName": "Сыр фета", "amountGrams": 80 },
+        { "ingredientName": "Маслины", "amountGrams": 40 },
+        { "ingredientName": "Масло оливковое", "amountGrams": 30 }
+      ]
+    },
+    {
+      "name": "Овощной салат",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=aab3c4e9c1422ca20c23a6aac6a76485_l-10637415-images-thumbs&n=13",
+      "time": 10,
+      "difficulty": 1,
+      "instruction": "1. Нарежьте помидоры и огурцы кубиками.\n2. Порвите листья салата руками.\n3. Смешайте овощи в миске.\n4. Заправьте подсолнечным маслом, посолите по вкусу.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Помидор", "amountGrams": 120 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 120 },
+        { "ingredientName": "Салат листовой", "amountGrams": 60 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Манная каша",
+      "photoUrl": "https://images.gastronom.ru/lt9Yu6khx_MnXT-WfBrztr8NA3w3rqtfM5d57vAAiuQ/pr:content-group-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzMwMTk3MmI4LWRkODctNGQwOC05YjkyLTdlMDMyMzYxMGE2Yi5qcGc.webp",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Вскипятите молоко с сахаром.\n2. Тонкой струйкой всыпьте манную крупу, постоянно помешивая венчиком.\n3. Варите на медленном огне 5 минут до загустения.\n4. Снимите с огня и добавьте кусочек сливочного масла.\n5. По желанию можно добавить ягоды иьи варенье",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Манная крупа", "amountGrams": 50 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 300 },
+        { "ingredientName": "Сахар", "amountGrams": 15 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Овсянка на молоке",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=6974838975b9910cc82408a2545def41_l-3692823-images-thumbs&n=13",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Вскипятите молоко.\n2. Всыпьте овсяные хлопья и варите, помешивая, 5-7 минут.\n3. Добавьте сахар и щепотку соли.\n4. Снимите с огня, накройте крышкой и дайте настояться 3 минуты, добавьте масло.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Овсяные хлопья", "amountGrams": 60 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 200 },
+        { "ingredientName": "Сахар", "amountGrams": 15 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Пшенная каша с маслом",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=4248424cbdc59356c5158a15f8cb620a_l-5234381-images-thumbs&n=13",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Тщательно промойте пшенную крупу горячей водой до прозрачной воды.\n2. Залейте молоком, доведите до кипения.\n3. Варите на слабом огне под крышкой 20 минут, периодически помешивая.\n4. Добавьте сахар и щедрый кусок сливочного масла.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Пшенная крупа", "amountGrams": 80 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 300 },
+        { "ingredientName": "Сахар", "amountGrams": 15 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Французский тост",
+      "photoUrl": "https://i.ytimg.com/vi/0m3qye4OPIM/maxresdefault.jpg",
+      "time": 10,
+      "difficulty": 1,
+      "instruction": "1. Взбейте яйца с молоком и сахаром.\n2. Обмакните ломтики хлеба в смесь с двух сторон.\n3. Обжарьте на сливочном масле по 2 минуты с каждой стороны до золотистой корочки.\n4. Подавайте теплыми, можно с медом или ягодами.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Хлеб пшеничный", "amountGrams": 120 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 50 },
+        { "ingredientName": "Сахар", "amountGrams": 10 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Сэндвичи",
+      "photoUrl": "https://menunedeli.ru/wp-content/uploads/2026/06/%D0%A1%D1%8D%D0%BD%D0%B4%D0%B2%D0%B8%D1%87-%D1%81-%D0%B2%D0%B5%D1%82%D1%87%D0%B8%D0%BD%D0%BE%D0%B9-%D0%B8-%D1%81%D1%8B%D1%80%D0%BE%D0%BC-500%D1%85350-500x333.jpg",
+      "time": 10,
+      "difficulty": 1,
+      "instruction": "1. Смажьте ломтики хлеба мягким сливочным маслом.\n2. Выложите на один ломтик ветчину и кружочки помидора.\n3. Посыпьте тертым сыром.\n4. Накройте вторым ломтиком хлеба и разрежьте по диагонали.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Хлеб пшеничный", "amountGrams": 100 },
+        { "ingredientName": "Ветчина", "amountGrams": 80 },
+        { "ingredientName": "Помидор", "amountGrams": 60 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 30 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Мимоза",
+      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4471904/b812f84e-112c-4af4-a273-679e471fe836.jpg/1600x1600",
+      "time": 40,
+      "difficulty": 3,
+      "instruction": "1. Отварите картофель, морковь и яйца, остудите и натрите на терке.\n2. Мелко нарежьте лук и разомните сайру вилкой.\n3. Выкладывайте слоями: картофель, лук, сайра, морковь, яйцо.\n4. Каждый слой промазывайте майонезом. Дайте настояться 1 час.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": ["FISH", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Морковь", "amountGrams": 100 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Сайра консервированная", "amountGrams": 150 },
+        { "ingredientName": "Майонез", "amountGrams": 80 }
+      ]
+    },
+    
+
+    {
+      "name": "Салат из фасоли с сухариками",
+      "photoUrl": "https://static.1000.menu/img/content-v2/c4/af/13180/salat-fasol-suxariki-kolbasa_1588657080_9_max.jpg",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Слейте жидкость с фасоли и выложите её в миску.\n2. Добавьте сухарики и измельченный чеснок.\n3. Заправьте майонезом и аккуратно перемешайте.\n4. Посыпьте свежим укропом перед подачей.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Фасоль красная консервированная", "amountGrams": 200 },
+        { "ingredientName": "Сухарики ржаные", "amountGrams": 50 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 },
+        { "ingredientName": "Майонез", "amountGrams": 40 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Щи из свежей капусты",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=a97d216f349b6f4f7d41697c96570936_l-5305442-images-thumbs&n=13",
+      "time": 60,
+      "difficulty": 3,
+      "instruction": "1. Сварите бульон из говядины 40 минут, мясо достаньте и нарежьте.\n2. Добавьте в бульон нашинкованную капусту и варите 10 минут.\n3. Спассеруйте лук и морковь с томатной пастой, добавьте в суп.\n4. Верните мясо, варите 5 минут; подавайте со сметаной.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Говядина", "amountGrams": 250 },
+        { "ingredientName": "Капуста белокочанная", "amountGrams": 200 },
+        { "ingredientName": "Картофель", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Томатная паста", "amountGrams": 30 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Рассольник",
+      "photoUrl": "https://static.1000.menu/files/user-v2/3e/05/826900/foto/f_14-02-2024-08-52-06.1707900726.jpg",
+      "time": 70,
+      "difficulty": 3,
+      "instruction": "1. Отварите перловку до полуготовности.\n2. Сварите бульон из говядины, добавьте картофель и перловку.\n3. Спассеруйте лук, морковь и нарезанные соленые огурцы.\n4. Добавьте пассеровку в суп, варите 10 минут; подавайте со сметаной.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Говядина", "amountGrams": 200 },
+        { "ingredientName": "Перловая крупа", "amountGrams": 60 },
+        { "ingredientName": "Картофель", "amountGrams": 150 },
+        { "ingredientName": "Огурец соленый", "amountGrams": 100 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Гороховый суп",
+      "photoUrl": "https://cdn.food.ru/unsigned/fit/640/480/ce/0/czM6Ly9tZWRpYS9waWN0dXJlcy8yMDI1MDMyOC8za3ZOUzMuanBlZw.webp",
+      "time": 90,
+      "difficulty": 3,
+      "instruction": "1. Замочите горох на 2 часа, затем отварите до мягкости.\n2. Добавьте нарезанный картофель и варите 15 минут.\n3. Спассеруйте лук и морковь, добавьте в суп.\n4. Добавьте нарезанную ветчину, варите 5 минут и подавайте.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Горох колотый", "amountGrams": 150 },
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Морковь", "amountGrams": 70 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Ветчина", "amountGrams": 100 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Суп-пюре из брокколи",
+      "photoUrl": "https://i.ytimg.com/vi/wtc7byiNSH8/maxresdefault.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте лук на сливочном масле 3 минуты.\n2. Добавьте соцветия брокколи и картофель, залейте водой и варите 15 минут.\n3. Пробейте суп блендером до однородности.\n4. Влейте сливки, добавьте плавленый сыр и прогрейте до его растворения.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Брокколи", "amountGrams": 300 },
+        { "ingredientName": "Картофель", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 40 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 100 },
+        { "ingredientName": "Сыр плавленый", "amountGrams": 80 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Грибовница",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=59946df081e2e34f50db2313cbc0a958_l-4614378-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте шампиньоны и обжарьте с луком до золотистости.\n2. Добавьте нарезанный картофель в кипящую воду и варите 10 минут.\n3. Введите грибы с луком, варите еще 10 минут.\n4. Добавьте сметану, посолите и подавайте с укропом.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Шампиньоны", "amountGrams": 200 },
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Морковь", "amountGrams": 50 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 60 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Томатный суп",
+      "photoUrl": "https://static.1000.menu/img/content/27362/tomatnyi-sup-pure-klassicheskii_1528296319_9_max.jpg",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте лук и чеснок на масле 3 минуты.\n2. Добавьте нарезанные помидоры и тушите 10 минут до мягкости.\n3. Залейте водой, пробейте блендером и верните на плиту.\n4. Влейте сливки, добавьте базилик и прогрейте 3 минуты.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Помидор", "amountGrams": 400 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 },
+        { "ingredientName": "Сливки 20%", "amountGrams": 100 },
+        { "ingredientName": "Базилик (сушеный)", "amountGrams": 3 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Куриный суп с лапшой",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=4dcc1d7ba27a47acba4de26311cdd12d_l-5231671-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Сварите бульон из куриного филе 20 минут, достаньте и нарежьте мясо.\n2. Добавьте в бульон нарезанный картофель, морковь и лук.\n3. Варите 10 минут, затем добавьте пасту.\n4. Верните мясо, варите до готовности пасты и подавайте.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 200 },
+        { "ingredientName": "Картофель", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Паста сухая", "amountGrams": 80 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Макароны по-флотски",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=9d456e0cfe557127cc87ee63a6c95420_l-3979407-images-thumbs&n=13",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Отварите пасту до готовности и откиньте на дуршлаг.\n2. Обжарьте куриное филе с луком до румяности.\n3. Добавьте пасту к мясу, перемешайте и прогрейте 2 минуты.\n4. Посолите, поперчите и подавайте горячим.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Паста сухая", "amountGrams": 200 },
+        { "ingredientName": "Куриное филе", "amountGrams": 250 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 80 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Куриные крылья в медовом соусе",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=9ded2119ac02886c583aaf36d7744b19_l-5539996-images-thumbs&n=13",
+      "time": 50,
+      "difficulty": 3,
+      "instruction": "1. Смешайте мед, соевый соус, тертый имбирь и чеснок.\n2. Замаринуйте крылья в соусе на 20 минут.\n3. Выложите крылья на противень и запекайте при 200 градусах 35 минут.\n4. Периодически поливайте выделившимся соком.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["SOY"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриные крылья", "amountGrams": 500 },
+        { "ingredientName": "Мед", "amountGrams": 40 },
+        { "ingredientName": "Соевый соус", "amountGrams": 40 },
+        { "ingredientName": "Имбирь свежий", "amountGrams": 10 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 }
+      ]
+    },
+
+    {
+      "name": "Плов с говядиной",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=af857dd42e9716527621b5dc8a61f1aeb0886acd-12635770-images-thumbs&n=13",
+      "time": 70,
+      "difficulty": 4,
+      "instruction": "1. Обжарьте говядину кусочками на сильном огне до корочки.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше, добавьте чеснок и зиру.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
+        { "ingredientName": "Говядина", "amountGrams": 250 },
+        { "ingredientName": "Морковь", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Чеснок", "amountGrams": 15 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 25 },
+        { "ingredientName": "Зира", "amountGrams": 3 }
+      ]
+    },
+    {
+      "name": "Рыба жареная",
+      "photoUrl": "https://static.1000.menu/img/content-v2/75/f0/27079/jarenaya-kefal-na-skovorode_1758459059_0_tgi8ltm_max.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте филе трески порционными кусками.\n2. Обваляйте рыбу в муке, затем во взбитом яйце.\n3. Обжарьте на разогретом масле по 4 минуты с каждой стороны до золотистой корочки.\n4. Подавайте с долькой лимона.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["FISH", "GLUTEN", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Треска (филе)", "amountGrams": 300 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 40 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 }
+      ]
+    },
+    {
+      "name": "Кабачки жареные",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=8620bc77a0da3ea686467487256a37ee_l-5886829-images-thumbs&n=13",
+      "time": 20,
+      "difficulty": 1,
+      "instruction": "1. Нарежьте кабачки кружочками толщиной 1 см.\n2. Обжарьте на масле по 3 минуты с каждой стороны.\n3. Выложите на бумажное полотенце, чтобы убрать лишнее масло.\n4. Смажьте каждый кружок смесью сметаны с чесноком и посыпьте укропом.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Кабачок", "amountGrams": 400 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 60 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Баклажаны с помидорами",
+      "photoUrl": "https://menunedeli.ru/wp-content/uploads/2024/05/DSC05311-1200x800.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте баклажаны кружочками и обжарьте на масле до мягкости.\n2. Нарежьте помидоры кружочками того же размера.\n3. Выложите слоями: баклажан, помидор, чеснок.\n4. Посыпьте базиликом и полейте оливковым маслом.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Баклажан", "amountGrams": 300 },
+        { "ingredientName": "Помидор", "amountGrams": 200 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 },
+        { "ingredientName": "Базилик (сушеный)", "amountGrams": 3 }
+      ]
+    },
+    {
+      "name": "Овощное рагу",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=0194dd9a0055509a1045d2af9f9de199_l-5294598-images-thumbs&n=13",
+      "time": 45,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте все овощи кубиками.\n2. Обжарьте лук и морковь, добавьте баклажан и кабачок, жарьте 10 минут.\n3. Добавьте помидоры и томатную пасту, тушите под крышкой 20 минут.\n4. Посолите, поперчите и посыпьте зеленью перед подачей.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Кабачок", "amountGrams": 150 },
+        { "ingredientName": "Баклажан", "amountGrams": 150 },
+        { "ingredientName": "Помидор", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Томатная паста", "amountGrams": 30 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Картофель по-деревенски",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=08fb6c4a25b33584b12fd7f97c760af0_l-5286448-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 1,
+      "instruction": "1. Тщательно вымойте картофель и нарежьте дольками, не очищая.\n2. Смешайте с маслом, паприкой, чесноком и солью.\n3. Выложите на противень в один слой.\n4. Запекайте при 200 градусах 30 минут до румяности.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 500 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 },
+        { "ingredientName": "Паприка (сушеная)", "amountGrams": 5 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Шарлотка",
+      "photoUrl": "https://img.povar.ru/mobile/0c/43/16/c6/sharlotka_s_yablokami_na_kefire_so_smetanoi-819831.JPG",
+      "time": 60,
+      "difficulty": 2,
+      "instruction": "1. Взбейте яйца с сахаром и ванильным сахаром до пышной пены.\n2. Аккуратно вмешайте муку.\n3. Нарежьте яблоки дольками и выложите на дно формы, залейте тестом.\n4. Запекайте при 180 градусах 35-40 минут до золотистой корочки.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яблоки", "amountGrams": 400 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Сахар", "amountGrams": 150 },
+        { "ingredientName": "Ванильный сахар", "amountGrams": 10 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 160 }
+      ]
+    },
+    {
+      "name": "Творожная запеканка",
+      "photoUrl": "https://img.povar.ru/mobile/92/de/c4/1f/zapekanka_tvorojnaya_kak_v_detskom_sadu-887309.JPG",
+      "time": 50,
+      "difficulty": 2,
+      "instruction": "1. Смешайте творог с яйцом, сахаром и манной крупой.\n2. Добавьте размягченное сливочное масло и тщательно перемешайте.\n3. Выложите массу в смазанную форму.\n4. Запекайте при 180 градусах 35-40 минут до румяности.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Творог 5%", "amountGrams": 400 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сахар", "amountGrams": 60 },
+        { "ingredientName": "Манная крупа", "amountGrams": 40 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Хачапури по-аджарски",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=f2cddbb701fe3b4b01a777354c761945_l-3708982-images-thumbs&n=13",
+      "time": 60,
+      "difficulty": 4,
+      "instruction": "1. Замесите дрожжевое тесто из муки, молока, дрожжей и масла, дайте подняться.\n2. Сформируйте лодочки и выложите на противень.\n3. Наполните тертым сулугуни и выпекайте 15 минут при 220 градусах.\n4. Достаньте, вбейте в центр яйцо и запекайте еще 3 минуты.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 250 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 120 },
+        { "ingredientName": "Дрожжи сухие", "amountGrams": 5 },
+        { "ingredientName": "Сыр Сулугуни", "amountGrams": 150 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 }
+      ]
+    },
+    {
+      "name": "Пицца домашняя",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=efc31211e4621b2f9b7814b19c6be906_l-4451123-images-thumbs&n=13",
+      "time": 50,
+      "difficulty": 3,
+      "instruction": "1. Замесите тесто из муки, молока, дрожжей и масла, дайте подняться.\n2. Раскатайте основу и смажьте томатной пастой.\n3. Выложите нарезанную ветчину и помидоры, посыпьте сыром.\n4. Запекайте при 220 градусах 15-20 минут.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 250 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 120 },
+        { "ingredientName": "Дрожжи сухие", "amountGrams": 5 },
+        { "ingredientName": "Томатная паста", "amountGrams": 50 },
+        { "ingredientName": "Ветчина", "amountGrams": 150 },
+        { "ingredientName": "Помидор", "amountGrams": 100 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 100 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Вареники с творогом",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=ec035ba39d0e65cf9a4e15fe20f58cc9_l-12653839-images-thumbs&n=13",
+      "time": 60,
+      "difficulty": 3,
+      "instruction": "1. Замесите тесто из муки, яйца и воды, дайте ему отдохнуть.\n2. Смешайте творог с сахаром и яйцом для начинки.\n3. Раскатайте тесто, вырежьте кружки, положите начинку и залепите края.\n4. Варите в кипящей подсоленной воде 5-7 минут после всплытия. Подавайте со сметаной.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 300 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Творог 5%", "amountGrams": 400 },
+        { "ingredientName": "Сахар", "amountGrams": 40 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 60 }
+      ]
+    },
+    {
+      "name": "Пирог с яблоками",
+      "photoUrl": "https://i.ytimg.com/vi/5REzW0YSgRI/maxresdefault.jpg",
+      "time": 50,
+      "difficulty": 2,
+      "instruction": "1. Взбейте яйца с сахаром до пышной пены.\n2. Аккуратно вмешайте муку и растопленное сливочное масло.\n3. Нарежьте яблоки дольками, выложите на дно формы и залейте тестом.\n4. Запекайте при 180 градусах 35-40 минут до золотистой корочки.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яблоки", "amountGrams": 400 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 200 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Сахар", "amountGrams": 150 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 100 },
+        { "ingredientName": "Корица", "amountGrams": 3 }
+      ]
+    },
+    {
+      "name": "Мясной пирог",
+      "photoUrl": "https://picsum.photos/seed/planfood073/800/600",
+      "time": 70,
+      "difficulty": 3,
+      "instruction": "1. Обжарьте фарш с луком до готовности, посолите и поперчите.\n2. Замесите простое тесто из муки, яйца и масла.\n3. Выложите половину теста в форму, распределите мясную начинку.\n4. Накройте второй половиной теста, смажьте яйцом и выпекайте 40 минут при 180 градусах.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Фарш говяжий", "amountGrams": 400 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 100 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 250 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 100 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Манник",
+      "photoUrl": "https://i.ytimg.com/vi/tg1EqExAJDU/maxresdefault.jpg",
+      "time": 50,
+      "difficulty": 2,
+      "instruction": "1. Залейте манную крупу кефиром и оставьте на 30 минут для набухания.\n2. Добавьте яйца, сахар и растопленное масло, тщательно перемешайте.\n3. Всыпьте разрыхлитель и снова перемешайте.\n4. Выпекайте в смазанной форме при 180 градусах 35-40 минут.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Манная крупа", "amountGrams": 150 },
+        { "ingredientName": "Кефир 2.5%", "amountGrams": 250 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сахар", "amountGrams": 100 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 80 },
+        { "ingredientName": "Разрыхлитель теста", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Кекс с изюмом",
+      "photoUrl": "https://i.ytimg.com/vi/hRr9va9s7qQ/maxresdefault.jpg",
+      "time": 50,
+      "difficulty": 2,
+      "instruction": "1. Замочите изюм в теплой воде на 10 минут, затем обсушите.\n2. Взбейте мягкое масло с сахаром, добавьте яйца по одному.\n3. Вмешайте муку с разрыхлителем и подготовленный изюм.\n4. Разложите тесто по формочкам и выпекайте 25 минут при 180 градусах.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 200 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сахар", "amountGrams": 120 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 120 },
+        { "ingredientName": "Изюм", "amountGrams": 80 },
+        { "ingredientName": "Разрыхлитель теста", "amountGrams": 8 }
+      ]
+    },
+    {
+      "name": "Брауни",
+      "photoUrl": "https://www.koolinar.ru/all_image/article/3/3858/article-438c74c2-479b-4d4f-bf31-1b0c77f71dad_large.webp",
+      "time": 45,
+      "difficulty": 3,
+      "instruction": "1. Растопите сливочное масло с горьким шоколадом на водяной бане.\n2. Взбейте яйца с сахаром до легкой пены.\n3. Соедините шоколадную смесь с яичной, аккуратно всыпьте муку и какао.\n4. Выпекайте в квадратной форме 25 минут при 180 градусах (середина должна оставаться влажной).",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 100 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Сахар", "amountGrams": 150 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 150 },
+        { "ingredientName": "Какао-порошок", "amountGrams": 40 },
+        { "ingredientName": "Шоколад горький", "amountGrams": 100 }
+      ]
+    },
+    {
+      "name": "Фруктовое желе",
+      "photoUrl": "https://img.povar.ru/main-micro/26/73/4c/b6/jele_s_kusochkami_fruktov-77889.jpg",
+      "time": 240,
+      "difficulty": 1,
+      "instruction": "1. Замочите желатин в холодной воде на 30 минут.\n2. Нагрейте воду с сахаром и ягодами, но не кипятите.\n3. Растворите набухший желатин в теплой ягодной смеси.\n4. Разлейте по формам и уберите в холодильник до полного застывания (около 3 часов).",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Желатин", "amountGrams": 20 },
+        { "ingredientName": "Ягоды замороженные", "amountGrams": 300 },
+        { "ingredientName": "Сахар", "amountGrams": 80 }
+      ]
+    },
+    {
+      "name": "Плов с курицей",
+      "photoUrl": "https://cdn.food.ru/unsigned/fit/640/480/ce/0/czM6Ly9tZWRpYS9waWN0dXJlcy8yMDI0MTAwNy80OHdzdjcuanBlZw.webp",
+      "time": 60,
+      "difficulty": 3,
+      "instruction": "1. Обжарьте куриное филе кусочками на сильном огне.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше, добавьте чеснок и зиру.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
+        { "ingredientName": "Куриное филе", "amountGrams": 250 },
+        { "ingredientName": "Морковь", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Чеснок", "amountGrams": 15 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 25 },
+        { "ingredientName": "Зира", "amountGrams": 3 }
+      ]
+    },
+    {
+      "name": "Рис с овощами",
+      "photoUrl": "https://img.povar.ru/main-micro/ca/60/56/de/ris_s_meksikanskoi_smesiu-562210.JPG",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Отварите рис до готовности и откиньте на дуршлаг.\n2. Обжарьте на масле нарезанные кубиками морковь и лук.\n3. Добавьте зеленый горошек и прогрейте 3 минуты.\n4. Смешайте овощи с рисом, посолите и подавайте.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Горошек зеленый консервированный", "amountGrams": 100 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Уха",
+      "photoUrl": "https://img.povar.ru/mobile/12/c2/08/63/uha_iz_shuki_i_sudaka-784210.JPG",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте картофель кубиками и поставьте вариться.\n2. Добавьте нарезанные морковь и лук.\n3. Через 10 минут добавьте кусочки рыбы, лавровый лист и перец.\n4. Варите 15 минут, в конце посыпьте свежим укропом.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["FISH"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Треска (филе)", "amountGrams": 300 },
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Лавровый лист", "amountGrams": 2 },
+        { "ingredientName": "Перец черный горошком", "amountGrams": 5 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Окрошка на квасе",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=7ecdda90f5991c4664cd60b794aa0cc8_l-9741045-images-thumbs&n=13",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Отварите картофель и яйца, остудите и нарежьте мелкими кубиками.\n2. Нарежьте колбасу, редис и огурец.\n3. Смешайте все ингредиенты в кастрюле.\n4. Залейте холодным квасом, добавьте сметану и укроп перед подачей.",
+      
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Квас", "amountGrams": 500 },
+        { "ingredientName": "Картофель", "amountGrams": 200 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Колбаса вареная", "amountGrams": 150 },
+        { "ingredientName": "Редис", "amountGrams": 80 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 100 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 60 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Свекольный салат с чесноком и орехами",
+      "photoUrl": "https://i.ytimg.com/vi/TsqdxLmfw_M/maxresdefault.jpg",
+      "time": 40,
+      "difficulty": 1,
+      "instruction": "1. Отварите свеклу до мягкости, остудите и натрите на крупной терке.\n2. Измельчите чеснок и грецкие орехи.\n3. Смешайте свеклу с чесноком и орехами.\n4. Заправьте майонезом и дайте настояться 15 минут.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": ["NUTS"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Свекла", "amountGrams": 300 },
+        { "ingredientName": "Чеснок", "amountGrams": 10 },
+        { "ingredientName": "Грецкие орехи", "amountGrams": 50 },
+        { "ingredientName": "Майонез", "amountGrams": 50 }
+      ]
+    },
+    {
+      "name": "Салат с курицей и ананасом",
+      "photoUrl": "https://www.koolinar.ru/all_image/article/3/3632/article-e948b02c-2aa3-446e-b2e0-1198ff1a348c_large.webp",
+      "time": 20,
+      "difficulty": 1,
+      "instruction": "1. Отварите куриное филе и нарежьте кубиками.\n2. Нарежьте ананас и сыр небольшими кусочками.\n3. Смешайте курицу, ананас и сыр.\n4. Заправьте майонезом и выложите на листья салата.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 200 },
+        { "ingredientName": "Ананас консервированный", "amountGrams": 150 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 80 },
+        { "ingredientName": "Майонез", "amountGrams": 60 },
+        { "ingredientName": "Салат листовой", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Мясная солянка",
+      "photoUrl": "https://s0.rbk.ru/v6_top_pics/media/img/7/90/347652050121907.webp",
+      "time": 50,
+      "difficulty": 3,
+      "instruction": "1. Нарежьте копчености и вареную колбасу соломкой.\n2. Обжарьте лук с томатной пастой.\n3. Сварите бульон, добавьте мясо, пассеровку, каперсы и оливки.\n4. Подавайте с долькой лимона и сметаной.",
+      
+      "dietaryPreferences": [],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Колбаса копченая", "amountGrams": 150 },
+        { "ingredientName": "Колбаса вареная", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Томатная паста", "amountGrams": 40 },
+        { "ingredientName": "Каперсы", "amountGrams": 30 },
+        { "ingredientName": "Маслины", "amountGrams": 40 },
+        { "ingredientName": "Лимон", "amountGrams": 30 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 40 }
+      ]
+    },
+    {
+      "name": "Рис с овощами и яйцом по-китайски",
+      "photoUrl": "https://www.makfa.ru/upload/iblock/016/cx7usg86fy9o1q469p3110a28fha03o8.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Отварите рис и остудите (лучше использовать вчерашний).\n2. Обжарьте на сильном огне нарезанные овощи 3 минуты.\n3. Добавьте рис и разбитое яйцо, быстро перемешивайте.\n4. Влейте соевый соус и жарьте еще 2 минуты.",
+      
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["EGGS", "SOY", "GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 60 },
+        { "ingredientName": "Горошек зеленый консервированный", "amountGrams": 80 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Соевый соус", "amountGrams": 30 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Гуляш из говядины",
+      "photoUrl": "https://i.ytimg.com/vi/-pcdqKBPbUw/maxresdefault.jpg",
+      "time": 90,
+      "difficulty": 3,
+      "instruction": "1. Нарежьте говядину кубиками и обжарьте на сильном огне до корочки.\n2. Добавьте лук и жарьте 5 минут.\n3. Всыпьте паприку, добавьте томатную пасту и залейте водой.\n4. Тушите под крышкой 60 минут до мягкости мяса.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Говядина", "amountGrams": 400 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 100 },
+        { "ingredientName": "Томатная паста", "amountGrams": 40 },
+        { "ingredientName": "Паприка (сушеная)", "amountGrams": 10 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 20 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Хумус с овощами",
+      "photoUrl": "https://images.gastronom.ru/OZslyx4ip0ef5EkGTL7-mYcUQbRIHAvogMyhPsKGyxc/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2YxMGYyZjg4LTJlNzktNDVhYi1iOTVlLTc0YTRlNTExMGMyMC5qcGc.webp",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Отварите нут до мягкости (или используйте консервированный).\n2. Смешайте нут с тахини, лимонным соком и чесноком в блендере.\n3. Добавьте оливковое масло и взбивайте до однородности.\n4. Подавайте с нарезанными овощами и лавашом.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Нут", "amountGrams": 200 },
+        { "ingredientName": "Тахини", "amountGrams": 40 },
+        { "ingredientName": "Лимон", "amountGrams": 30 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 },
+        { "ingredientName": "Масло оливковое", "amountGrams": 30 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 80 }
+      ]
+    },
+    {
+      "name": "Суп из чечевицы",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=7a7206a12d6c48b57ee85d57edfad271_l-5242614-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Промойте чечевицу и залейте водой, доведите до кипения.\n2. Добавьте нарезанные картофель, морковь и лук.\n3. Варите 25 минут до мягкости чечевицы.\n4. Добавьте томатную пасту, специи и варите еще 5 минут.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Чечевица красная", "amountGrams": 150 },
+        { "ingredientName": "Картофель", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Томатная паста", "amountGrams": 30 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Булгур с нутом и овощами",
+      "photoUrl": "https://img.povar.ru/mobile/0b/de/c3/b7/pilav_iz_bulgura_s_nutom-648605.JPG",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Отварите булгур согласно инструкции на упаковке.\n2. Обжарьте нут с луком и морковью 5 минут.\n3. Добавьте нарезанные помидоры и тушите 10 минут.\n4. Смешайте булгур с овощной смесью и подавайте.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
+      "allergens": ["GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Булгур", "amountGrams": 120 },
+        { "ingredientName": "Нут", "amountGrams": 150 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Помидор", "amountGrams": 150 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Рататуй",
+      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4469561/01536ffc-2d82-4dfb-a195-31ba99b45d49.jpg/1600x1600",
+      "time": 60,
+      "difficulty": 3,
+      "instruction": "1. Нарежьте все овощи тонкими кружочками одинаковой толщины.\n2. Приготовьте соус: обжарьте лук, чеснок, добавьте томаты и тушите 15 минут.\n3. Выложите соус в форму, сверху чередуйте овощи по спирали.\n4. Запекайте при 180 градусах 40 минут, полив оливковым маслом.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Кабачок", "amountGrams": 150 },
+        { "ingredientName": "Баклажан", "amountGrams": 150 },
+        { "ingredientName": "Помидор", "amountGrams": 200 },
+        { "ingredientName": "Перец болгарский", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Чеснок", "amountGrams": 8 },
+        { "ingredientName": "Масло оливковое", "amountGrams": 30 },
+        { "ingredientName": "Базилик (сушеный)", "amountGrams": 3 }
+      ]
+    }, 
+    
+    {
+      "name": "Картофель отварной с укропом",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=28ad11af95aa0ff8dbbdac2925557226_l-4291891-images-thumbs&n=13",
+      "time": 30,
+      "difficulty": 1,
+      "instruction": "1. Очистите картофель и отварите в подсоленной воде до готовности.\n2. Слейте воду и обсушите картофель на плите 1 минуту.\n3. Добавьте сливочное масло и мелко нарезанный укроп.\n4. Аккуратно перемешайте и подавайте горячим.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 400 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Кукурузная каша",
+      "photoUrl": "https://www.chefmarket.ru/blog/wp-content/uploads/2018/10/molochnaya-kukuruznaya-kasha-e1539681918901.jpg",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Промойте кукурузную крупу и засыпьте в кипящее молоко.\n2. Варите на медленном огне, постоянно помешивая, 20 минут.\n3. Добавьте сахар и щепотку соли.\n4. Снимите с огня, добавьте сливочное масло и дайте настояться 10 минут.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Кукурузная крупа", "amountGrams": 100 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 300 },
+        { "ingredientName": "Сахар", "amountGrams": 20 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Индейка отварная",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=5aba4cb5a1fab27ead6ced43b0565217b062dd94-10089679-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 1,
+      "instruction": "1. Залейте филе индейки холодной водой и доведите до кипения.\n2. Снимите пену, добавьте лавровый лист и перец горошком.\n3. Варите на слабом огне 30 минут до готовности.\n4. Достаньте мясо, остудите и нарежьте порционными кусками.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Индейка (филе)", "amountGrams": 300 },
+        { "ingredientName": "Лавровый лист", "amountGrams": 2 },
+        { "ingredientName": "Перец черный горошком", "amountGrams": 5 }
+      ]
+    },
+    {
+      "name": "Курица отварная",
+      "photoUrl": "https://e3.edimdoma.ru/data/recipes/0003/3785/33785-ed4_big_wide.jpg?1759258427",
+      "time": 40,
+      "difficulty": 1,
+      "instruction": "1. Залейте куриное филе водой, добавьте целую морковь и луковицу.\n2. Доведите до кипения, снимите пену и варите 25 минут.\n3. Проверьте готовность, проткнув мясо вилкой.\n4. Достаньте филе, остудите и нарежьте ломтиками.",
+      
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 300 },
+        { "ingredientName": "Морковь", "amountGrams": 50 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Лавровый лист", "amountGrams": 2 }
+      ]
+    },
+    {
+      "name": "Печеные яблоки",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=5afd2fdb918af3500fc3b644401eb918_l-9051257-images-thumbs&n=13",
+      "time": 30,
+      "difficulty": 1,
+      "instruction": "1. Вырежьте у яблок сердцевину, не прорезая дно.\n2. Смешайте сахар с корицей и насыпьте в углубления.\n3. Полейте сверху медом.\n4. Запекайте при 180 градусах 20 минут до мягкости.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Яблоки", "amountGrams": 400 },
+        { "ingredientName": "Сахар", "amountGrams": 30 },
+        { "ingredientName": "Корица", "amountGrams": 3 },
+        { "ingredientName": "Мед", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Капуста тушеная",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=661274dab3e3fe232b783ea8b1b57dab_l-5258298-images-thumbs&n=13",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Нашинкуйте капусту и обжарьте на масле 10 минут.\n2. Добавьте нарезанные лук и морковь, жарьте еще 5 минут.\n3. Влейте разведенную в воде томатную пасту.\n4. Тушите под крышкой 20 минут до мягкости.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Капуста белокочанная", "amountGrams": 400 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Томатная паста", "amountGrams": 40 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Тофу в соевом соусе",
+      "photoUrl": "https://media.ovkuse.ru/images/comment_attachments/17da1f52-3248-41f7-86bb-93faf5c514fa/17da1f52-3248-41f7-86bb-93faf5c514fa.jpg",
+      "time": 20,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте тофу кубиками и обсушите бумажным полотенцем.\n2. Обжарьте на сильном огне до золотистой корочки.\n3. Добавьте тертый имбирь, чеснок и соевый соус.\n4. Тушите 2 минуты, пока соус не загустеет.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB", "HIGH_PROTEIN"],
+      "allergens": ["SOY", "GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Тофу", "amountGrams": 250 },
+        { "ingredientName": "Соевый соус", "amountGrams": 30 },
+        { "ingredientName": "Имбирь свежий", "amountGrams": 10 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Салат из киноа и овощей",
+      "photoUrl": "https://img.povar.ru/uploads/dc/80/d9/13/salat_s_kinoa_i_pomidorami-252866.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Отварите киноа согласно инструкции и остудите.\n2. Нарежьте огурцы и помидоры мелкими кубиками.\n3. Смешайте киноа с овощами.\n4. Заправьте оливковым маслом и соком лимона.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Киноа", "amountGrams": 100 },
+        { "ingredientName": "Огурец свежий", "amountGrams": 100 },
+        { "ingredientName": "Помидор", "amountGrams": 100 },
+        { "ingredientName": "Масло оливковое", "amountGrams": 20 },
+        { "ingredientName": "Лимон", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Котлеты из нута",
+      "photoUrl": "https://i.ytimg.com/vi/BlXGVv0NlTY/maxresdefault.jpg",
+      "time": 40,
+      "difficulty": 2,
+      "instruction": "1. Отварите нут до мягкости и пробейте блендером в пюре.\n2. Добавьте мелко нарезанный лук, чеснок и муку.\n3. Сформируйте котлеты и обжарьте на масле по 4 минуты с каждой стороны.\n4. Подавайте со сметаной или свежими овощами.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
+      "allergens": ["GLUTEN"],
+
+      "recipeIngredients": [
+        { "ingredientName": "Нут", "amountGrams": 200 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 50 },
+        { "ingredientName": "Чеснок", "amountGrams": 5 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 30 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Тушёная чечевица с овощами",
+      "photoUrl": "https://avatars.mds.yandex.net/i?id=0b72528a761b4a883875b9467c994226_l-4890288-images-thumbs&n=13",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Промойте чечевицу и залейте водой, варите 15 минут.\n2. Обжарьте нарезанные лук и морковь на масле.\n3. Добавьте нарезанные помидоры и тушите 5 минут.\n4. Смешайте овощи с чечевицей и прогрейте вместе 5 минут.",
+      
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
+      "allergens": [],
+
+      "recipeIngredients": [
+        { "ingredientName": "Чечевица красная", "amountGrams": 150 },
+        { "ingredientName": "Морковь", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 60 },
+        { "ingredientName": "Помидор", "amountGrams": 150 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    }
+
+  ]
+}
