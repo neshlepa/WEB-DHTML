@@ -1,23 +1,21 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthPage } from './pages/AuthPage';
 import { ProfilePage } from './pages/ProfilePage';
-import './index.css'; // Оставляем глобальные стили
+import { FeedPage } from './pages/FeedPage'; // Импортируем новую страницу
+import './index.css';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Перенаправляем с корня на страницу входа */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Navigate to="/main" replace />} /> 
+        {/* Теперь при заходе на сайт сразу кидает на главную */}
         
-        {/* Страница входа и регистрации */}
         <Route path="/login" element={<AuthPage />} />
-        
-        {/* Страница профиля */}
         <Route path="/profile" element={<ProfilePage />} />
         
-        {/* Заглушка для главной страницы (куда редиректит после входа) */}
-        <Route path="/main" element={<div style={{padding: '40px', fontSize: '24px', textAlign: 'center'}}>Главная страница (в разработке)</div>} />
+        {/* Наша новая главная страница */}
+        <Route path="/main" element={<FeedPage />} />
       </Routes>
     </Router>
   );
