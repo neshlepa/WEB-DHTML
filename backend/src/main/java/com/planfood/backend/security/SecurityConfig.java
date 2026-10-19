@@ -70,7 +70,7 @@ public class SecurityConfig {
         // ШАГ 2. Создаем отдельное правило для доступа к сетевым адресам (эндпоинтам):
         Customizer<AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry> accessRules = rules -> {
             // Открываем полный доступ (без токена) только для регистрации и логина
-            rules.requestMatchers("/api/users/register", "/api/users/login").permitAll();
+            rules.requestMatchers("/api/users/register", "/api/users/login", "/api/recipes/feed").permitAll();
 
             // Все остальные запросы к серверу требуют обязательной авторизации (наличия валидного токена)
             rules.anyRequest().authenticated();
