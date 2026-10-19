@@ -1,4 +1,6 @@
-/* Базовые настройки */
+/* =========================================
+   1. БАЗОВЫЕ СТИЛИ (Сброс и общие настройки)
+   ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,15 +8,23 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     background-color: #fcf9f2; /* Светло-бежевый фон */
+    color: #333;
+    /* Центрируем контент */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
 
-/* Карточка авторизации */
+/* =========================================
+   2. СТИЛИ ДЛЯ АВТОРИЗАЦИИ (login.html)
+   ========================================= */
+.auth-body {
+    justify-content: center; /* Центрируем карточку по вертикали */
+}
+
 .auth-card {
     background: white;
     padding: 40px;
@@ -38,7 +48,6 @@ body {
     font-size: 16px;
 }
 
-/* Поля ввода */
 .input-group {
     text-align: left;
     margin-bottom: 16px;
@@ -66,7 +75,6 @@ body {
     border-color: #d35400;
 }
 
-/* Кнопки */
 .btn-primary {
     width: 100%;
     background-color: #d35400;
@@ -83,6 +91,11 @@ body {
 
 .btn-primary:hover {
     background-color: #e67e22;
+}
+
+.btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 .auth-actions {
@@ -116,7 +129,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* Сообщение об ошибке */
 .error-message {
     background-color: #ffebee;
     color: #c62828;
@@ -127,25 +139,26 @@ body {
     text-align: left;
 }
 
-/* --- Стили для страницы профиля --- */
-.profile-body {
-    display: block; /* Убираем центрирование от авторизации */
-    background-color: #fcf9f2;
-}
-
+/* =========================================
+   3. СТИЛИ ДЛЯ ПРОФИЛЯ (profile.html)
+   ========================================= */
 .profile-header {
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
 .logo {
     color: #d35400;
     margin: 0;
     font-size: 24px;
+    font-weight: bold;
 }
 
 .header-actions {
@@ -168,6 +181,7 @@ body {
 .nav-btn:hover { background-color: #f5f5f5; }
 
 .profile-container {
+    width: 100%;
     max-width: 700px;
     margin: 40px auto;
     background: white;
@@ -243,12 +257,119 @@ body {
     user-select: none;
 }
 
-.checkbox-pill input {
-    display: none; /* Скрываем стандартный квадратик */
-}
+.checkbox-pill input { display: none; }
 
 .checkbox-pill.checked {
     background-color: #d35400;
     color: white;
     border-color: #d35400;
 }
+
+/* =========================================
+   4. СТИЛИ ДЛЯ ГЛАВНОЙ (main.html)
+   ========================================= */
+.main-header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-nav { display: flex; gap: 20px; }
+.nav-link { text-decoration: none; color: #666; font-weight: 500; font-size: 15px; }
+.nav-link.active { color: #d35400; font-weight: 700; border-bottom: 2px solid #d35400; padding-bottom: 5px;}
+
+.header-right { display: flex; align-items: center; gap: 15px; font-size: 14px; color: #666; }
+.btn-logout { background: none; border: 1px solid #ccc; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
+
+.main-content {
+    display: grid;
+    grid-template-columns: 280px 400px 280px;
+    gap: 40px;
+    max-width: 1100px;
+    margin-top: 20px;
+    align-items: start;
+}
+
+/* Левая панель */
+.hero-title { font-size: 36px; margin: 0 0 15px 0; line-height: 1.1; }
+.hero-title .highlight { color: #d35400; }
+.hero-subtitle { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 30px; }
+
+.instructions { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+.instruction-item { display: flex; align-items: center; gap: 15px; font-size: 14px; color: #555; }
+.arrow { font-size: 20px; font-weight: bold; }
+.arrow.green { color: #2e7d32; }
+.arrow.yellow { color: #f57c00; }
+.arrow.red { color: #c62828; }
+.instruction-item small { color: #999; font-size: 11px; letter-spacing: 1px;}
+
+.stats-box {
+    display: flex;
+    justify-content: space-between;
+    background: #f0ebd8;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+.stat-num { font-size: 24px; font-weight: bold; }
+.stat small { color: #888; font-size: 11px; letter-spacing: 1px; }
+
+/* Центральная панель (Карточка) */
+.card-wrapper { position: relative; width: 100%; min-height: 550px; }
+
+.recipe-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.swipe-right { transform: translateX(150%) rotate(20deg) !important; opacity: 0; }
+.swipe-left { transform: translateX(-150%) rotate(-20deg) !important; opacity: 0; }
+.swipe-up { transform: translateY(-150%) !important; opacity: 0; }
+
+.card-image-box { position: relative; height: 300px; }
+.card-image-box img { width: 100%; height: 100%; object-fit: cover; }
+.card-badges { position: absolute; top: 15px; right: 15px; }
+.badge { background: #fce4d6; color: #d35400; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; }
+.card-title { position: absolute; bottom: 15px; left: 20px; color: white; margin: 0; font-size: 28px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+.card-body { padding: 20px; }
+.card-desc { color: #666; font-size: 14px; line-height: 1.4; margin-top: 0; margin-bottom: 20px; }
+.card-meta-row { display: flex; gap: 40px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.meta-item small { color: #999; font-size: 11px; display: block; margin-bottom: 4px; }
+.stars { color: #f57c00; letter-spacing: 2px; font-size: 14px; }
+
+.card-macros { display: flex; justify-content: space-between; background: #f9f6ef; padding: 15px; border-radius: 12px; text-align: center; font-size: 12px; color: #888; margin-bottom: 20px;}
+.macro b { color: #333; font-size: 16px; }
+
+.card-actions { display: flex; justify-content: center; gap: 20px; }
+.action-btn {
+    width: 60px; height: 60px; border-radius: 50%; border: 2px solid #eee; background: white;
+    font-size: 24px; cursor: pointer; transition: 0.2s; display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.action-btn:hover { transform: scale(1.1); }
+.btn-skip { color: #c62828; }
+.btn-save { color: #f57c00; }
+.btn-like { background: #d35400; color: white; border-color: #d35400; }
+
+/* Правая панель */
+.section-label { color: #999; font-size: 11px; letter-spacing: 1px; margin-bottom: 10px; }
+.info-card { background: #f2eedf; padding: 20px; border-radius: 16px; margin-bottom: 30px; }
+.info-card h3 { margin: 0 0 10px 0; font-size: 18px; }
+.ingredients-list { list-style: none; padding: 0; margin: 0; font-size: 13px; color: #555; }
+.ingredients-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.ingredients-list li:last-child { border: none; }
+
+.mini-card { display: flex; gap: 15px; background: white; padding: 10px; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); align-items: center;}
+.mini-card img { width: 50px; height: 50px; border-radius: 8px; object-fit: cover; }
+.mini-card b { font-size: 14px; color: #333; }
+.mini-card small { color: #888; font-size: 11px; }
+
+.loading { text-align: center; margin-top: 50px; color: #888; }

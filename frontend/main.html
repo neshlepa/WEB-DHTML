@@ -2,18 +2,73 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food-Tinder | Главная</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header>
-        <h1>Food-Tinder</h1>
-        <a href="profile.html">Профиль</a>
-        <button id="logoutBtn">Выйти</button>
+<body class="main-body">
+    <!-- Шапка -->
+    <header class="main-header">
+        <h1 class="logo">Food-Tinder</h1>
+        <nav class="main-nav">
+            <a href="main.html" class="nav-link active">Поиск</a>
+            <!-- Ссылки на будущие страницы, пока заглушки -->
+            <a href="#" class="nav-link">План питания</a>
+            <a href="#" class="nav-link">Список покупок</a>
+            <a href="profile.html" class="nav-link">Профиль</a>
+        </nav>
+        <div class="header-right">
+            <span class="user-email" id="headerEmail"></span>
+            <button id="logoutBtn" class="btn-logout">Выйти</button>
+        </div>
     </header>
-    
-    <main id="feedContainer">
-        <p>Загрузка рецептов...</p>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        
+        <!-- Левая колонка -->
+        <aside class="left-panel">
+            <h2 class="hero-title">Найди блюдо <br><span class="highlight">по душе</span></h2>
+            <p class="hero-subtitle">Свайпни вправо, чтобы добавить в план, сохрани на потом или пропусти, чтобы увидеть следующее.</p>
+            
+            <div class="instructions">
+                <div class="instruction-item"><span class="arrow green">→</span> <div><b>Нравится</b><br><small>ДОБАВИТЬ В ПЛАН</small></div></div>
+                <div class="instruction-item"><span class="arrow yellow">↑</span> <div><b>Сохранить</b><br><small>ОТЛОЖИТЬ НА ПОТОМ</small></div></div>
+                <div class="instruction-item"><span class="arrow red">←</span> <div><b>Пропустить</b><br><small>СЛЕДУЮЩЕЕ БЛЮДО</small></div></div>
+            </div>
+
+            <div class="stats-box">
+                <div class="stat"><span class="stat-num" id="likedCount">0</span><br><small>НРАВИТСЯ</small></div>
+                <div class="stat"><span class="stat-num" id="savedCount">0</span><br><small>СОХРАНЕНО</small></div>
+                <div class="stat"><span class="stat-num" id="leftCount">10</span><br><small>ОСТАЛОСЬ</small></div>
+            </div>
+        </aside>
+
+        <!-- Центральная колонка (Карточка) -->
+        <section class="center-panel">
+            <div class="card-wrapper" id="cardWrapper">
+                <!-- Сюда JS будет вставлять карточку -->
+                <div class="loading">Загрузка рецептов...</div>
+            </div>
+        </section>
+
+        <!-- Правая колонка -->
+        <aside class="right-panel">
+            <div class="info-section" id="upNowSection" style="display: none;">
+                <p class="section-label">СЕЙЧАС В ЛЕНТЕ</p>
+                <div class="info-card">
+                    <h3 id="upNowTitle">Название блюда</h3>
+                    <div class="tags" id="upNowTags"></div>
+                    <ul class="ingredients-list" id="upNowIngredients"></ul>
+                </div>
+            </div>
+
+            <div class="info-section" id="likedSection" style="display: none;">
+                <p class="section-label">ПОНРАВИВШИЕСЯ БЛЮДА</p>
+                <div id="likedList"></div>
+            </div>
+        </aside>
+
     </main>
 
     <script src="js/feed.js"></script>
