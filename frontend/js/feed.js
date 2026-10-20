@@ -1,5 +1,5 @@
-const API_URL = 'http://132.243.17.175/api/recipes/feed';
-const REACT_URL = 'http://132.243.17.175/api/recipes';
+const API_URL = '/api/recipes/feed';
+const REACT_URL = '/api/recipes';
 const token = localStorage.getItem('token');
 
 // Если токена нет, мы все равно можем загрузить ленту (гостевой режим)
@@ -52,24 +52,20 @@ async function loadFeed() {
 // Отрисовка текущей карточки
 function renderCard() {
     if (currentIndex >= recipes.length) {
-        // Если карточки закончились, грузим новую пачку
         loadFeed();
         return;
     }
 
     const recipe = recipes[currentIndex];
-    
-    // Генерируем звезды сложности
     let stars = '';
     for(let i=1; i<=5; i++) {
         stars += i <= recipe.difficulty ? '★' : '☆';
     }
 
-    // Вставляем HTML карточки
     cardWrapper.innerHTML = `
         <div class="recipe-card" id="currentCard">
             <div class="card-image-box">
-                <img src="${recipe.photoUrl}" alt="${recipe.name}">
+                <img src="${recipe.photoUrl}" alt="${recipe.name}" draggable="false">
                 <div class="card-badges">
                     <span class="badge">СЛОЖНОСТЬ: ${recipe.difficulty}/5</span>
                 </div>
@@ -107,6 +103,9 @@ function renderCard() {
     `;
 
     updateRightPanel(recipe);
+
+     // ВАЖНО: Активируем свайпы мышкой/пальцем для новой карточки
+    attachSwipeEvents();
 }
 
 // Обработка свайпа
@@ -196,6 +195,73 @@ function addToLikedList(recipe) {
         </div>
     `;
     likedList.prepend(miniCard);
+}
+
+// ==========================================
+// НОВАЯ ФУНКЦИЯ: Физика свайпов мышкой/пальцем
+// ==========================================
+function attachSwipeEvents() {
+    const card = document.getElementById('currentCard');
+    if (!card) return;
+
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+
+    // Когда зажимаем карточку
+    card.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        card.style.transition = 'none'; // Отключаем плавность, чтобы карточка двигалась за мышкой 1 в 1
+        card.setPointerCapture(e.pointerId); // Захватываем курсор
+    });
+
+    // Когда двигаем мышкой/пальцем
+    card.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        
+        // Наклоняем карточку в зависимости от смещения по X
+        const rotate = deltaX * 0.05; 
+        
+        card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+    });
+
+    // Когда отпускаем кнопку мыши/палец
+    card.addEventListener('pointerup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+
+        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; // Возвращаем плавность
+
+        // Проверяем, насколько далеко сдвинули карточку (порог 100 пикселей)
+        if (deltaX > 100) {
+            card.style.transform = ''; // Сбрасываем инлайн-стили, чтобы сработал CSS-класс
+            handleSwipe('LIKE');
+        } else if (deltaX < -100) {
+            card.style.transform = '';
+            handleSwipe('DISLIKE');
+        } else if (deltaY < -100) {
+            card.style.transform = '';
+            handleSwipe('FAVORITE');
+        } else {
+            // Если сдвинули мало, возвращаем карточку на место
+            card.style.transform = `translate(0px, 0px) rotate(0deg)`;
+        }
+    });
+    
+    // Если курсор ушел за пределы карточки, тоже отпускаем
+    card.addEventListener('pointercancel', () => {
+        isDragging = false;
+        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        card.style.transform = `translate(0px, 0px) rotate(0deg)`;
+    });
 }
 
 // Запуск

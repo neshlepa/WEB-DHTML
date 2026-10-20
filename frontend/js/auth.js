@@ -1,5 +1,5 @@
 // Внимание: Так как мы убрали Vite Proxy, теперь мы ОБЯЗАНЫ использовать полный URL!
-const API_URL = 'http://132.243.17.175/api/users';
+const API_URL = '/api/users';
 
 let isLoginView = true;
 const form = document.getElementById('authForm');

@@ -327,6 +327,15 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, opacity 0.3s ease;
+
+     /* НОВЫЕ СТРОКИ ДЛЯ СВАЙПОВ */
+    cursor: grab;
+    user-select: none; /* Запрещаем выделять текст при свайпе */
+    touch-action: none; /* Отключаем скролл страницы при свайпе на телефоне */
+}
+
+.recipe-card:active {
+    cursor: grabbing; /* Меняем курсор, когда карточку зажали */
 }
 
 .swipe-right { transform: translateX(150%) rotate(20deg) !important; opacity: 0; }
