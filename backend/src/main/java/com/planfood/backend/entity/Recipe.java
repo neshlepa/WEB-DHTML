@@ -3,6 +3,9 @@ package com.planfood.backend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "recipes")
@@ -28,4 +31,24 @@ public class Recipe {
     // Рецепт точно будет длиннее, поэтому мы принудительно говорим БД использовать безлимитный тип TEXT.
     @Column(columnDefinition = "TEXT")
     private String instruction; // Текстовая инструкция
+
+    // Список аллергенов, которые содержатся в этом рецепте
+    @ElementCollection(targetClass = Allergen.class)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(
+            name = "recipe_allergens",
+            joinColumns = @JoinColumn(name = "recipe_id")
+    )
+    @Column(name = "allergen")
+    private Set<Allergen> allergens = new HashSet<>();
+
+    // Список диет, которым соответствует этот рецепт (например, VEGAN, HIGH_PROTEIN)
+    @ElementCollection(targetClass = DietaryPreference.class)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(
+            name = "recipe_preferences",
+            joinColumns = @JoinColumn(name = "recipe_id")
+    )
+    @Column(name = "preference")
+    private Set<DietaryPreference> preferences = new HashSet<>();
 }
