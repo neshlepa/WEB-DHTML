@@ -1,4 +1,4 @@
-const API_URL = 'http://132.243.17.175/api/users/profile';
+const API_URL = '/api/users/profile';
 const token = localStorage.getItem('token');
 
 // Если токена нет — выкидываем на страницу входа
