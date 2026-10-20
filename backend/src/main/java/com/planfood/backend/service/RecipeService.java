@@ -4,6 +4,7 @@ import com.planfood.backend.dto.IngredientDto;
 import com.planfood.backend.dto.RecipeCardDto;
 import com.planfood.backend.entity.*;
 import com.planfood.backend.repository.*;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -127,6 +128,13 @@ public class RecipeService {
         interactionHistoryRepository.save(history);
     }
 
+    @Scheduled(cron = "0 59 23 * * *")
+    public void cleanUpDailyReactions() {
+        interactionHistoryRepository.deleteByInteractionTypeIn(
+                List.of(InteractionType.LIKE, InteractionType.DISLIKE)
+        );
+        System.out.println("Автоматическая очистка истории: лайки и дизлайки удалены (23:59).");
+    }
 
     // метод для подсчета кбжу и конвертации в нужный дто
     private RecipeCardDto mapToRecipeCardDto(Recipe recipe) {
