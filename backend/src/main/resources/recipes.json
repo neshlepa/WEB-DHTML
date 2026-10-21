@@ -119,7 +119,7 @@
   "recipes": [
     {
       "name": "Китайская лапша с курицей и овощами",
-      "photoUrl": "https://i.pinimg.com/736x/50/a0/22/50a0228280cb0ca039d4514a366b34f8.jpg",
+      "photoUrl": "/images/recipes/chn_ndl_chkn_vgtbls.jpg",
       "time": 30,
       "difficulty": 3,
       "instruction": "1. Отварите лапшу до полуготовности согласно инструкции на упаковке.\n2. Нарежьте куриное филе тонкими полосками и обжарьте на масле 5 минут.\n3. Добавьте нарезанные соломкой морковь, перец и лук, готовьте еще 5 минут.\n4. Добавьте лапшу, соевый соус, тертый имбирь и чеснок, перемешайте и прогрейте 3 минуты.",
@@ -141,7 +141,7 @@
     },
     {
       "name": "Шакшука",
-      "photoUrl": "https://i.pinimg.com/1200x/c8/d4/91/c8d491bf7a82e5aaaedae3f62760e9df.jpg",
+      "photoUrl": "https://images.pexels.com/photos/6275160/pexels-photo-6275160.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Обжарьте нарезанные лук и перец на масле 5 минут.\n2. Добавьте тертые помидоры и чеснок, тушите 7 минут до загустения.\n3. Сделайте углубления и вбейте яйца, не повредив желтки.\n4. Готовьте под крышкой 5 минут, посыпьте зеленью.",
@@ -161,7 +161,7 @@
     },
     {
       "name": "Омлет с сыром и помидорами",
-      "photoUrl": "https://i.pinimg.com/1200x/1a/b1/75/1ab175f6353a839216b3aea504db4142.jpg",
+      "photoUrl": "https://images.unsplash.com/photo-1510693206972-df098062cb71?q=80&w=1598&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Взбейте яйца с молоком и щепоткой соли.\n2. Вылейте смесь на сковороду с маслом и готовьте 3 минуты.\n3. Выложите ломтики помидоров и тертый сыр.\n4. Накройте крышкой и готовьте еще 4 минуты до расплавления сыра.",
@@ -179,7 +179,7 @@
     },
     {
       "name": "Скрамбл со страчателлой",
-      "photoUrl": "https://avatars.mds.yandex.net/get-sprav-products/5236693/2a0000018bcef38c66726427b3bee7384a2d/XXL",
+      "photoUrl": "/images/recipes/scrmbl_strchtl.jpg",
       "time": 12,
       "difficulty": 2,
       "dietaryPreferences": ["LOW_CARB", "HALAL", "NO_PORK"],
@@ -199,7 +199,7 @@
     },
     {
       "name": "Яичница по-Ленинградски",
-      "photoUrl": "https://kaliningradtv.ru/userfiles/picmedia/image-1787575394_4564.png.webp",
+      "photoUrl": "/images/recipes/omlt_po_lnngrd.jpg",
       "time": 20,
       "difficulty": 2,
       "instruction": "1. Нарезать чеснок на мелкие слайсы.\n2. Обжарить чеснок на сливочном масле.\n3. Нарезанный кубиками черный хлеб выложить на сковороду.\n4. Обжарить хлеб минуты 2 и разбить яйца. \n5. Готовить до момента схватывания яиц",
@@ -217,7 +217,7 @@
     },
     {
       "name": "Паста альфредо",
-      "photoUrl": "https://i.pinimg.com/736x/83/33/cb/8333cbf6a20d880ab5add8f7698185b4.jpg",
+      "photoUrl": "https://plus.unsplash.com/premium_photo-1778342449541-20a22fa5b4e2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Растопите масло и прогрейте измельченный чеснок 1 минуту.\n3. Влейте сливки и доведите до легкого загустения.\n4. Добавьте пасту и тертый сыр, перемешайте до однородного соуса.",
@@ -235,7 +235,7 @@
     },
     {
       "name": "Конвертики из лаваша с курицей",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=e612e9a37084a49dd852868a9e0379cb_l-4936408-images-thumbs&n=13",
+      "photoUrl": "/images/recipes/cnvrt_lavash.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Обжарьте куриное филе небольшими кусочками до готовности.\n2. Нарежьте помидор и зелень, натрите сыр.\n3. Смешайте начинку со сметаной и заверните в лаваш конвертиками.\n4. Обжарьте конвертики на сухой сковороде по 2 минуты с каждой стороны.",
@@ -254,7 +254,7 @@
     },
     {
       "name": "Оливье",
-      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4466156/0102e539-67ae-4992-aa91-303b1d484358.jpg/1600x1600",
+      "photoUrl": "/images/recipes/olivie.jpg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Отварите картофель, морковь и яйца до готовности и остудите.\n2. Нарежьте все ингредиенты мелкими кубиками.\n3. Добавьте зеленый горошек и нарезанный огурец.\n4. Заправьте майонезом, посолите и перемешайте.",
@@ -274,7 +274,7 @@
     },
     {
       "name": "Гречка с тушенкой",
-      "photoUrl": "https://vkusvill.ru/upload/resize/950098/950098_1504x1044x90_c_o.webp",
+      "photoUrl": "/images/recipes/grechka_tshnk.jpg",
       "time": 35,
       "difficulty": 1,
       "instruction": "1. Обжарьте нарезанные лук и морковь на масле 5 минут.\n2. Добавьте тушенку и прогрейте, разминая мясо вилкой.\n3. Всыпьте промытую гречку и залейте водой в пропорции 1:2.\n4. Варите под крышкой 20 минут до впитывания воды.",
@@ -292,7 +292,7 @@
     },
     {
       "name": "Драники",
-      "photoUrl": "https://img.povar.ru/main-micro/52/f5/e9/70/draniki_recept_klassicheskii-880538.jpg",
+      "photoUrl": "https://images.pexels.com/photos/22711483/pexels-photo-22711483.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Натрите картофель и чеснок на мелкой терке и отожмите лишнюю жидкость.\n2. Добавьте яйцо, муку и соль, перемешайте до однородности.\n3. Выкладывайте тесто ложкой на разогретое масло и жарьте по 3 минуты с каждой стороны.\n4. Подавайте со сметаной.",
@@ -314,7 +314,7 @@
 
     {
       "name": "Оладьи на кефире",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=25f07f579e6a95e7bf67aa58dbb13536_l-12630875-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/36457612/pexels-photo-36457612.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Взбейте яйцо с сахаром и кефиром.\n2. Введите муку и перемешайте до густоты сметаны.\n3. Жарьте оладьи на разогретом масле по 2-3 минуты с каждой стороны.\n4. Подавайте со сметаной.",
@@ -333,7 +333,7 @@
     },
     {
       "name": "Блины классические",
-      "photoUrl": "https://media.mts.ru/upload/images/materials/maslenica-2025-v-rossiimain.jpg",
+      "photoUrl": "https://images.pexels.com/photos/4725641/pexels-photo-4725641.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром и половиной молока.\n2. Введите муку и замесите густое тесто без комочков.\n3. Разведите оставшимся молоком до жидкой консистенции, добавьте масло.\n4. Жарьте тонкие блины на разогретой сковороде по 1-2 минуты с каждой стороны.",
@@ -351,7 +351,7 @@
     },
     {
       "name": "Тарт татен",
-      "photoUrl": "https://images.news.ru/2025/10/01/vxlT3LoV9t8PHbKOS92BwZhK4TmOVYvxV6dL4faf_780.png",
+      "photoUrl": "/images/recipes/tartaten.png",
       "time": 60,
       "difficulty": 4,
       "instruction": "1. Растопите масло с сахаром в форме и выложите яблоки дольками.\n2. Карамелизуйте яблоки на плите 10 минут.\n3. Накройте раскатанным тестом, заправив края внутрь формы.\n4. Запекайте при 190 градусах 25 минут и переверните горячим.",
@@ -370,7 +370,7 @@
     },
     {
       "name": "Винегрет",
-      "photoUrl": "https://img.povar.ru/mobile/0e/55/22/2a/vinegret_s_kvashenoi_kapustoi-880113.jpg",
+      "photoUrl": "https://images.pexels.com/photos/32705781/pexels-photo-32705781.jpeg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Отварите свеклу, картофель и морковь до готовности и остудите.\n2. Нарежьте все овощи мелкими кубиками.\n3. Добавьте горошек, нарезанный соленый огурец и лук.\n4. Заправьте маслом, перемешайте и дайте настояться 15 минут.",
@@ -390,7 +390,7 @@
     },
     {
       "name": "Удон с курицей и овощами",
-      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4220003/735f8829-c4c9-41d4-8419-bdaba5e24610.jpg/1600x1600",
+      "photoUrl": "https://images.pexels.com/photos/10692540/pexels-photo-10692540.jpeg",
       "time": 30,
       "difficulty": 3,
       "instruction": "1. Отварите удон до готовности и промойте.\n2. Обжарьте курицу полосками 5 минут на сильном огне.\n3. Добавьте овощи соломкой и жарьте еще 4 минуты.\n4. Верните лапшу, влейте соевый соус с имбирем и чесноком, прогрейте 2 минуты.",
@@ -411,7 +411,7 @@
     },
     {
       "name": "Фунчоза с овощами",
-      "photoUrl": "https://img.povar.ru/mobile/60/84/04/19/funchoza_po_koreiski-289644.jpg",
+      "photoUrl": "https://images.pexels.com/photos/20244036/pexels-photo-20244036.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Залейте фунчозу кипятком на 5 минут и откиньте на дуршлаг.\n2. Нарежьте овощи тонкой соломкой.\n3. Соедините лапшу с овощами, чесноком и соевым соусом.\n4. Заправьте маслом и охладите 10 минут перед подачей.",
@@ -431,7 +431,7 @@
     },
     {
       "name": "Макароны с креветками в сливочном соусе",
-      "photoUrl": "https://www.koolinar.ru/all_image/article/4/4095/article-19851e77-21c3-438e-b652-977e0dbb2885_large.webp",
+      "photoUrl": "https://images.pexels.com/photos/4518881/pexels-photo-4518881.jpeg",
       "time": 25,
       "difficulty": 3,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Обжарьте креветки на сливочном масле с чесноком 3 минуты.\n3. Влейте сливки, добавьте нарезанный помидор и прогрейте 4 минуты.\n4. Соедините соус с пастой и перемешайте.",
@@ -450,7 +450,7 @@
     },
     {
       "name": "Плов с бараниной",
-      "photoUrl": "https://static.1000.menu/files/user-v2/b3/e0/258890/foto/f_12-11-2021-04-54-14.1636736055.jpg",
+      "photoUrl": "https://images.pexels.com/photos/32558904/pexels-photo-32558904.jpeg",
       "time": 60,
       "difficulty": 4,
       "instruction": "1. Обжарьте мясо кусочками на масле до корочки.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше и добавьте чеснок.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
@@ -469,7 +469,7 @@
     },
     {
       "name": "Рамен с курицей",
-      "photoUrl": "https://cdnstatic.rg.ru/crop1000x667/uploads/images/2025/06/09/istock-1357491413_cb4.jpg",
+      "photoUrl": "https://images.pexels.com/photos/27219797/pexels-photo-27219797.jpeg",
       "time": 45,
       "difficulty": 4,
       "instruction": "1. Сварите бульон из филе с имбирем и чесноком 20 минут.\n2. Отдельно отварите лапшу и яйцо всмятку.\n3. Соберите тарелку: лапша, нарезанное филе, половинка яйца.\n4. Залейте бульоном с соевым соусом и посыпьте зеленым луком.",
@@ -490,7 +490,7 @@
     },
     {
       "name": "Лазанья болоньезе",
-      "photoUrl": "https://www.chefmarket.ru/blog/wp-content/uploads/2021/01/a-piece-of-chicken--2000x1200.jpg",
+      "photoUrl": "https://images.pexels.com/photos/31119111/pexels-photo-31119111.jpeg",
       "time": 90,
       "difficulty": 5,
       "instruction": "1. Обжарьте говядину с луком и чесноком, добавьте тертые помидоры и тушите 15 минут.\n2. Сварите соус бешамель из молока, муки и сливочного масла.\n3. Соберите лазанью слоями: листы, мясной соус, бешамель, сыр.\n4. Запекайте при 180 градусах 40 минут до румяной корочки.",
@@ -515,7 +515,7 @@
 
     {
       "name": "Курица в кисло-сладком соусе",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=5e4e9acfca9c198290bb309085fb6f31_l-4569110-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/5848527/pexels-photo-5848527.jpeg",
       "time": 40,
       "difficulty": 3,
       "instruction": "1. Обжарьте курицу кусочками на сильном огне 7 минут.\n2. Добавьте овощи соломкой и жарьте еще 5 минут.\n3. Влейте соус из соевого соуса, томатной пасты, сахара, уксуса и чеснока, тушите 5 минут.\n4. Подавайте с отварным рисом.",
@@ -539,7 +539,7 @@
     },
     {
       "name": "Гречка на молоке",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=721bf96567e76e600a1abd81923ee101_l-5434761-images-thumbs&n=13",
+      "photoUrl": "/images/recipes/grecha_milk.jpg",
       "time": 30,
       "difficulty": 1,
       "instruction": "1. Промойте гречку и отварите в воде 10 минут до полуготовности.\n2. Влейте горячее молоко, добавьте сахар и соль.\n3. Варите на слабом огне 15 минут до мягкости крупы.\n4. Снимите с огня и добавьте сливочное масло.",
@@ -556,7 +556,7 @@
     },
     {
       "name": "Куриное филе с овощами в сливочном соусе",
-      "photoUrl": "https://i.ytimg.com/vi/SFfJ_holgF4/maxresdefault.jpg",
+      "photoUrl": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Обжарьте курицу кусочками 7 минут до румяности.\n2. Добавьте нарезанные кабачок, перец, морковь и лук, готовьте 7 минут.\n3. Влейте сливки с чесноком и тушите под крышкой 10 минут.\n4. Посолите и подавайте горячим.",
@@ -577,7 +577,7 @@
     },
     {
       "name": "Рыбные котлеты с картофельным пюре",
-      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4469561/8fcd6a7b-470b-4fd1-acfc-8ca6b6347ca2.jpg/1600x1600",
+      "photoUrl": "/images/recipes/fish_kotlety.jpeg",
       "time": 50,
       "difficulty": 3,
       "instruction": "1. Пропустите филе минтая, размоченный хлеб и лук через мясорубку, добавьте яйцо.\n2. Сформуйте котлеты, обваляйте в муке и обжарьте по 4 минуты с каждой стороны.\n3. Отварите картофель и приготовьте пюре с молоком и сливочным маслом.\n4. Подавайте котлеты с пюре.",
@@ -599,7 +599,7 @@
     },
     {
       "name": "Карбонара со сливками",
-      "photoUrl": "https://profile.ru/wp-content/uploads/1820740-fb.jpeg",
+      "photoUrl": "https://images.pexels.com/photos/35622107/pexels-photo-35622107.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Обжарьте бекон с чесноком до хруста.\n3. Влейте сливки, прогрейте 2 минуты и снимите с огня.\n4. Смешайте пасту с соусом, яйцом и тертым сыром, быстро перемешайте.",
@@ -618,7 +618,7 @@
     },
     {
       "name": "Сливочный суп-пюре из тыквы",
-      "photoUrl": "https://pic.rtbcdn.ru/video/7e/3b/7e3bf5a64ce7b30a8505ecbd2d5c5fa0.jpg",
+      "photoUrl": "https://images.pexels.com/photos/36555132/pexels-photo-36555132.jpeg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Обжарьте лук и чеснок на сливочном масле 3 минуты.\n2. Добавьте кубики тыквы, залейте водой и варите 15 минут до мягкости.\n3. Пробейте суп блендером до однородности.\n4. Влейте сливки, прогрейте 3 минуты и подавайте.",
@@ -636,7 +636,7 @@
     },
     {
       "name": "Овощное рагу с индейкой и томатной пастой",
-      "photoUrl": "https://www.russianfood.com/dycontent/images_upl/300/big_299790.jpg",
+      "photoUrl": "https://images.pexels.com/photos/12931100/pexels-photo-12931100.jpeg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Обжарьте индейку кусочками 7 минут.\n2. Добавьте картофель, кабачок, морковь и лук, жарьте 10 минут.\n3. Разведите томатную пасту с чесноком в стакане воды и влейте в рагу.\n4. Тушите под крышкой 25 минут до мягкости овощей.",
@@ -657,7 +657,7 @@
     },
     {
       "name": "Салат с тунцом и яйцом",
-      "photoUrl": "https://cdn.food.ru/unsigned/fit/640/480/ce/0/czM6Ly9tZWRpYS9waWN0dXJlcy8yMDI1MDIwOS8zVmhwaWYuanBlZw.jpg",
+      "photoUrl": "https://images.pexels.com/photos/6896393/pexels-photo-6896393.jpeg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Отварите яйца вкрутую и нарежьте кубиками.\n2. Нарежьте огурец и порвите листья салата руками.\n3. Добавьте тунца, размятый вилкой.\n4. Заправьте майонезом и аккуратно перемешайте.",
@@ -675,7 +675,7 @@
     },
     {
       "name": "Курица с грибами в сливочном соусе",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=8c1b87d2576a7f3f79844ddcade1a135_l-4841042-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/37336685/pexels-photo-37336685.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Обжарьте курицу кусочками 7 минут до румяности.\n2. Добавьте шампиньоны пластинами и лук, жарьте 8 минут.\n3. Влейте сливки с чесноком и тушите 10 минут на слабом огне.\n4. Подавайте с любым гарниром.",
@@ -694,7 +694,7 @@
     },
     {
       "name": "Жюльен с грибами",
-      "photoUrl": "https://www.koolinar.ru/all_image/article/3/3640/article-2ba585cf-bd24-4d63-9b75-2cd923138b02_large.webp",
+      "photoUrl": "https://images.pexels.com/photos/4408037/pexels-photo-4408037.jpeg",
       "time": 45,
       "difficulty": 3,
       "instruction": "1. Обжарьте шампиньоны с луком до выпаривания жидкости.\n2. Влейте сливки и тушите 5 минут до загустения.\n3. Разложите массу по кокотницам и посыпьте тертым сыром.\n4. Запекайте при 200 градусах 15 минут до золотистой корочки.",
@@ -715,7 +715,7 @@
 
     {
       "name": "Борщ",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=9f17687b793e394a3c38e06ef0ac132e_l-12615842-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/18955541/pexels-photo-18955541.jpeg",
       "time": 90,
       "difficulty": 4,
       "instruction": "1. Сварите бульон из говядины 40 минут.\n2. Спассеруйте лук, морковь и свеклу с томатной пастой.\n3. Добавьте в бульон картофель и капусту, варите 15 минут.\n4. Введите пассеровку и чеснок, варите еще 10 минут; подавайте со сметаной и укропом.",
@@ -739,7 +739,7 @@
     },
     {
       "name": "Том ям",
-      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4466156/Tayskiy_sup_s_moreproduktami_Tom_Yam.jpg_1776162783690/1600x1600",
+      "photoUrl": "https://images.pexels.com/photos/34699479/pexels-photo-34699479.jpeg",
       "time": 40,
       "difficulty": 4,
       "instruction": "1. Сварите бульон с имбирем, чесноком и чили 10 минут.\n2. Добавьте грибы и помидоры, варите 5 минут.\n3. Влейте кокосовое молоко и соевый соус, доведите до кипения.\n4. Положите креветки и влейте сок лайма, варите еще 3 минуты.",
@@ -761,7 +761,7 @@
     },
     {
       "name": "Цезарь с курицей",
-      "photoUrl": "https://cookyt.pro/static/uploads/recipes/uhEPO1_46HI.webp",
+      "photoUrl": "https://images.pexels.com/photos/35532838/pexels-photo-35532838.jpeg",
       "time": 30,
       "difficulty": 3,
       "instruction": "1. Приготовьте сухарики из хлеба с чесноком и маслом в духовке 10 минут.\n2. Обжарьте филе до готовности и нарежьте ломтиками.\n3. Смешайте соус из яйца, майонеза и тертого сыра.\n4. Соберите салат: листья, курица, помидоры, сухарики, соус.",
@@ -783,7 +783,7 @@
     },
     {
       "name": "Курица с картофелем в рукаве для запекания",
-      "photoUrl": "https://i.ytimg.com/vi/YadjJZ_Fu-w/maxresdefault.jpg",
+      "photoUrl": "/images/recipes/chkn_ptts.jpg",
       "time": 60,
       "difficulty": 2,
       "instruction": "1. Замаринуйте филе в майонезе с чесноком на 15 минут.\n2. Смешайте с картофелем и морковью крупными кусками.\n3. Переложите в рукав для запекания и закрепите края.\n4. Запекайте при 190 градусах 40 минут.",
@@ -802,7 +802,7 @@
     },
     {
       "name": "Бефстроганов",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=cd2b37e5b37e1e5024f7af3a84bca396_l-4774101-images-thumbs&n=13",
+      "photoUrl": "/images/recipes/befstroganov.jpeg",
       "time": 50,
       "difficulty": 3,
       "instruction": "1. Нарежьте говядину тонкими полосками и обжарьте на масле 7 минут.\n2. Добавьте лук и жарьте еще 5 минут.\n3. Посыпьте мукой, влейте сметану и тушите 10 минут.\n4. Подавайте с отварными макаронами.",
@@ -821,7 +821,7 @@
     },
     {
       "name": "Паста по-итальянски",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=3cb52a8901e0ca9906f6cc0e5ce72dd7_l-5876235-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/39022061/pexels-photo-39022061.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Спассеруйте лук и чеснок на масле 3 минуты.\n3. Добавьте нарезанные помидоры и базилик, тушите 10 минут.\n4. Смешайте соус с пастой и посыпьте тертым сыром.",
@@ -841,7 +841,7 @@
     },
     {
       "name": "Творог со сметаной",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=10d9a60c7abdda2b9337abce6227055a_l-5236341-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/6851930/pexels-photo-6851930.jpeg",
       "time": 5,
       "difficulty": 1,
       "instruction": "1. Выложите творог в тарелку.\n2. Добавьте сахар, мед, джем или варенье и перемешайте.\n3. Полейте сметаной.",
@@ -857,7 +857,7 @@
     },
     {
       "name": "Картошка в мундире",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=179fd12a03bfdf11d239e8ed118ddb9c_l-5642274-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/18058371/pexels-photo-18058371.jpeg",
       "time": 45,
       "difficulty": 1,
       "instruction": "1. Тщательно вымойте картофель и нарежьте дольками, не очищая.\n2. Смешайте с маслом, чесноком и солью.\n3. Запекайте при 200 градусах 30 минут до румяности.\n4. Посыпьте укропом и подавайте со сметаной.",
@@ -875,7 +875,7 @@
     },
     {
       "name": "Панкейки",
-      "photoUrl": "https://static.1000.menu/files/user-v2/34/7d/489397/foto/f_11-04-2026-03-59-09.1775923149.jpg",
+      "photoUrl": "https://images.pexels.com/photos/11729184/pexels-photo-11729184.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром и молоком.\n2. Смешайте муку с разрыхлителем и введите в жидкую часть без комочков.\n3. Жарьте на сливочном масле по 2 минуты с каждой стороны.\n4. Сложите стопкой и подавайте.",
@@ -894,7 +894,7 @@
     },
     {
       "name": "Пирожное картошка",
-      "photoUrl": "https://photobooth.cdn.sports.ru/preset/wysiwyg/4/40/8a6dcdd1d4e539a2c47f4faa178fb.jpeg?f=webp&q=90&s=2x&w=730",
+      "photoUrl": "https://images.pexels.com/photos/7333059/pexels-photo-7333059.jpeg",
       "time": 40,
       "difficulty": 3,
       "instruction": "1. Измельчите печенье в мелкую крошку.\n2. Смешайте размягченное масло со сгущенкой и какао.\n3. Соедините с крошкой и сформуйте пирожные.\n4. Охладите в холодильнике 2 часа.",
@@ -914,7 +914,7 @@
 
     {
       "name": "Чизкейк",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=c4db716267055f1e3798f96741047d2b_l-7012067-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/19534470/pexels-photo-19534470.jpeg",
       "time": 90,
       "difficulty": 4,
       "instruction": "1. Измельчите печенье и смешайте с растопленным сливочным маслом, утрамбуйте на дно формы.\n2. Взбейте сливочный сыр с яйцами и сахаром до однородности.\n3. Вылейте массу на основу и выпекайте при 160 градусах 50 минут.\n4. Остудите и охладите в холодильнике 4 часа перед подачей.",
@@ -932,7 +932,7 @@
     },
     {
       "name": "Греческий салат",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=7ca44eb8977af40b01ea1c378ddb4b11_l-5350948-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/724669/pexels-photo-724669.jpeg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Нарежьте помидоры, огурцы и перец крупными кубиками.\n2. Добавьте кольца красного лука и маслины.\n3. Сверху положите кубики сыра фета.\n4. Заправьте оливковым маслом, посолите и аккуратно перемешайте.",
@@ -952,7 +952,7 @@
     },
     {
       "name": "Овощной салат",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=aab3c4e9c1422ca20c23a6aac6a76485_l-10637415-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/4198015/pexels-photo-4198015.jpeg",
       "time": 10,
       "difficulty": 1,
       "instruction": "1. Нарежьте помидоры и огурцы кубиками.\n2. Порвите листья салата руками.\n3. Смешайте овощи в миске.\n4. Заправьте подсолнечным маслом, посолите по вкусу.",
@@ -969,7 +969,7 @@
     },
     {
       "name": "Манная каша",
-      "photoUrl": "https://images.gastronom.ru/lt9Yu6khx_MnXT-WfBrztr8NA3w3rqtfM5d57vAAiuQ/pr:content-group-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzMwMTk3MmI4LWRkODctNGQwOC05YjkyLTdlMDMyMzYxMGE2Yi5qcGc.webp",
+      "photoUrl": "https://images.pexels.com/photos/7352790/pexels-photo-7352790.jpeg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Вскипятите молоко с сахаром.\n2. Тонкой струйкой всыпьте манную крупу, постоянно помешивая венчиком.\n3. Варите на медленном огне 5 минут до загустения.\n4. Снимите с огня и добавьте кусочек сливочного масла.\n5. По желанию можно добавить ягоды иьи варенье",
@@ -986,7 +986,7 @@
     },
     {
       "name": "Овсянка на молоке",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=6974838975b9910cc82408a2545def41_l-3692823-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/19745775/pexels-photo-19745775.jpeg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Вскипятите молоко.\n2. Всыпьте овсяные хлопья и варите, помешивая, 5-7 минут.\n3. Добавьте сахар и щепотку соли.\n4. Снимите с огня, накройте крышкой и дайте настояться 3 минуты, добавьте масло.",
@@ -1003,7 +1003,7 @@
     },
     {
       "name": "Пшенная каша с маслом",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=4248424cbdc59356c5158a15f8cb620a_l-5234381-images-thumbs&n=13",
+      "photoUrl": "/images/recipes/pshenka.jpg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Тщательно промойте пшенную крупу горячей водой до прозрачной воды.\n2. Залейте молоком, доведите до кипения.\n3. Варите на слабом огне под крышкой 20 минут, периодически помешивая.\n4. Добавьте сахар и щедрый кусок сливочного масла.",
@@ -1020,7 +1020,7 @@
     },
     {
       "name": "Французский тост",
-      "photoUrl": "https://i.ytimg.com/vi/0m3qye4OPIM/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/15820912/pexels-photo-15820912.jpeg",
       "time": 10,
       "difficulty": 1,
       "instruction": "1. Взбейте яйца с молоком и сахаром.\n2. Обмакните ломтики хлеба в смесь с двух сторон.\n3. Обжарьте на сливочном масле по 2 минуты с каждой стороны до золотистой корочки.\n4. Подавайте теплыми, можно с медом или ягодами.",
@@ -1038,7 +1038,7 @@
     },
     {
       "name": "Сэндвичи",
-      "photoUrl": "https://menunedeli.ru/wp-content/uploads/2026/06/%D0%A1%D1%8D%D0%BD%D0%B4%D0%B2%D0%B8%D1%87-%D1%81-%D0%B2%D0%B5%D1%82%D1%87%D0%B8%D0%BD%D0%BE%D0%B9-%D0%B8-%D1%81%D1%8B%D1%80%D0%BE%D0%BC-500%D1%85350-500x333.jpg",
+      "photoUrl": "https://images.pexels.com/photos/36863863/pexels-photo-36863863.jpeg",
       "time": 10,
       "difficulty": 1,
       "instruction": "1. Смажьте ломтики хлеба мягким сливочным маслом.\n2. Выложите на один ломтик ветчину и кружочки помидора.\n3. Посыпьте тертым сыром.\n4. Накройте вторым ломтиком хлеба и разрежьте по диагонали.",
@@ -1056,7 +1056,7 @@
     },
     {
       "name": "Мимоза",
-      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4471904/b812f84e-112c-4af4-a273-679e471fe836.jpg/1600x1600",
+      "photoUrl": "https://images.pexels.com/photos/37515284/pexels-photo-37515284.jpeg",
       "time": 40,
       "difficulty": 3,
       "instruction": "1. Отварите картофель, морковь и яйца, остудите и натрите на терке.\n2. Мелко нарежьте лук и разомните сайру вилкой.\n3. Выкладывайте слоями: картофель, лук, сайра, морковь, яйцо.\n4. Каждый слой промазывайте майонезом. Дайте настояться 1 час.",
@@ -1077,7 +1077,7 @@
 
     {
       "name": "Салат из фасоли с сухариками",
-      "photoUrl": "https://static.1000.menu/img/content-v2/c4/af/13180/salat-fasol-suxariki-kolbasa_1588657080_9_max.jpg",
+      "photoUrl": "/images/recipes/fasol_suhari.jpg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Слейте жидкость с фасоли и выложите её в миску.\n2. Добавьте сухарики и измельченный чеснок.\n3. Заправьте майонезом и аккуратно перемешайте.\n4. Посыпьте свежим укропом перед подачей.",
@@ -1095,7 +1095,7 @@
     },
     {
       "name": "Щи из свежей капусты",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=a97d216f349b6f4f7d41697c96570936_l-5305442-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/35695377/pexels-photo-35695377.jpeg",
       "time": 60,
       "difficulty": 3,
       "instruction": "1. Сварите бульон из говядины 40 минут, мясо достаньте и нарежьте.\n2. Добавьте в бульон нашинкованную капусту и варите 10 минут.\n3. Спассеруйте лук и морковь с томатной пастой, добавьте в суп.\n4. Верните мясо, варите 5 минут; подавайте со сметаной.",
@@ -1116,7 +1116,7 @@
     },
     {
       "name": "Рассольник",
-      "photoUrl": "https://static.1000.menu/files/user-v2/3e/05/826900/foto/f_14-02-2024-08-52-06.1707900726.jpg",
+      "photoUrl": "https://images.pexels.com/photos/6213758/pexels-photo-6213758.jpeg",
       "time": 70,
       "difficulty": 3,
       "instruction": "1. Отварите перловку до полуготовности.\n2. Сварите бульон из говядины, добавьте картофель и перловку.\n3. Спассеруйте лук, морковь и нарезанные соленые огурцы.\n4. Добавьте пассеровку в суп, варите 10 минут; подавайте со сметаной.",
@@ -1137,7 +1137,7 @@
     },
     {
       "name": "Гороховый суп",
-      "photoUrl": "https://cdn.food.ru/unsigned/fit/640/480/ce/0/czM6Ly9tZWRpYS9waWN0dXJlcy8yMDI1MDMyOC8za3ZOUzMuanBlZw.webp",
+      "photoUrl": "https://images.pexels.com/photos/19503789/pexels-photo-19503789.jpeg",
       "time": 90,
       "difficulty": 3,
       "instruction": "1. Замочите горох на 2 часа, затем отварите до мягкости.\n2. Добавьте нарезанный картофель и варите 15 минут.\n3. Спассеруйте лук и морковь, добавьте в суп.\n4. Добавьте нарезанную ветчину, варите 5 минут и подавайте.",
@@ -1156,7 +1156,7 @@
     },
     {
       "name": "Суп-пюре из брокколи",
-      "photoUrl": "https://i.ytimg.com/vi/wtc7byiNSH8/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/16444407/pexels-photo-16444407.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Обжарьте лук на сливочном масле 3 минуты.\n2. Добавьте соцветия брокколи и картофель, залейте водой и варите 15 минут.\n3. Пробейте суп блендером до однородности.\n4. Влейте сливки, добавьте плавленый сыр и прогрейте до его растворения.",
@@ -1175,7 +1175,7 @@
     },
     {
       "name": "Грибовница",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=59946df081e2e34f50db2313cbc0a958_l-4614378-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/8580433/pexels-photo-8580433.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Нарежьте шампиньоны и обжарьте с луком до золотистости.\n2. Добавьте нарезанный картофель в кипящую воду и варите 10 минут.\n3. Введите грибы с луком, варите еще 10 минут.\n4. Добавьте сметану, посолите и подавайте с укропом.",
@@ -1195,7 +1195,7 @@
     },
     {
       "name": "Томатный суп",
-      "photoUrl": "https://static.1000.menu/img/content/27362/tomatnyi-sup-pure-klassicheskii_1528296319_9_max.jpg",
+      "photoUrl": "https://images.pexels.com/photos/27098516/pexels-photo-27098516.jpeg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Обжарьте лук и чеснок на масле 3 минуты.\n2. Добавьте нарезанные помидоры и тушите 10 минут до мягкости.\n3. Залейте водой, пробейте блендером и верните на плиту.\n4. Влейте сливки, добавьте базилик и прогрейте 3 минуты.",
@@ -1214,7 +1214,7 @@
     },
     {
       "name": "Куриный суп с лапшой",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=4dcc1d7ba27a47acba4de26311cdd12d_l-5231671-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/34326231/pexels-photo-34326231.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Сварите бульон из куриного филе 20 минут, достаньте и нарежьте мясо.\n2. Добавьте в бульон нарезанный картофель, морковь и лук.\n3. Варите 10 минут, затем добавьте пасту.\n4. Верните мясо, варите до готовности пасты и подавайте.",
@@ -1233,7 +1233,7 @@
     },
     {
       "name": "Макароны по-флотски",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=9d456e0cfe557127cc87ee63a6c95420_l-3979407-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/36627079/pexels-photo-36627079.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до готовности и откиньте на дуршлаг.\n2. Обжарьте куриное филе с луком до румяности.\n3. Добавьте пасту к мясу, перемешайте и прогрейте 2 минуты.\n4. Посолите, поперчите и подавайте горячим.",
@@ -1250,7 +1250,7 @@
     },
     {
       "name": "Куриные крылья в медовом соусе",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=9ded2119ac02886c583aaf36d7744b19_l-5539996-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/12565941/pexels-photo-12565941.jpeg",
       "time": 50,
       "difficulty": 3,
       "instruction": "1. Смешайте мед, соевый соус, тертый имбирь и чеснок.\n2. Замаринуйте крылья в соусе на 20 минут.\n3. Выложите крылья на противень и запекайте при 200 градусах 35 минут.\n4. Периодически поливайте выделившимся соком.",
@@ -1269,7 +1269,7 @@
 
     {
       "name": "Плов с говядиной",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=af857dd42e9716527621b5dc8a61f1aeb0886acd-12635770-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/14286683/pexels-photo-14286683.jpeg",
       "time": 70,
       "difficulty": 4,
       "instruction": "1. Обжарьте говядину кусочками на сильном огне до корочки.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше, добавьте чеснок и зиру.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
@@ -1289,7 +1289,7 @@
     },
     {
       "name": "Рыба жареная",
-      "photoUrl": "https://static.1000.menu/img/content-v2/75/f0/27079/jarenaya-kefal-na-skovorode_1758459059_0_tgi8ltm_max.jpg",
+      "photoUrl": "https://images.pexels.com/photos/11653557/pexels-photo-11653557.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Нарежьте филе трески порционными кусками.\n2. Обваляйте рыбу в муке, затем во взбитом яйце.\n3. Обжарьте на разогретом масле по 4 минуты с каждой стороны до золотистой корочки.\n4. Подавайте с долькой лимона.",
@@ -1306,7 +1306,7 @@
     },
     {
       "name": "Кабачки жареные",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=8620bc77a0da3ea686467487256a37ee_l-5886829-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/6064810/pexels-photo-6064810.jpeg",
       "time": 20,
       "difficulty": 1,
       "instruction": "1. Нарежьте кабачки кружочками толщиной 1 см.\n2. Обжарьте на масле по 3 минуты с каждой стороны.\n3. Выложите на бумажное полотенце, чтобы убрать лишнее масло.\n4. Смажьте каждый кружок смесью сметаны с чесноком и посыпьте укропом.",
@@ -1324,7 +1324,7 @@
     },
     {
       "name": "Баклажаны с помидорами",
-      "photoUrl": "https://menunedeli.ru/wp-content/uploads/2024/05/DSC05311-1200x800.jpg",
+      "photoUrl": "https://images.pexels.com/photos/20488286/pexels-photo-20488286.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Нарежьте баклажаны кружочками и обжарьте на масле до мягкости.\n2. Нарежьте помидоры кружочками того же размера.\n3. Выложите слоями: баклажан, помидор, чеснок.\n4. Посыпьте базиликом и полейте оливковым маслом.",
@@ -1342,7 +1342,7 @@
     },
     {
       "name": "Овощное рагу",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=0194dd9a0055509a1045d2af9f9de199_l-5294598-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/12931100/pexels-photo-12931100.jpeg",
       "time": 45,
       "difficulty": 2,
       "instruction": "1. Нарежьте все овощи кубиками.\n2. Обжарьте лук и морковь, добавьте баклажан и кабачок, жарьте 10 минут.\n3. Добавьте помидоры и томатную пасту, тушите под крышкой 20 минут.\n4. Посолите, поперчите и посыпьте зеленью перед подачей.",
@@ -1362,7 +1362,7 @@
     },
     {
       "name": "Картофель по-деревенски",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=08fb6c4a25b33584b12fd7f97c760af0_l-5286448-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/8272620/pexels-photo-8272620.jpeg",
       "time": 40,
       "difficulty": 1,
       "instruction": "1. Тщательно вымойте картофель и нарежьте дольками, не очищая.\n2. Смешайте с маслом, паприкой, чесноком и солью.\n3. Выложите на противень в один слой.\n4. Запекайте при 200 градусах 30 минут до румяности.",
@@ -1379,7 +1379,7 @@
     },
     {
       "name": "Шарлотка",
-      "photoUrl": "https://img.povar.ru/mobile/0c/43/16/c6/sharlotka_s_yablokami_na_kefire_so_smetanoi-819831.JPG",
+      "photoUrl": "https://images.pexels.com/photos/13604317/pexels-photo-13604317.jpeg",
       "time": 60,
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром и ванильным сахаром до пышной пены.\n2. Аккуратно вмешайте муку.\n3. Нарежьте яблоки дольками и выложите на дно формы, залейте тестом.\n4. Запекайте при 180 градусах 35-40 минут до золотистой корочки.",
@@ -1397,7 +1397,7 @@
     },
     {
       "name": "Творожная запеканка",
-      "photoUrl": "https://img.povar.ru/mobile/92/de/c4/1f/zapekanka_tvorojnaya_kak_v_detskom_sadu-887309.JPG",
+      "photoUrl": "https://images.pexels.com/photos/30925471/pexels-photo-30925471.jpeg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Смешайте творог с яйцом, сахаром и манной крупой.\n2. Добавьте размягченное сливочное масло и тщательно перемешайте.\n3. Выложите массу в смазанную форму.\n4. Запекайте при 180 градусах 35-40 минут до румяности.",
@@ -1416,7 +1416,7 @@
     },
     {
       "name": "Хачапури по-аджарски",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=f2cddbb701fe3b4b01a777354c761945_l-3708982-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/15913607/pexels-photo-15913607.jpeg",
       "time": 60,
       "difficulty": 4,
       "instruction": "1. Замесите дрожжевое тесто из муки, молока, дрожжей и масла, дайте подняться.\n2. Сформируйте лодочки и выложите на противень.\n3. Наполните тертым сулугуни и выпекайте 15 минут при 220 градусах.\n4. Достаньте, вбейте в центр яйцо и запекайте еще 3 минуты.",
@@ -1435,7 +1435,7 @@
     },
     {
       "name": "Пицца домашняя",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=efc31211e4621b2f9b7814b19c6be906_l-4451123-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/14067661/pexels-photo-14067661.jpeg",
       "time": 50,
       "difficulty": 3,
       "instruction": "1. Замесите тесто из муки, молока, дрожжей и масла, дайте подняться.\n2. Раскатайте основу и смажьте томатной пастой.\n3. Выложите нарезанную ветчину и помидоры, посыпьте сыром.\n4. Запекайте при 220 градусах 15-20 минут.",
@@ -1456,7 +1456,7 @@
     },
     {
       "name": "Вареники с творогом",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=ec035ba39d0e65cf9a4e15fe20f58cc9_l-12653839-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/8601684/pexels-photo-8601684.jpeg",
       "time": 60,
       "difficulty": 3,
       "instruction": "1. Замесите тесто из муки, яйца и воды, дайте ему отдохнуть.\n2. Смешайте творог с сахаром и яйцом для начинки.\n3. Раскатайте тесто, вырежьте кружки, положите начинку и залепите края.\n4. Варите в кипящей подсоленной воде 5-7 минут после всплытия. Подавайте со сметаной.",
@@ -1475,7 +1475,7 @@
     },
     {
       "name": "Пирог с яблоками",
-      "photoUrl": "https://i.ytimg.com/vi/5REzW0YSgRI/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/33769201/pexels-photo-33769201.jpeg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром до пышной пены.\n2. Аккуратно вмешайте муку и растопленное сливочное масло.\n3. Нарежьте яблоки дольками, выложите на дно формы и залейте тестом.\n4. Запекайте при 180 градусах 35-40 минут до золотистой корочки.",
@@ -1494,7 +1494,7 @@
     },
     {
       "name": "Мясной пирог",
-      "photoUrl": "https://picsum.photos/seed/planfood073/800/600",
+      "photoUrl": "https://images.pexels.com/photos/7368043/pexels-photo-7368043.jpeg",
       "time": 70,
       "difficulty": 3,
       "instruction": "1. Обжарьте фарш с луком до готовности, посолите и поперчите.\n2. Замесите простое тесто из муки, яйца и масла.\n3. Выложите половину теста в форму, распределите мясную начинку.\n4. Накройте второй половиной теста, смажьте яйцом и выпекайте 40 минут при 180 градусах.",
@@ -1513,7 +1513,7 @@
     },
     {
       "name": "Манник",
-      "photoUrl": "https://i.ytimg.com/vi/tg1EqExAJDU/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/37043950/pexels-photo-37043950.jpeg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Залейте манную крупу кефиром и оставьте на 30 минут для набухания.\n2. Добавьте яйца, сахар и растопленное масло, тщательно перемешайте.\n3. Всыпьте разрыхлитель и снова перемешайте.\n4. Выпекайте в смазанной форме при 180 градусах 35-40 минут.",
@@ -1532,7 +1532,7 @@
     },
     {
       "name": "Кекс с изюмом",
-      "photoUrl": "https://i.ytimg.com/vi/hRr9va9s7qQ/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/209558/pexels-photo-209558.jpeg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Замочите изюм в теплой воде на 10 минут, затем обсушите.\n2. Взбейте мягкое масло с сахаром, добавьте яйца по одному.\n3. Вмешайте муку с разрыхлителем и подготовленный изюм.\n4. Разложите тесто по формочкам и выпекайте 25 минут при 180 градусах.",
@@ -1551,7 +1551,7 @@
     },
     {
       "name": "Брауни",
-      "photoUrl": "https://www.koolinar.ru/all_image/article/3/3858/article-438c74c2-479b-4d4f-bf31-1b0c77f71dad_large.webp",
+      "photoUrl": "https://images.pexels.com/photos/9170501/pexels-photo-9170501.jpeg",
       "time": 45,
       "difficulty": 3,
       "instruction": "1. Растопите сливочное масло с горьким шоколадом на водяной бане.\n2. Взбейте яйца с сахаром до легкой пены.\n3. Соедините шоколадную смесь с яичной, аккуратно всыпьте муку и какао.\n4. Выпекайте в квадратной форме 25 минут при 180 градусах (середина должна оставаться влажной).",
@@ -1570,7 +1570,7 @@
     },
     {
       "name": "Фруктовое желе",
-      "photoUrl": "https://img.povar.ru/main-micro/26/73/4c/b6/jele_s_kusochkami_fruktov-77889.jpg",
+      "photoUrl": "https://images.pexels.com/photos/10715482/pexels-photo-10715482.jpeg",
       "time": 240,
       "difficulty": 1,
       "instruction": "1. Замочите желатин в холодной воде на 30 минут.\n2. Нагрейте воду с сахаром и ягодами, но не кипятите.\n3. Растворите набухший желатин в теплой ягодной смеси.\n4. Разлейте по формам и уберите в холодильник до полного застывания (около 3 часов).",
@@ -1586,7 +1586,7 @@
     },
     {
       "name": "Плов с курицей",
-      "photoUrl": "https://cdn.food.ru/unsigned/fit/640/480/ce/0/czM6Ly9tZWRpYS9waWN0dXJlcy8yMDI0MTAwNy80OHdzdjcuanBlZw.webp",
+      "photoUrl": "https://images.pexels.com/photos/10541694/pexels-photo-10541694.jpeg",
       "time": 60,
       "difficulty": 3,
       "instruction": "1. Обжарьте куриное филе кусочками на сильном огне.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше, добавьте чеснок и зиру.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
@@ -1606,7 +1606,7 @@
     },
     {
       "name": "Рис с овощами",
-      "photoUrl": "https://img.povar.ru/main-micro/ca/60/56/de/ris_s_meksikanskoi_smesiu-562210.JPG",
+      "photoUrl": "https://images.pexels.com/photos/12984978/pexels-photo-12984978.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Отварите рис до готовности и откиньте на дуршлаг.\n2. Обжарьте на масле нарезанные кубиками морковь и лук.\n3. Добавьте зеленый горошек и прогрейте 3 минуты.\n4. Смешайте овощи с рисом, посолите и подавайте.",
@@ -1624,7 +1624,7 @@
     },
     {
       "name": "Уха",
-      "photoUrl": "https://img.povar.ru/mobile/12/c2/08/63/uha_iz_shuki_i_sudaka-784210.JPG",
+      "photoUrl": "https://images.pexels.com/photos/7140292/pexels-photo-7140292.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Нарежьте картофель кубиками и поставьте вариться.\n2. Добавьте нарезанные морковь и лук.\n3. Через 10 минут добавьте кусочки рыбы, лавровый лист и перец.\n4. Варите 15 минут, в конце посыпьте свежим укропом.",
@@ -1644,7 +1644,7 @@
     },
     {
       "name": "Окрошка на квасе",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=7ecdda90f5991c4664cd60b794aa0cc8_l-9741045-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/25389798/pexels-photo-25389798.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Отварите картофель и яйца, остудите и нарежьте мелкими кубиками.\n2. Нарежьте колбасу, редис и огурец.\n3. Смешайте все ингредиенты в кастрюле.\n4. Залейте холодным квасом, добавьте сметану и укроп перед подачей.",
@@ -1665,7 +1665,7 @@
     },
     {
       "name": "Свекольный салат с чесноком и орехами",
-      "photoUrl": "https://i.ytimg.com/vi/TsqdxLmfw_M/maxresdefault.jpg",
+      "photoUrl": "/images/recipes/svekla.jpg",
       "time": 40,
       "difficulty": 1,
       "instruction": "1. Отварите свеклу до мягкости, остудите и натрите на крупной терке.\n2. Измельчите чеснок и грецкие орехи.\n3. Смешайте свеклу с чесноком и орехами.\n4. Заправьте майонезом и дайте настояться 15 минут.",
@@ -1682,7 +1682,7 @@
     },
     {
       "name": "Салат с курицей и ананасом",
-      "photoUrl": "https://www.koolinar.ru/all_image/article/3/3632/article-e948b02c-2aa3-446e-b2e0-1198ff1a348c_large.webp",
+      "photoUrl": "https://images.pexels.com/photos/36701454/pexels-photo-36701454.jpeg",
       "time": 20,
       "difficulty": 1,
       "instruction": "1. Отварите куриное филе и нарежьте кубиками.\n2. Нарежьте ананас и сыр небольшими кусочками.\n3. Смешайте курицу, ананас и сыр.\n4. Заправьте майонезом и выложите на листья салата.",
@@ -1700,7 +1700,7 @@
     },
     {
       "name": "Мясная солянка",
-      "photoUrl": "https://s0.rbk.ru/v6_top_pics/media/img/7/90/347652050121907.webp",
+      "photoUrl": "https://images.pexels.com/photos/8601385/pexels-photo-8601385.jpeg",
       "time": 50,
       "difficulty": 3,
       "instruction": "1. Нарежьте копчености и вареную колбасу соломкой.\n2. Обжарьте лук с томатной пастой.\n3. Сварите бульон, добавьте мясо, пассеровку, каперсы и оливки.\n4. Подавайте с долькой лимона и сметаной.",
@@ -1721,7 +1721,7 @@
     },
     {
       "name": "Рис с овощами и яйцом по-китайски",
-      "photoUrl": "https://www.makfa.ru/upload/iblock/016/cx7usg86fy9o1q469p3110a28fha03o8.jpg",
+      "photoUrl": "https://images.pexels.com/photos/34439450/pexels-photo-34439450.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите рис и остудите (лучше использовать вчерашний).\n2. Обжарьте на сильном огне нарезанные овощи 3 минуты.\n3. Добавьте рис и разбитое яйцо, быстро перемешивайте.\n4. Влейте соевый соус и жарьте еще 2 минуты.",
@@ -1740,7 +1740,7 @@
     },
     {
       "name": "Гуляш из говядины",
-      "photoUrl": "https://i.ytimg.com/vi/-pcdqKBPbUw/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/34636420/pexels-photo-34636420.jpeg",
       "time": 90,
       "difficulty": 3,
       "instruction": "1. Нарежьте говядину кубиками и обжарьте на сильном огне до корочки.\n2. Добавьте лук и жарьте 5 минут.\n3. Всыпьте паприку, добавьте томатную пасту и залейте водой.\n4. Тушите под крышкой 60 минут до мягкости мяса.",
@@ -1759,7 +1759,7 @@
     },
     {
       "name": "Хумус с овощами",
-      "photoUrl": "https://images.gastronom.ru/OZslyx4ip0ef5EkGTL7-mYcUQbRIHAvogMyhPsKGyxc/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2YxMGYyZjg4LTJlNzktNDVhYi1iOTVlLTc0YTRlNTExMGMyMC5qcGc.webp",
+      "photoUrl": "https://images.pexels.com/photos/34644302/pexels-photo-34644302.jpeg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Отварите нут до мягкости (или используйте консервированный).\n2. Смешайте нут с тахини, лимонным соком и чесноком в блендере.\n3. Добавьте оливковое масло и взбивайте до однородности.\n4. Подавайте с нарезанными овощами и лавашом.",
@@ -1779,7 +1779,7 @@
     },
     {
       "name": "Суп из чечевицы",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=7a7206a12d6c48b57ee85d57edfad271_l-5242614-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/29850843/pexels-photo-29850843.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Промойте чечевицу и залейте водой, доведите до кипения.\n2. Добавьте нарезанные картофель, морковь и лук.\n3. Варите 25 минут до мягкости чечевицы.\n4. Добавьте томатную пасту, специи и варите еще 5 минут.",
@@ -1798,7 +1798,7 @@
     },
     {
       "name": "Булгур с нутом и овощами",
-      "photoUrl": "https://img.povar.ru/mobile/0b/de/c3/b7/pilav_iz_bulgura_s_nutom-648605.JPG",
+      "photoUrl": "https://images.pexels.com/photos/29594950/pexels-photo-29594950.jpeg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Отварите булгур согласно инструкции на упаковке.\n2. Обжарьте нут с луком и морковью 5 минут.\n3. Добавьте нарезанные помидоры и тушите 10 минут.\n4. Смешайте булгур с овощной смесью и подавайте.",
@@ -1817,7 +1817,7 @@
     },
     {
       "name": "Рататуй",
-      "photoUrl": "https://avatars.mds.yandex.net/get-vertis-journal/4469561/01536ffc-2d82-4dfb-a195-31ba99b45d49.jpg/1600x1600",
+      "photoUrl": "https://images.pexels.com/photos/36863876/pexels-photo-36863876.jpeg",
       "time": 60,
       "difficulty": 3,
       "instruction": "1. Нарежьте все овощи тонкими кружочками одинаковой толщины.\n2. Приготовьте соус: обжарьте лук, чеснок, добавьте томаты и тушите 15 минут.\n3. Выложите соус в форму, сверху чередуйте овощи по спирали.\n4. Запекайте при 180 градусах 40 минут, полив оливковым маслом.",
@@ -1839,7 +1839,7 @@
     
     {
       "name": "Картофель отварной с укропом",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=28ad11af95aa0ff8dbbdac2925557226_l-4291891-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/8056683/pexels-photo-8056683.jpeg",
       "time": 30,
       "difficulty": 1,
       "instruction": "1. Очистите картофель и отварите в подсоленной воде до готовности.\n2. Слейте воду и обсушите картофель на плите 1 минуту.\n3. Добавьте сливочное масло и мелко нарезанный укроп.\n4. Аккуратно перемешайте и подавайте горячим.",
@@ -1855,7 +1855,7 @@
     },
     {
       "name": "Кукурузная каша",
-      "photoUrl": "https://www.chefmarket.ru/blog/wp-content/uploads/2018/10/molochnaya-kukuruznaya-kasha-e1539681918901.jpg",
+      "photoUrl": "/images/recipes/kukuruznaya_kasha.jpg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Промойте кукурузную крупу и засыпьте в кипящее молоко.\n2. Варите на медленном огне, постоянно помешивая, 20 минут.\n3. Добавьте сахар и щепотку соли.\n4. Снимите с огня, добавьте сливочное масло и дайте настояться 10 минут.",
@@ -1872,7 +1872,7 @@
     },
     {
       "name": "Индейка отварная",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=5aba4cb5a1fab27ead6ced43b0565217b062dd94-10089679-images-thumbs&n=13",
+      "photoUrl": "/images/recipes/indeyka.jpg",
       "time": 40,
       "difficulty": 1,
       "instruction": "1. Залейте филе индейки холодной водой и доведите до кипения.\n2. Снимите пену, добавьте лавровый лист и перец горошком.\n3. Варите на слабом огне 30 минут до готовности.\n4. Достаньте мясо, остудите и нарежьте порционными кусками.",
@@ -1888,7 +1888,7 @@
     },
     {
       "name": "Курица отварная",
-      "photoUrl": "https://e3.edimdoma.ru/data/recipes/0003/3785/33785-ed4_big_wide.jpg?1759258427",
+      "photoUrl": "/images/recipes/kurica.jpg",
       "time": 40,
       "difficulty": 1,
       "instruction": "1. Залейте куриное филе водой, добавьте целую морковь и луковицу.\n2. Доведите до кипения, снимите пену и варите 25 минут.\n3. Проверьте готовность, проткнув мясо вилкой.\n4. Достаньте филе, остудите и нарежьте ломтиками.",
@@ -1905,7 +1905,7 @@
     },
     {
       "name": "Печеные яблоки",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=5afd2fdb918af3500fc3b644401eb918_l-9051257-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/39886178/pexels-photo-39886178.jpeg",
       "time": 30,
       "difficulty": 1,
       "instruction": "1. Вырежьте у яблок сердцевину, не прорезая дно.\n2. Смешайте сахар с корицей и насыпьте в углубления.\n3. Полейте сверху медом.\n4. Запекайте при 180 градусах 20 минут до мягкости.",
@@ -1922,7 +1922,7 @@
     },
     {
       "name": "Капуста тушеная",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=661274dab3e3fe232b783ea8b1b57dab_l-5258298-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/36608305/pexels-photo-36608305.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Нашинкуйте капусту и обжарьте на масле 10 минут.\n2. Добавьте нарезанные лук и морковь, жарьте еще 5 минут.\n3. Влейте разведенную в воде томатную пасту.\n4. Тушите под крышкой 20 минут до мягкости.",
@@ -1940,7 +1940,7 @@
     },
     {
       "name": "Тофу в соевом соусе",
-      "photoUrl": "https://media.ovkuse.ru/images/comment_attachments/17da1f52-3248-41f7-86bb-93faf5c514fa/17da1f52-3248-41f7-86bb-93faf5c514fa.jpg",
+      "photoUrl": "https://images.pexels.com/photos/4518578/pexels-photo-4518578.jpeg",
       "time": 20,
       "difficulty": 2,
       "instruction": "1. Нарежьте тофу кубиками и обсушите бумажным полотенцем.\n2. Обжарьте на сильном огне до золотистой корочки.\n3. Добавьте тертый имбирь, чеснок и соевый соус.\n4. Тушите 2 минуты, пока соус не загустеет.",
@@ -1958,7 +1958,7 @@
     },
     {
       "name": "Салат из киноа и овощей",
-      "photoUrl": "https://img.povar.ru/uploads/dc/80/d9/13/salat_s_kinoa_i_pomidorami-252866.jpg",
+      "photoUrl": "https://images.pexels.com/photos/17146252/pexels-photo-17146252.jpeg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите киноа согласно инструкции и остудите.\n2. Нарежьте огурцы и помидоры мелкими кубиками.\n3. Смешайте киноа с овощами.\n4. Заправьте оливковым маслом и соком лимона.",
@@ -1976,7 +1976,7 @@
     },
     {
       "name": "Котлеты из нута",
-      "photoUrl": "https://i.ytimg.com/vi/BlXGVv0NlTY/maxresdefault.jpg",
+      "photoUrl": "https://images.pexels.com/photos/34741997/pexels-photo-34741997.jpeg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Отварите нут до мягкости и пробейте блендером в пюре.\n2. Добавьте мелко нарезанный лук, чеснок и муку.\n3. Сформируйте котлеты и обжарьте на масле по 4 минуты с каждой стороны.\n4. Подавайте со сметаной или свежими овощами.",
@@ -1994,7 +1994,7 @@
     },
     {
       "name": "Тушёная чечевица с овощами",
-      "photoUrl": "https://avatars.mds.yandex.net/i?id=0b72528a761b4a883875b9467c994226_l-4890288-images-thumbs&n=13",
+      "photoUrl": "https://images.pexels.com/photos/6120506/pexels-photo-6120506.jpeg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Промойте чечевицу и залейте водой, варите 15 минут.\n2. Обжарьте нарезанные лук и морковь на масле.\n3. Добавьте нарезанные помидоры и тушите 5 минут.\n4. Смешайте овощи с чечевицей и прогрейте вместе 5 минут.",
@@ -2008,6 +2008,21 @@
         { "ingredientName": "Лук репчатый", "amountGrams": 60 },
         { "ingredientName": "Помидор", "amountGrams": 150 },
         { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Филе с ананасом и сыром в духовке",
+      "photoUrl": "/images/recipes/file_cheese.jpg",
+      "time": 45,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте куриное филе на порционные куски и слегка отбейте.\n2. Выложите мясо на противень, смажьте майонезом.\n3. Сверху выложите кусочки ананаса и обильно посыпьте тертым сыром.\n4. Запекайте в духовке при 180 градусах 30-35 минут до золотистой корочки.",
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE", "EGGS"],
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 300 },
+        { "ingredientName": "Ананас консервированный", "amountGrams": 100 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 80 },
+        { "ingredientName": "Майонез", "amountGrams": 40 }
       ]
     }
 
