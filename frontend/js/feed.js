@@ -198,7 +198,7 @@ function addToLikedList(recipe) {
 }
 
 // ==========================================
-// НОВАЯ ФУНКЦИЯ: Физика свайпов мышкой/пальцем
+// ИСПРАВЛЕННАЯ ФУНКЦИЯ: Физика свайпов
 // ==========================================
 function attachSwipeEvents() {
     const card = document.getElementById('currentCard');
@@ -207,42 +207,57 @@ function attachSwipeEvents() {
     let startX = 0;
     let startY = 0;
     let isDragging = false;
+    let hasDragged = false; // Флаг: было ли реальное перетаскивание
 
     // Когда зажимаем карточку
     card.addEventListener('pointerdown', (e) => {
+        // ВАЖНО: Если клик пришелся на кнопку, не начинаем свайп!
+        if (e.target.closest('.action-btn')) return;
+
         isDragging = true;
+        hasDragged = false;
         startX = e.clientX;
         startY = e.clientY;
-        card.style.transition = 'none'; // Отключаем плавность, чтобы карточка двигалась за мышкой 1 в 1
-        card.setPointerCapture(e.pointerId); // Захватываем курсор
+        card.style.transition = 'none'; 
     });
 
-    // Когда двигаем мышкой/пальцем
-    card.addEventListener('pointermove', (e) => {
+    // Слушаем движение мыши на всем окне (чтобы карточка не застревала, если увести курсор)
+    window.addEventListener('pointermove', (e) => {
         if (!isDragging) return;
         
         const deltaX = e.clientX - startX;
         const deltaY = e.clientY - startY;
         
-        // Наклоняем карточку в зависимости от смещения по X
-        const rotate = deltaX * 0.05; 
-        
-        card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+        // Если сдвинули больше чем на 5 пикселей, считаем это перетаскиванием
+        if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+            hasDragged = true;
+        }
+
+        if (hasDragged) {
+            const rotate = deltaX * 0.05; 
+            card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${rotate}deg)`;
+        }
     });
 
     // Когда отпускаем кнопку мыши/палец
-    card.addEventListener('pointerup', (e) => {
+    window.addEventListener('pointerup', (e) => {
         if (!isDragging) return;
         isDragging = false;
         
+        // Если это был просто клик (без перетаскивания), ничего не делаем
+        if (!hasDragged) {
+            card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+            return; 
+        }
+
         const deltaX = e.clientX - startX;
         const deltaY = e.clientY - startY;
 
-        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; // Возвращаем плавность
+        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease'; 
 
-        // Проверяем, насколько далеко сдвинули карточку (порог 100 пикселей)
+        // Порог свайпа - 100 пикселей
         if (deltaX > 100) {
-            card.style.transform = ''; // Сбрасываем инлайн-стили, чтобы сработал CSS-класс
+            card.style.transform = ''; 
             handleSwipe('LIKE');
         } else if (deltaX < -100) {
             card.style.transform = '';
@@ -251,16 +266,9 @@ function attachSwipeEvents() {
             card.style.transform = '';
             handleSwipe('FAVORITE');
         } else {
-            // Если сдвинули мало, возвращаем карточку на место
+            // Если сдвинули мало — возвращаем на место
             card.style.transform = `translate(0px, 0px) rotate(0deg)`;
         }
-    });
-    
-    // Если курсор ушел за пределы карточки, тоже отпускаем
-    card.addEventListener('pointercancel', () => {
-        isDragging = false;
-        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-        card.style.transform = `translate(0px, 0px) rotate(0deg)`;
     });
 }
 
