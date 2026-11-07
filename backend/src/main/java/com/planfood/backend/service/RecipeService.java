@@ -4,6 +4,8 @@ import com.planfood.backend.dto.IngredientDto;
 import com.planfood.backend.dto.RecipeCardDto;
 import com.planfood.backend.entity.*;
 import com.planfood.backend.repository.*;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -137,7 +139,7 @@ public class RecipeService {
     }
 
     // метод для подсчета кбжу и конвертации в нужный дто
-    private RecipeCardDto mapToRecipeCardDto(Recipe recipe) {
+    public RecipeCardDto mapToRecipeCardDto(Recipe recipe) {
 
         // Достаем все строчки из связующей таблицы recipe_ingredients для данного рецепта
         List<RecipeIngredient> recipeIngredients = recipeIngredientRepository.findByRecipeId(recipe.getId());
@@ -184,5 +186,48 @@ public class RecipeService {
                 Math.round(totalCarbohydrates * 10.0) / 10.0,
                 ingredientDtos
         );
+    }
+
+    // Получить ВСЕ избранные рецепты (для вкладки "Избранное")
+    public List<RecipeCardDto> getFavoriteRecipes(String userEmail) {
+        // Pageable.unpaged() говорит базе, что лимита нет, нужно вернуть все
+        List<Recipe> favorites = interactionHistoryRepository.findRecipesByEmailAndType(
+                userEmail,
+                InteractionType.FAVORITE,
+                Pageable.unpaged()
+        );
+
+        return favorites.stream()
+                .map(this::mapToRecipeCardDto)
+                .collect(Collectors.toList());
+    }
+
+
+    // Получить только 20 последних лайкнутых рецептов
+    public List<RecipeCardDto> getLikedRecipes(String userEmail) {
+        List<Recipe> likes = interactionHistoryRepository.findRecipesByEmailAndType(
+                userEmail,
+                InteractionType.LIKE,
+                PageRequest.of(0, 20) // возвращаем 20 лайкнутых рецептов с 0й страницы
+        );
+
+        return likes.stream()
+                .map(this::mapToRecipeCardDto)
+                .collect(Collectors.toList());
+    }
+
+
+    // Метод для получения личной коллекции пользователя (Лайки + Избранное) для сайдбара плана питания
+    public List<RecipeCardDto> getUserSavedCollection(String userEmail) {
+        // Задаем типы реакций, которые считаются сохраненными в коллекцию
+        List<InteractionType> savedTypes = List.of(InteractionType.LIKE, InteractionType.FAVORITE);
+
+        // Получаем уникальные рецепты из базы данных
+        List<Recipe> savedRecipes = interactionHistoryRepository.findDistinctRecipesByEmailAndTypes(userEmail, savedTypes);
+
+        // Превращаем каждый Recipe в RecipeCardDto с расчетом КБЖУ и собираем в итоговый список
+        return savedRecipes.stream()
+                .map(this::mapToRecipeCardDto)
+                .collect(Collectors.toList());
     }
 }

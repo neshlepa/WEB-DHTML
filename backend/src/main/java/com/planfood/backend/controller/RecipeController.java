@@ -34,6 +34,7 @@ public class RecipeController {
         return ResponseEntity.ok(feed); // Отдаем статус 200 и JSON
     }
 
+
     // эндпоинт сохранения реации на рецепт
     // {id} - это переменная пути. Фронтенд подставит сюда ID рецепта
     @PostMapping("/{id}/react")
@@ -51,5 +52,39 @@ public class RecipeController {
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+
+    // Эндпоинт для получения всех избранных рецептов
+    @GetMapping("/favorites")
+    public ResponseEntity<?> getFavorites(Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body("Доступно только авторизованным пользователям");
+        }
+        List<RecipeCardDto> favorites = recipeService.getFavoriteRecipes(principal.getName());
+        return ResponseEntity.ok(favorites);
+    }
+
+
+    // Эндпоинт для получения 20 последних лайкнутых рецептов
+    @GetMapping("/likes")
+    public ResponseEntity<?> getLikes(Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body("Доступно только авторизованным пользователям");
+        }
+        List<RecipeCardDto> likes = recipeService.getLikedRecipes(principal.getName());
+        return ResponseEntity.ok(likes);
+    }
+
+
+    // Эндпоинт для получения личной коллекции (Лайки + Избранное) без дубликатов
+    @GetMapping("/collection")
+    public ResponseEntity<?> getUserCollection(Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body("Доступно только авторизованным пользователям");
+        }
+
+        List<RecipeCardDto> collection = recipeService.getUserSavedCollection(principal.getName());
+        return ResponseEntity.ok(collection);
     }
 }
