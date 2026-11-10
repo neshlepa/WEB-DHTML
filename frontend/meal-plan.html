@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food-Tinder | План питания</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .plan-wrapper { max-width: 1200px; margin: 30px auto; padding: 20px; color: #fff; }
+        .setup-box { text-align: center; background: #1e293b; padding: 40px; border-radius: 12px; margin-top: 50px; }
+        .setup-box button, .plan-controls button {
+            background: #f97316; color: white; border: none; padding: 10px 20px;
+            margin: 8px; border-radius: 8px; cursor: pointer; font-weight: bold;
+        }
+        .setup-box button:hover, .plan-controls button:hover { background: #ea580c; }
+        .plan-controls { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+        
+        table.meal-table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; }
+        table.meal-table th, table.meal-table td { border: 1px solid #334155; padding: 15px; text-align: center; }
+        table.meal-table th { background: #0f172a; color: #f97316; }
+        table.meal-table td { vertical-align: top; width: 14%; height: 110px; cursor: pointer; transition: 0.2s; }
+        table.meal-table td:hover { background: #273549; }
+        .cell-empty { color: #64748b; font-size: 0.9em; padding-top: 25px; }
+        .cell-filled img { width: 100%; height: 60px; object-fit: cover; border-radius: 6px; margin-bottom: 6px; }
+        .cell-filled .name { font-size: 0.85em; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* Модальные окна */
+        .custom-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .custom-modal-content { background: #1e293b; color: #fff; border-radius: 12px; padding: 25px; max-height: 85vh; border: 1px solid #334155; }
+        .collection-item { display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid #334155; cursor: pointer; }
+        .collection-item:hover { background: #334155; }
+        .collection-item img { width: 45px; height: 45px; border-radius: 6px; object-fit: cover; }
+    </style>
+</head>
+<body class="main-body">
+    <!-- Шапка -->
+    <header class="main-header">
+        <h1 class="logo">Food-Tinder</h1>
+        <nav class="main-nav">
+            <a href="main.html" class="nav-link">Поиск</a>
+            <a href="meal-plan.html" class="nav-link active">План питания</a>
+            <a href="profile.html" class="nav-link">Профиль</a>
+        </nav>
+        <div class="header-right">
+            <span class="user-email" id="headerEmail">Мой аккаунт</span>
+            <button id="logoutBtn" class="btn-logout" onclick="localStorage.removeItem('token'); location.href='login.html'">Выйти</button>
+        </div>
+    </header>
+
+    <div class="plan-wrapper">
+        <!-- Экран выбора дней -->
+        <div id="plan-setup-screen" class="setup-box" style="display: none;">
+            <h2>У вас еще нет плана питания</h2>
+            <p style="color: #94a3b8; margin: 15px 0 25px;">Выберите период, на который хотите составить рацион:</p>
+            <button onclick="MealPlanApp.initGrid(1)">На 1 день</button>
+            <button onclick="MealPlanApp.initGrid(3)">На 3 дня</button>
+            <button onclick="MealPlanApp.initGrid(7)">На 7 дней</button>
+        </div>
+
+        <!-- Экран сетки -->
+        <div id="plan-grid-screen" style="display: none;">
+            <div class="plan-controls">
+                <button onclick="MealPlanApp.savePlan()">Сохранить план</button>
+                <button onclick="MealPlanApp.resetPlan()" style="background:#dc2626;">Пересоздать план</button>
+                <button onclick="MealPlanApp.openShoppingList()" style="background:#0284c7;">Список покупок</button>
+                <button onclick="MealPlanApp.downloadPDF('/api/meal-plans/export/pdf', 'MealPlan.pdf')" style="background:#475569;">PDF: План</button>
+                <button onclick="MealPlanApp.downloadPDF('/api/meal-plans/shopping-list/export/pdf', 'ShoppingList.pdf')" style="background:#475569;">PDF: Чек-лист</button>
+            </div>
+            <table class="meal-table">
+                <thead><tr id="grid-header"></tr></thead>
+                <tbody id="grid-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Модалка ячейки -->
+    <div id="cell-modal" class="custom-modal" style="display: none;">
+        <div class="custom-modal-content" style="width: 750px; display: flex; gap: 20px;">
+            <div style="width: 45%; border-right: 1px solid #334155; padding-right: 15px; overflow-y: auto; max-height: 60vh;">
+                <h3 style="margin-bottom: 10px; color: #f97316;">Моя коллекция</h3>
+                <div id="collection-list"></div>
+            </div>
+            <div style="width: 55%; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="margin-bottom: 10px;">Подбор блюда</h3>
+                    <button onclick="MealPlanApp.suggestRecipe(false)" style="background:#f97316; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">Сгенерировать блюдо</button>
+                    <div id="suggested-recipe-preview" style="margin-top: 15px;"></div>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 20px;">
+                    <button id="btn-skip" onclick="MealPlanApp.suggestRecipe(true)" style="display:none; background:#64748b; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">Скип</button>
+                    <button id="btn-apply" onclick="MealPlanApp.applyRecipeToCell()" style="display:none; background:#16a34a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">Выбрать</button>
+                    <button onclick="document.getElementById('cell-modal').style.display='none'" style="background:transparent; color:#94a3b8; border:1px solid #475569; padding:8px 14px; border-radius:6px; cursor:pointer;">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка списка покупок -->
+    <div id="shopping-list-modal" class="custom-modal" style="display: none;">
+        <div class="custom-modal-content" style="width: 450px;">
+            <h3 style="margin-bottom: 15px; color: #f97316;">Список покупок</h3>
+            <ul id="shopping-items-list" style="list-style: none; padding: 0; max-height: 50vh; overflow-y: auto;"></ul>
+            <h4 id="shopping-total-price" style="margin: 20px 0; text-align: right; color: #4ade80;"></h4>
+            <button onclick="document.getElementById('shopping-list-modal').style.display='none'" style="width:100%; background:#475569; color:#fff; border:none; padding:10px; border-radius:6px; cursor:pointer;">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="js/meal-plan.js"></script>
+</body>
+</html>
