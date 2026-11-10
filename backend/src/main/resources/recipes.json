@@ -457,7 +457,7 @@
       
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": [],
-
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
       "recipeIngredients": [
         { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
         { "ingredientName": "Баранина", "amountGrams": 200 },
@@ -476,7 +476,7 @@
       
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "EGGS", "SOY"],
-
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
       "recipeIngredients": [
         { "ingredientName": "Лапша рамен (сухая)", "amountGrams": 100 },
         { "ingredientName": "Куриное филе", "amountGrams": 150 },
@@ -494,10 +494,10 @@
       "time": 90,
       "difficulty": 5,
       "instruction": "1. Обжарьте говядину с луком и чесноком, добавьте тертые помидоры и тушите 15 минут.\n2. Сварите соус бешамель из молока, муки и сливочного масла.\n3. Соберите лазанью слоями: листы, мясной соус, бешамель, сыр.\n4. Запекайте при 180 градусах 40 минут до румяной корочки.",
-      
+
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
-
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
       "recipeIngredients": [
         { "ingredientName": "Листы лазаньи (сухие)", "amountGrams": 120 },
         { "ingredientName": "Говядина", "amountGrams": 250 },
@@ -522,7 +522,7 @@
       
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["SOY", "GLUTEN"],
-
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
       "recipeIngredients": [
         { "ingredientName": "Куриное филе", "amountGrams": 300 },
         { "ingredientName": "Перец болгарский", "amountGrams": 80 },
@@ -563,7 +563,7 @@
       
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
-
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
       "recipeIngredients": [
         { "ingredientName": "Куриное филе", "amountGrams": 250 },
         { "ingredientName": "Кабачок", "amountGrams": 150 },
@@ -606,7 +606,7 @@
       
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
-
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
       "recipeIngredients": [
         { "ingredientName": "Паста сухая", "amountGrams": 150 },
         { "ingredientName": "Бекон", "amountGrams": 100 },

@@ -51,4 +51,15 @@ public class Recipe {
     )
     @Column(name = "preference")
     private Set<DietaryPreference> preferences = new HashSet<>();
+
+
+    // Список приемов пищи, для которых подходит этот рецепт (например, только Завтрак и Перекус)
+    @ElementCollection(targetClass = MealType.class)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(
+            name = "recipe_meal_types",
+            joinColumns = @JoinColumn(name = "recipe_id")
+    )
+    @Column(name = "meal_type")
+    private Set<MealType> mealTypes = new HashSet<>();
 }

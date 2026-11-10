@@ -21,8 +21,8 @@ public class MealPlan {
     @JoinColumn(name = "recipe_id", nullable = false)
     private Recipe recipe;
 
-    @Column(name = "plan_date", nullable = false)
-    private LocalDate date; // На какой день запланировано блюдо (только дата, без времени)
+    @Column(name = "day_number", nullable = false)
+    private Integer dayNumber; // Номер дня в плане (например, 1, 2, 3... до 7)
 
     @Enumerated(EnumType.STRING)
     @Column(name = "meal_type", nullable = false)

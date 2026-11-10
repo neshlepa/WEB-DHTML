@@ -75,6 +75,8 @@ public class DataLoader implements CommandLineRunner {
                     recipe.setAllergens(recipeDto.getAllergens());
                     recipe.setPreferences(recipeDto.getDietaryPreferences());
 
+                    recipe.setMealTypes(recipeDto.getMealTypes()); // переносим теги приемов пищи из распарсенного JSON
+
                     // Сначала сохраняем сам рецепт, чтобы получить его ID из базы
                     Recipe savedRecipe = recipeRepository.save(recipe);
 
