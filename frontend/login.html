@@ -9,9 +9,7 @@
     <div class="auth-card">
         <h1 class="auth-title">Food-Tinder</h1>
         <p class="auth-subtitle" id="formTitle">Вход в аккаунт</p>
-        
         <div id="error-message" class="error-message" style="display: none;"></div>
-
         <form id="authForm">
             <div class="input-group">
                 <label>Email</label>
@@ -23,12 +21,12 @@
             </div>
             <button type="submit" id="submitBtn" class="btn-primary">Войти</button>
         </form>
-
         <div class="auth-actions">
             <button type="button" id="toggleBtn" class="btn-toggle">Нет аккаунта? Зарегистрироваться</button>
             <button type="button" onclick="window.location.href='main.html'" class="btn-guest">Продолжить без авторизации</button>
         </div>
     </div>
+    <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
 </body>
 </html>

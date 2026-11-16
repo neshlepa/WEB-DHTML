@@ -1,12 +1,3 @@
-const API_URL = '/api/users/profile';
-const token = localStorage.getItem('token');
-
-// Если токена нет — выкидываем на страницу входа
-if (!token) {
-    window.location.href = 'login.html';
-}
-
-// Словари для перевода (как в React)
 const ALLERGENS = {
     GLUTEN: 'Глютен', LACTOSE: 'Лактоза', NUTS: 'Орехи', EGGS: 'Яйца',
     FISH: 'Рыба', SEAFOOD: 'Морепродукты', SOY: 'Соя', PEANUTS: 'Арахис'
@@ -17,130 +8,75 @@ const PREFERENCES = {
     HIGH_PROTEIN: 'Высокобелковая', HALAL: 'Халяль', KOSHER: 'Кошерная', NO_PORK: 'Без свинины'
 };
 
-// Функция для отрисовки чекбоксов
-function renderCheckboxes(containerId, data, name) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    
-    for (const [key, label] of Object.entries(data)) {
-        const isChecked = profileData[name] && profileData[name].includes(key);
-        container.innerHTML += `
-            <label class="checkbox-pill ${isChecked ? 'checked' : ''}">
-                <input type="checkbox" name="${name}" value="${key}" ${isChecked ? 'checked' : ''}>
-                ${label}
-            </label>
-        `;
-    }
-}
+let profileData = {};
 
-let profileData = {}; // Сюда сохраним ответ от сервера
+document.addEventListener('DOMContentLoaded', loadProfile);
 
-// Загрузка профиля
 async function loadProfile() {
     try {
-        const response = await fetch(API_URL, {
-            headers: { 'Authorization': `Bearer ${token}` }
-        });
-
-        if (response.status === 401) {
-            localStorage.removeItem('token');
-            window.location.href = 'login.html';
-            return;
-        }
-
-        if (!response.ok) throw new Error('Ошибка загрузки профиля');
-
-        profileData = await response.json();
-
-        // Заполняем поля
+        profileData = await fetchApi('/users/profile') || {};
+        
         document.getElementById('email').value = profileData.email || '';
         document.getElementById('gender').value = profileData.gender || 'male';
         document.getElementById('age').value = profileData.age || '';
         document.getElementById('height').value = profileData.height || '';
         document.getElementById('weight').value = profileData.weight || '';
 
-        // Рисуем чекбоксы
         renderCheckboxes('allergens-container', ALLERGENS, 'allergens');
         renderCheckboxes('preferences-container', PREFERENCES, 'preferences');
-
     } catch (error) {
-        showMessage('Сервер временно недоступен. Попробуйте позже.', true);
+        showMessage('Не удалось загрузить профиль', true);
     }
 }
 
-// Обработка клика по чекбоксу (чтобы менялся цвет плашки)
+function renderCheckboxes(containerId, data, name) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = Object.entries(data).map(([key, label]) => {
+        const isChecked = profileData[name] && profileData[name].includes(key);
+        return `
+            <label class="checkbox-pill ${isChecked ? 'checked' : ''}">
+                <input type="checkbox" name="${name}" value="${key}" ${isChecked ? 'checked' : ''}>
+                ${label}
+            </label>
+        `;
+    }).join('');
+}
+
 document.addEventListener('change', (e) => {
     if (e.target.type === 'checkbox') {
-        const label = e.target.closest('label');
-        if (e.target.checked) {
-            label.classList.add('checked');
-        } else {
-            label.classList.remove('checked');
-        }
+        e.target.checked ? e.target.closest('label').classList.add('checked') : e.target.closest('label').classList.remove('checked');
     }
 });
 
-// Сохранение изменений
 document.getElementById('profileForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const saveBtn = document.getElementById('saveBtn');
-    saveBtn.disabled = true;
-    saveBtn.textContent = 'Сохранение...';
+    const btn = document.getElementById('saveBtn');
+    btn.disabled = true;
 
-    // Собираем массивы выбранных чекбоксов
-    const selectedAllergens = Array.from(document.querySelectorAll('input[name="allergens"]:checked')).map(cb => cb.value);
-    const selectedPreferences = Array.from(document.querySelectorAll('input[name="preferences"]:checked')).map(cb => cb.value);
-
-    // Формируем тело запроса (без email!)
     const payload = {
         gender: document.getElementById('gender').value,
         age: parseInt(document.getElementById('age').value) || 0,
         height: parseInt(document.getElementById('height').value) || 0,
         weight: parseFloat(document.getElementById('weight').value) || 0,
-        allergens: selectedAllergens,
-        preferences: selectedPreferences
+        allergens: Array.from(document.querySelectorAll('input[name="allergens"]:checked')).map(cb => cb.value),
+        preferences: Array.from(document.querySelectorAll('input[name="preferences"]:checked')).map(cb => cb.value)
     };
 
     try {
-        const response = await fetch(API_URL, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (response.ok) {
-            showMessage('Профиль успешно сохранен!', false);
-        } else {
-            const textError = await response.text();
-            showMessage(textError || 'Ошибка при сохранении', true);
-        }
+        await fetchApi('/users/profile', { method: 'PUT', body: payload });
+        showMessage('Профиль успешно сохранен!', false);
     } catch (error) {
-        showMessage('Ошибка сети при сохранении.', true);
+        showMessage(error.message || 'Ошибка сохранения', true);
     } finally {
-        saveBtn.disabled = false;
-        saveBtn.textContent = 'Сохранить изменения';
+        btn.disabled = false;
     }
 });
 
-// Выход из аккаунта
-document.getElementById('logoutBtn').addEventListener('click', () => {
-    localStorage.removeItem('token');
-    window.location.href = 'login.html';
-});
-
-// Функция показа сообщений
 function showMessage(text, isError) {
-    const msgDiv = document.getElementById('statusMessage');
-    msgDiv.textContent = text;
-    msgDiv.style.display = 'block';
-    msgDiv.style.backgroundColor = isError ? '#ffebee' : '#e8f5e9';
-    msgDiv.style.color = isError ? '#c62828' : '#2e7d32';
-    
-    setTimeout(() => { msgDiv.style.display = 'none'; }, 3000);
+    const msg = document.getElementById('statusMessage');
+    msg.textContent = text;
+    msg.style.display = 'block';
+    msg.style.backgroundColor = isError ? '#ffebee' : '#e8f5e9';
+    msg.style.color = isError ? '#c62828' : '#2e7d32';
+    setTimeout(() => msg.style.display = 'none', 3000);
 }
-
-// Запускаем загрузку при открытии страницы
-loadProfile();
