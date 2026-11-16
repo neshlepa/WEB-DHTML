@@ -47,10 +47,11 @@ function createGlobalModal() {
 }
 
 window.showRecipeModal = function(recipe) {
+    if (!recipe) return;
     const content = document.getElementById('global-recipe-content');
     content.innerHTML = `
         <h2 style="color: #d35400; margin-bottom: 15px; padding-right: 30px;">${recipe.name || 'Без названия'}</h2>
-        <img src="${recipe.photoUrl || ''}" alt="Фото" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:15px;">
+        ${recipe.photoUrl ? `<img src="${recipe.photoUrl}" onerror="this.style.display='none'" alt="Фото" style="width:100%; height:250px; object-fit:cover; border-radius:12px; margin-bottom:15px;">` : ''}
         <div style="display:flex; gap:20px; margin-bottom:15px; color:#666; font-size:14px; font-weight:bold;">
             <span>⏳ ${recipe.time || 0} мин</span>
             <span>⭐ Сложность: ${recipe.difficulty || 1}/5</span>
