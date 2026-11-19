@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food-Tinder | Избранное</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="header-root"></div>
+    <main class="saved-wrapper" id="savedWrapper">
+        <div class="saved-header">
+            <h2>Сохранённые рецепты</h2>
+            <div class="saved-tabs">
+                <button type="button" class="saved-tab active" id="tabFavorites" onclick="SavedApp.switchTab('favorites')">Избранное</button>
+                <button type="button" class="saved-tab" id="tabLikes" onclick="SavedApp.switchTab('likes')">Понравившиеся (до 20)</button>
+            </div>
+        </div>
+        <div id="savedContent">
+            <div class="loading">Загрузка рецептов...</div>
+        </div>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/saved.js"></script>
+</body>
+</html>

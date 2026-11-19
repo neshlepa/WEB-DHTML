@@ -5,79 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food-Tinder | План питания</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .plan-wrapper { max-width: 1200px; margin: 30px auto; padding: 20px; color: #fff; }
-        .setup-box { text-align: center; background: #1e293b; padding: 40px; border-radius: 12px; margin-top: 50px; }
-        .setup-box button, .plan-controls button { background: #f97316; color: white; border: none; padding: 10px 20px; margin: 8px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .setup-box button:hover, .plan-controls button:hover { background: #ea580c; }
-        .plan-controls { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
-        table.meal-table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 8px; overflow: hidden; }
-        table.meal-table th, table.meal-table td { border: 1px solid #334155; padding: 15px; text-align: center; }
-        table.meal-table th { background: #0f172a; color: #f97316; }
-        table.meal-table td { vertical-align: top; width: 14%; height: 110px; cursor: pointer; transition: 0.2s; }
-        table.meal-table td:hover { background: #273549; }
-        .cell-empty { color: #64748b; font-size: 0.9em; padding-top: 25px; }
-        .cell-filled img { width: 100%; height: 60px; object-fit: cover; border-radius: 6px; margin-bottom: 6px; }
-        .cell-filled .name { font-size: 0.85em; font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .custom-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        .custom-modal-content { background: #1e293b; color: #fff; border-radius: 12px; padding: 25px; max-height: 85vh; border: 1px solid #334155; }
-        .collection-item { display: flex; align-items: center; gap: 10px; padding: 8px; border-bottom: 1px solid #334155; cursor: pointer; }
-        .collection-item:hover { background: #334155; }
-        .collection-item img { width: 45px; height: 45px; border-radius: 6px; object-fit: cover; }
-    </style>
 </head>
-<body class="main-body">
-    <div id="header-root" style="width: 100%; display: flex; justify-content: center;"></div>
-    <div class="plan-wrapper">
+<body>
+    <div id="header-root"></div>
+
+    <main class="plan-wrapper" id="planWrapper">
+        <div id="plan-loading" class="loading">Загрузка плана питания...</div>
+
         <div id="plan-setup-screen" class="setup-box" style="display: none;">
-            <h2>У вас еще нет плана питания</h2>
-            <p style="color: #94a3b8; margin: 15px 0 25px;">Выберите период, на который хотите составить рацион:</p>
-            <button onclick="MealPlanApp.initGrid(1)">На 1 день</button>
-            <button onclick="MealPlanApp.initGrid(3)">На 3 дня</button>
-            <button onclick="MealPlanApp.initGrid(7)">На 7 дней</button>
-        </div>
-        <div id="plan-grid-screen" style="display: none;">
-            <div class="plan-controls">
-                <button onclick="MealPlanApp.savePlan()">Сохранить план</button>
-                <button onclick="MealPlanApp.resetPlan()" style="background:#dc2626;">Пересоздать план</button>
-                <button onclick="MealPlanApp.openShoppingList()" style="background:#0284c7;">Список покупок</button>
-                <button onclick="MealPlanApp.downloadPDF('/meal-plans/export/pdf', 'MealPlan.pdf')" style="background:#475569;">PDF: План</button>
-                <button onclick="MealPlanApp.downloadPDF('/meal-plans/shopping-list/export/pdf', 'ShoppingList.pdf')" style="background:#475569;">PDF: Чек-лист</button>
+            <h2>Создайте свой план питания</h2>
+            <p>Выберите длительность рациона. Вы сможете заполнить каждую ячейку блюдами из своей коллекции или сгенерировать автоматически с учётом аллергенов и предпочтений.</p>
+            <div class="duration-options">
+                <button type="button" class="duration-btn" onclick="MealPlanApp.initGrid(1)">
+                    <b>1 день</b>
+                    <span>Рацион на сегодня</span>
+                </button>
+                <button type="button" class="duration-btn" onclick="MealPlanApp.initGrid(3)">
+                    <b>3 дня</b>
+                    <span>На ближайшие дни</span>
+                </button>
+                <button type="button" class="duration-btn" onclick="MealPlanApp.initGrid(7)">
+                    <b>7 дней</b>
+                    <span>Полная неделя</span>
+                </button>
             </div>
-            <table class="meal-table">
-                <thead><tr id="grid-header"></tr></thead>
-                <tbody id="grid-body"></tbody>
-            </table>
         </div>
-    </div>
+
+        <div id="plan-grid-screen" style="display: none;">
+            <div class="plan-topbar">
+                <div class="plan-title-group">
+                    <h2 id="planTitle">План питания</h2>
+                    <span id="unsavedBadge" class="unsaved-badge" style="display: none;">Есть несохранённые изменения</span>
+                </div>
+                <div class="plan-controls">
+                    <button type="button" class="btn-orange" id="savePlanBtn" onclick="MealPlanApp.savePlan()">Сохранить план</button>
+                    <button type="button" class="btn-secondary" onclick="MealPlanApp.openShoppingList()">Список покупок</button>
+                    <button type="button" class="btn-secondary" onclick="MealPlanApp.exportPdf('/meal-plans/export/pdf', 'MealPlan.pdf')">PDF: План</button>
+                    <button type="button" class="btn-secondary" onclick="MealPlanApp.exportPdf('/meal-plans/shopping-list/export/pdf', 'ShoppingList.pdf')">PDF: Список покупок</button>
+                    <button type="button" class="btn-danger" onclick="MealPlanApp.resetPlan()">Пересоздать план</button>
+                </div>
+            </div>
+
+            <div class="table-scroll">
+                <table class="meal-table">
+                    <thead><tr id="grid-header"></tr></thead>
+                    <tbody id="grid-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Модалка редактирования ячейки -->
     <div id="cell-modal" class="custom-modal" style="display: none;">
-        <div class="custom-modal-content" style="width: 750px; display: flex; gap: 20px;">
-            <div style="width: 45%; border-right: 1px solid #334155; padding-right: 15px; overflow-y: auto; max-height: 60vh;">
-                <h3 style="margin-bottom: 10px; color: #f97316;">Моя коллекция</h3>
+        <div class="custom-modal-content cell-modal-grid">
+            <button type="button" class="modal-close-x" onclick="MealPlanApp.closeCellModal()" aria-label="Закрыть">✕</button>
+
+            <div class="collection-column">
+                <h3>Моя коллекция</h3>
+                <p class="collection-hint">Перетащите блюдо в центр или нажмите на него</p>
                 <div id="collection-list"></div>
             </div>
-            <div style="width: 55%; display: flex; flex-direction: column; justify-content: space-between;">
+
+            <div class="cell-editor-column">
                 <div>
-                    <h3 style="margin-bottom: 10px;">Подбор блюда</h3>
-                    <button onclick="MealPlanApp.suggestRecipe(false)" style="background:#f97316; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">Сгенерировать блюдо</button>
-                    <div id="suggested-recipe-preview" style="margin-top: 15px;"></div>
+                    <h3 id="cell-modal-title" style="color:#222; margin-bottom:4px;">Подбор блюда</h3>
+                    <p class="cell-modal-subtitle">Перетащите рецепт из коллекции слева или сгенерируйте автоматически</p>
+
+                    <div id="recipe-dropzone" class="recipe-dropzone">
+                        <div id="suggested-recipe-preview"></div>
+                    </div>
                 </div>
-                <div style="display: flex; gap: 8px; margin-top: 20px;">
-                    <button id="btn-skip" onclick="MealPlanApp.suggestRecipe(true)" style="display:none; background:#64748b; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">Скип</button>
-                    <button id="btn-apply" onclick="MealPlanApp.applyRecipeToCell()" style="display:none; background:#16a34a; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer;">Выбрать</button>
-                    <button onclick="document.getElementById('cell-modal').style.display='none'" style="background:transparent; color:#94a3b8; border:1px solid #475569; padding:8px 14px; border-radius:6px; cursor:pointer;">Закрыть</button>
+
+                <div class="cell-editor-actions">
+                    <button type="button" id="btn-generate" class="btn-orange" onclick="MealPlanApp.suggestRecipe()">Сгенерировать блюдо</button>
+                    <button type="button" id="btn-skip" class="btn-secondary" style="display: none;" onclick="MealPlanApp.suggestRecipe()">Скип (другое)</button>
+                    <button type="button" id="btn-apply" class="btn-success" style="display: none;" onclick="MealPlanApp.applyRecipeToCell()">Поставить в ячейку</button>
+                    <button type="button" id="btn-clear-cell" class="btn-danger" style="display: none;" onclick="MealPlanApp.clearCurrentCell()">Очистить</button>
+                    <button type="button" class="btn-secondary" style="margin-left:auto;" onclick="MealPlanApp.closeCellModal()">Закрыть</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Модалка списка покупок -->
     <div id="shopping-list-modal" class="custom-modal" style="display: none;">
-        <div class="custom-modal-content" style="width: 450px;">
-            <h3 style="margin-bottom: 15px; color: #f97316;">Список покупок</h3>
-            <ul id="shopping-items-list" style="list-style: none; padding: 0; max-height: 50vh; overflow-y: auto;"></ul>
-            <h4 id="shopping-total-price" style="margin: 20px 0; text-align: right; color: #4ade80;"></h4>
-            <button onclick="document.getElementById('shopping-list-modal').style.display='none'" style="width:100%; background:#475569; color:#fff; border:none; padding:10px; border-radius:6px; cursor:pointer;">Закрыть</button>
+        <div class="custom-modal-content shopping-modal-box">
+            <button type="button" class="modal-close-x" onclick="MealPlanApp.closeShoppingModal()" aria-label="Закрыть">✕</button>
+            <h3 style="color:#d35400; margin-bottom:6px;">Список покупок</h3>
+            <p style="font-size:13px; color:#888;">Суммарный вес продуктов по вашему сохранённому плану</p>
+            <ul id="shopping-items-list" class="shopping-list"></ul>
+            <div id="shopping-total-price" class="shopping-total"></div>
+            <div style="display:flex; gap:10px;">
+                <button type="button" class="btn-orange" style="flex:1;" onclick="MealPlanApp.exportPdf('/meal-plans/shopping-list/export/pdf', 'ShoppingList.pdf')">Скачать PDF</button>
+                <button type="button" class="btn-secondary" onclick="MealPlanApp.closeShoppingModal()">Закрыть</button>
+            </div>
         </div>
     </div>
+
     <script src="js/api.js"></script>
     <script src="js/common.js"></script>
     <script src="js/meal-plan.js"></script>

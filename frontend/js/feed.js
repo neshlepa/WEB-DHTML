@@ -1,15 +1,33 @@
+const MAX_LIKED_PREVIEW = 5;
+
 let recipes = [];
 let currentIndex = 0;
 let likedCount = 0;
 let savedCount = 0;
+let recentLikes = [];
 let isSwiping = false;
 let guestWarningShown = false;
-
-const FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect fill='%231e293b' width='400' height='300'/%3E%3Ctext fill='%2394a3b8' font-family='sans-serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3EНет фото%3C/text%3E%3C/svg%3E";
+let suppressNextClick = false;
+let swipeAbortController = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     loadFeed();
-    loadRightPanel();
+    loadUserStatsAndLikes();
+
+    document.getElementById('upNowCard').addEventListener('click', () => {
+        const recipe = recipes[currentIndex];
+        if (recipe) window.showRecipeModal(recipe);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        const modal = document.getElementById('global-recipe-modal');
+        if (modal && modal.style.display === 'flex') return;
+        if (recipes.length === 0 || currentIndex >= recipes.length) return;
+
+        if (e.key === 'ArrowRight') { e.preventDefault(); handleSwipe('LIKE'); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); handleSwipe('DISLIKE'); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); handleSwipe('FAVORITE'); }
+    });
 });
 
 async function loadFeed() {
@@ -17,19 +35,17 @@ async function loadFeed() {
     try {
         cardWrapper.innerHTML = '<div class="loading">Загрузка рецептов...</div>';
         const res = await fetchApi('/recipes/feed');
-        const list = normalizeArray(res);
-
-        recipes = list;
+        recipes = normalizeArray(res);
         currentIndex = 0;
         isSwiping = false;
         updateStats();
 
         if (recipes.length === 0) {
             cardWrapper.innerHTML = `
-                <div style="text-align:center; padding: 30px;">
+                <div class="auth-required-box" style="margin: 20px auto;">
                     <h2>Рецепты закончились!</h2>
-                    <p style="color:#94a3b8; margin: 12px 0 20px;">Вы посмотрели все доступные блюда.</p>
-                    <button class="btn-primary" style="max-width:220px;" onclick="loadFeed()">Обновить ленту</button>
+                    <p>Вы просмотрели все доступные блюда с учётом ваших фильтров и аллергенов.</p>
+                    <button type="button" class="btn-primary" onclick="loadFeed()">Обновить ленту</button>
                 </div>`;
             document.getElementById('upNowSection').style.display = 'none';
             return;
@@ -37,50 +53,93 @@ async function loadFeed() {
         renderCard();
     } catch (err) {
         console.error('Ошибка ленты:', err);
-        const hint = !localStorage.getItem('token')
-            ? '<br><small style="color:#94a3b8;">Возможно, для просмотра ленты требуется авторизация.</small>'
-            : '';
-        cardWrapper.innerHTML = `<h3 style="text-align:center; color:#ef4444; padding: 20px;">Ошибка загрузки ленты:<br>${err.message}${hint}</h3>`;
+        cardWrapper.innerHTML = `
+            <div class="auth-required-box" style="margin: 20px auto;">
+                <h2 style="color:#c62828;">Не удалось загрузить ленту</h2>
+                <p>${escapeHtml(err.message)}</p>
+                <button type="button" class="btn-primary" onclick="loadFeed()">Попробовать снова</button>
+            </div>`;
     }
 }
 
-async function loadRightPanel() {
-    if (!localStorage.getItem('token')) return;
+async function loadUserStatsAndLikes() {
+    if (!getToken()) return;
     try {
-        const res = await fetchApi('/recipes/likes');
-        const likes = normalizeArray(res);
-        if (likes.length > 0) {
-            const top5 = likes.slice(0, 5);
-            const likedList = document.getElementById('likedList');
-            likedList.innerHTML = '';
-            document.getElementById('likedSection').style.display = 'block';
+        const [likesRes, favsRes] = await Promise.all([
+            fetchApi('/recipes/likes'),
+            fetchApi('/recipes/favorites')
+        ]);
+        const likes = normalizeArray(likesRes);
+        const favs = normalizeArray(favsRes);
 
-            top5.forEach(recipe => {
-                const miniCard = document.createElement('div');
-                miniCard.className = 'mini-card';
-                miniCard.style.cursor = 'pointer';
-                miniCard.onclick = () => window.showRecipeModal(recipe);
-                miniCard.innerHTML = `
-                    <img src="${recipe.photoUrl || FALLBACK_IMG}" onerror="this.src='${FALLBACK_IMG}'">
-                    <div><b>${recipe.name || 'Без названия'}</b><br><small>${Math.round(recipe.totalCalories || 0)} ккал • ${recipe.time || 0} мин</small></div>
-                `;
-                likedList.appendChild(miniCard);
-            });
-        }
+        likedCount = likes.length;
+        savedCount = favs.length;
+        updateStats();
+
+        recentLikes = deduplicateRecipes(likes).slice(0, MAX_LIKED_PREVIEW);
+        renderRightPanel();
     } catch (err) {
-        console.warn('Не удалось загрузить понравившиеся блюда:', err);
+        console.warn('Не удалось загрузить статистику пользователя:', err);
     }
+}
+
+function deduplicateRecipes(list) {
+    const seen = new Set();
+    const result = [];
+    for (const item of list) {
+        if (!item || item.id == null || seen.has(item.id)) continue;
+        seen.add(item.id);
+        result.push(item);
+    }
+    return result;
+}
+
+function pushLikedPreview(recipe) {
+    if (!recipe) return;
+    recentLikes = [recipe, ...recentLikes.filter(r => r.id !== recipe.id)].slice(0, MAX_LIKED_PREVIEW);
+    renderRightPanel();
+}
+
+function renderRightPanel() {
+    const section = document.getElementById('likedSection');
+    const likedList = document.getElementById('likedList');
+    const topFive = recentLikes.slice(0, MAX_LIKED_PREVIEW);
+
+    if (topFive.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+
+    section.style.display = 'block';
+    likedList.innerHTML = '';
+
+    topFive.forEach(recipe => {
+        const miniCard = document.createElement('div');
+        miniCard.className = 'mini-card';
+        miniCard.title = 'Открыть рецепт';
+        miniCard.addEventListener('click', () => window.showRecipeModal(recipe));
+        miniCard.innerHTML = `
+            <img src="${escapeHtml(recipe.photoUrl || FALLBACK_IMG)}" onerror="this.src='${FALLBACK_IMG}'" alt="${escapeHtml(recipe.name)}">
+            <div>
+                <b>${escapeHtml(recipe.name || 'Без названия')}</b>
+                <small>${Math.round(recipe.totalCalories || 0)} ккал • ${escapeHtml(recipe.time || 0)} мин</small>
+            </div>
+        `;
+        likedList.appendChild(miniCard);
+    });
 }
 
 function renderCard() {
     if (currentIndex >= recipes.length) {
-        if (!localStorage.getItem('token')) {
+        if (!getToken()) {
             document.getElementById('cardWrapper').innerHTML = `
-                <div style="text-align:center; padding: 30px;">
-                    <h2>Вы просмотрели подборку!</h2>
-                    <p style="color:#94a3b8; margin: 12px 0 20px;">Войдите в аккаунт, чтобы сохранять реакции и получать новые блюда.</p>
-                    <button class="btn-primary" style="max-width:220px;" onclick="window.location.href='login.html'">Войти</button>
+                <div class="auth-required-box" style="margin: 20px auto;">
+                    <h2>Подборка просмотрена!</h2>
+                    <p>Войдите в аккаунт, чтобы сохранять понравившиеся блюда, составлять план питания и получать новые рекомендации.</p>
+                    <button type="button" class="btn-primary" onclick="window.location.href='login.html'">Войти в аккаунт</button>
+                    <button type="button" class="btn-secondary" style="width:100%; margin-top:10px;" onclick="loadFeed()">Показать ещё</button>
                 </div>`;
+            document.getElementById('upNowSection').style.display = 'none';
             return;
         }
         return loadFeed();
@@ -89,21 +148,23 @@ function renderCard() {
     const recipe = recipes[currentIndex];
     const diff = Math.min(5, Math.max(1, Number(recipe.difficulty) || 1));
     const stars = '★'.repeat(diff) + '☆'.repeat(5 - diff);
-    const desc = recipe.instruction ? recipe.instruction.substring(0, 100) : 'Описание отсутствует...';
+    const rawDesc = recipe.instruction || 'Описание отсутствует';
+    const desc = rawDesc.length > 110 ? rawDesc.substring(0, 110) + '...' : rawDesc;
 
     const cardWrapper = document.getElementById('cardWrapper');
     cardWrapper.innerHTML = `
         <div class="recipe-card" id="currentCard">
-            <div class="card-image-box" onclick="window.showRecipeModal(recipes[currentIndex])" style="cursor: pointer;">
-                <img src="${recipe.photoUrl || FALLBACK_IMG}" onerror="this.src='${FALLBACK_IMG}'" draggable="false">
+            <div class="card-image-box" id="cardImageBox" title="Нажмите, чтобы открыть рецепт">
+                <img src="${escapeHtml(recipe.photoUrl || FALLBACK_IMG)}" onerror="this.src='${FALLBACK_IMG}'" draggable="false" alt="${escapeHtml(recipe.name)}">
                 <div class="card-badges"><span class="badge">СЛОЖНОСТЬ: ${diff}/5</span></div>
-                <h2 class="card-title">${recipe.name || 'Без названия'}</h2>
+                <h2 class="card-title">${escapeHtml(recipe.name || 'Без названия')}</h2>
             </div>
             <div class="card-body">
-                <p class="card-desc">${desc}...</p>
+                <p class="card-desc">${escapeHtml(desc)}</p>
+                <button type="button" class="btn-open-recipe" id="openRecipeBtn">Открыть полный рецепт</button>
                 <div class="card-meta-row">
                     <div class="meta-item"><small>СЛОЖНОСТЬ</small><span class="stars">${stars}</span></div>
-                    <div class="meta-item"><small>ВРЕМЯ</small><span><b>${recipe.time || 0} мин</b></span></div>
+                    <div class="meta-item"><small>ВРЕМЯ</small><span><b>${escapeHtml(recipe.time || 0)} мин</b></span></div>
                 </div>
                 <div class="card-macros">
                     <div class="macro"><b>${Math.round(recipe.totalCalories || 0)}</b><br>ККАЛ</div>
@@ -112,18 +173,28 @@ function renderCard() {
                     <div class="macro"><b>${Math.round(recipe.totalCarbohydrates || 0)}г</b><br>УГЛЕВОДЫ</div>
                 </div>
                 <div class="card-actions">
-                    <button class="action-btn btn-skip" onclick="handleSwipe('DISLIKE')">✕</button>
-                    <button class="action-btn btn-save" onclick="handleSwipe('FAVORITE')">★</button>
-                    <button class="action-btn btn-like" onclick="handleSwipe('LIKE')">❤️</button>
+                    <button type="button" class="action-btn btn-skip" title="Пропустить (←)" onclick="handleSwipe('DISLIKE')">✕</button>
+                    <button type="button" class="action-btn btn-save" title="В избранное (↑)" onclick="handleSwipe('FAVORITE')">★</button>
+                    <button type="button" class="action-btn btn-like" title="Нравится (→)" onclick="handleSwipe('LIKE')">❤️</button>
                 </div>
             </div>
         </div>
     `;
 
+    document.getElementById('cardImageBox').addEventListener('click', () => {
+        if (suppressNextClick) return;
+        window.showRecipeModal(recipe);
+    });
+
+    document.getElementById('openRecipeBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.showRecipeModal(recipe);
+    });
+
     document.getElementById('upNowSection').style.display = 'block';
     document.getElementById('upNowTitle').textContent = recipe.name || 'Без названия';
     document.getElementById('upNowIngredients').innerHTML = (recipe.ingredients && recipe.ingredients.length > 0)
-        ? recipe.ingredients.map(ing => `<li><span>${ing.name}</span> <span>${ing.amountGrams}г</span></li>`).join('')
+        ? recipe.ingredients.map(ing => `<li><span>${escapeHtml(ing.name)}</span> <span>${escapeHtml(ing.amountGrams)} г</span></li>`).join('')
         : '<li>Ингредиенты не указаны</li>';
 
     attachSwipeEvents();
@@ -137,25 +208,32 @@ async function handleSwipe(reactionType) {
 
     isSwiping = true;
 
-    if (reactionType === 'LIKE') { card.classList.add('swipe-right'); likedCount++; }
-    else if (reactionType === 'DISLIKE') card.classList.add('swipe-left');
-    else if (reactionType === 'FAVORITE') { card.classList.add('swipe-up'); savedCount++; }
+    if (reactionType === 'LIKE') {
+        card.classList.add('swipe-right');
+        likedCount++;
+        pushLikedPreview(recipe);
+    } else if (reactionType === 'DISLIKE') {
+        card.classList.add('swipe-left');
+    } else if (reactionType === 'FAVORITE') {
+        card.classList.add('swipe-up');
+        savedCount++;
+    }
 
     const animationDelay = new Promise(resolve => setTimeout(resolve, 300));
 
-    if (localStorage.getItem('token')) {
+    if (getToken()) {
         try {
             await fetchApi(`/recipes/${recipe.id}/react`, {
                 method: 'POST',
                 body: { reaction: reactionType }
             });
-            if (reactionType === 'LIKE') loadRightPanel();
         } catch (err) {
             console.error('Ошибка отправки реакции:', err);
+            showToast('Не удалось сохранить реакцию', 'error');
         }
-    } else if (!guestWarningShown) {
+    } else if (!guestWarningShown && (reactionType === 'LIKE' || reactionType === 'FAVORITE')) {
         guestWarningShown = true;
-        alert('Войдите в аккаунт, чтобы сохранять рецепты!');
+        showToast('Войдите в аккаунт, чтобы сохранять рецепты навсегда', 'info');
     }
 
     await animationDelay;
@@ -171,7 +249,6 @@ function updateStats() {
     document.getElementById('leftCount').textContent = Math.max(0, recipes.length - currentIndex);
 }
 
-let swipeAbortController = null;
 function attachSwipeEvents() {
     const card = document.getElementById('currentCard');
     if (!card) return;
@@ -182,7 +259,7 @@ function attachSwipeEvents() {
     let startX = 0, startY = 0, isDragging = false, hasDragged = false;
 
     card.addEventListener('pointerdown', (e) => {
-        if (isSwiping || e.target.closest('.action-btn')) return;
+        if (isSwiping || e.target.closest('.action-btn') || e.target.closest('.btn-open-recipe')) return;
         isDragging = true;
         hasDragged = false;
         startX = e.clientX;
@@ -194,7 +271,7 @@ function attachSwipeEvents() {
         if (!isDragging) return;
         const deltaX = e.clientX - startX;
         const deltaY = e.clientY - startY;
-        if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) hasDragged = true;
+        if (Math.abs(deltaX) > 6 || Math.abs(deltaY) > 6) hasDragged = true;
         if (hasDragged) {
             card.style.transform = `translate(${deltaX}px, ${deltaY}px) rotate(${deltaX * 0.05}deg)`;
         }
@@ -203,14 +280,15 @@ function attachSwipeEvents() {
     window.addEventListener('pointerup', (e) => {
         if (!isDragging) return;
         isDragging = false;
-        if (!hasDragged) {
-            card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-            return;
-        }
+        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+
+        if (!hasDragged) return;
+
+        suppressNextClick = true;
+        setTimeout(() => { suppressNextClick = false; }, 60);
 
         const deltaX = e.clientX - startX;
         const deltaY = e.clientY - startY;
-        card.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
         if (deltaX > 100) { card.style.transform = ''; handleSwipe('LIKE'); }
         else if (deltaX < -100) { card.style.transform = ''; handleSwipe('DISLIKE'); }
         else if (deltaY < -100) { card.style.transform = ''; handleSwipe('FAVORITE'); }

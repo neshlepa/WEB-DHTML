@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food-Tinder | Вход</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -10,14 +11,16 @@
         <h1 class="auth-title">Food-Tinder</h1>
         <p class="auth-subtitle" id="formTitle">Вход в аккаунт</p>
         <div id="error-message" class="error-message" style="display: none;"></div>
+        <div id="success-message" class="success-message" style="display: none;"></div>
         <form id="authForm">
             <div class="input-group">
-                <label>Email</label>
-                <input type="email" id="email" required placeholder="test@planfood.com">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="test@planfood.com" autocomplete="email">
             </div>
             <div class="input-group">
-                <label>Пароль</label>
-                <input type="password" id="password" required placeholder="Password123_">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" required placeholder="Password123_" autocomplete="current-password">
+                <small class="input-hint" id="passwordHint" style="display: none;">Только латинские буквы, цифры и знак _</small>
             </div>
             <button type="submit" id="submitBtn" class="btn-primary">Войти</button>
         </form>

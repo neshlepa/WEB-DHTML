@@ -7,35 +7,42 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="main-body">
-    <div id="header-root" style="width: 100%; display: flex; justify-content: center;"></div>
+    <div id="header-root"></div>
     <main class="main-content">
         <aside class="left-panel">
             <h2 class="hero-title">Найди блюдо <br><span class="highlight">по душе</span></h2>
-            <p class="hero-subtitle">Свайпни вправо, чтобы добавить в план, сохрани на потом или пропусти, чтобы увидеть следующее.</p>
+            <p class="hero-subtitle">Свайпни вправо, чтобы добавить в понравившиеся, вверх — в избранное, или влево, чтобы пропустить.</p>
             <div class="instructions">
-                <div class="instruction-item"><span class="arrow green">→</span> <div><b>Нравится</b><br><small>ДОБАВИТЬ В ПЛАН</small></div></div>
-                <div class="instruction-item"><span class="arrow yellow">↑</span> <div><b>Сохранить</b><br><small>ОТЛОЖИТЬ НА ПОТОМ</small></div></div>
+                <div class="instruction-item"><span class="arrow green">→</span> <div><b>Нравится</b><br><small>ДОБАВИТЬ В ЛАЙКИ</small></div></div>
+                <div class="instruction-item"><span class="arrow yellow">↑</span> <div><b>Сохранить</b><br><small>В ИЗБРАННОЕ</small></div></div>
                 <div class="instruction-item"><span class="arrow red">←</span> <div><b>Пропустить</b><br><small>СЛЕДУЮЩЕЕ БЛЮДО</small></div></div>
             </div>
             <div class="stats-box">
                 <div class="stat"><span class="stat-num" id="likedCount">0</span><br><small>НРАВИТСЯ</small></div>
-                <div class="stat"><span class="stat-num" id="savedCount">0</span><br><small>СОХРАНЕНО</small></div>
-                <div class="stat"><span class="stat-num" id="leftCount">10</span><br><small>ОСТАЛОСЬ</small></div>
+                <div class="stat"><span class="stat-num" id="savedCount">0</span><br><small>ИЗБРАННОЕ</small></div>
+                <div class="stat"><span class="stat-num" id="leftCount">0</span><br><small>В ПОДБОРКЕ</small></div>
             </div>
         </aside>
+
         <section class="center-panel">
-            <div class="card-wrapper" id="cardWrapper"><div class="loading">Загрузка рецептов...</div></div>
+            <div class="card-wrapper" id="cardWrapper">
+                <div class="loading">Загрузка рецептов...</div>
+            </div>
         </section>
+
         <aside class="right-panel">
             <div class="info-section" id="upNowSection" style="display: none;">
                 <p class="section-label">СЕЙЧАС В ЛЕНТЕ</p>
-                <div class="info-card">
+                <div class="info-card" id="upNowCard" title="Нажмите, чтобы открыть полный рецепт">
                     <h3 id="upNowTitle"></h3>
                     <ul class="ingredients-list" id="upNowIngredients"></ul>
                 </div>
             </div>
             <div class="info-section" id="likedSection" style="display: none;">
-                <p class="section-label">ПОНРАВИВШИЕСЯ БЛЮДА</p>
+                <div class="section-label-row">
+                    <p class="section-label">ПОНРАВИВШИЕСЯ (ПОСЛЕДНИЕ 5)</p>
+                    <a href="saved.html" class="section-link">Все →</a>
+                </div>
                 <div id="likedList"></div>
             </div>
         </aside>
