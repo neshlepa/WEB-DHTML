@@ -117,13 +117,14 @@
 
 
   "recipes": [
-    {
+        {
       "name": "Китайская лапша с курицей и овощами",
       "photoUrl": "/images/recipes/chn_ndl_chkn_vgtbls.jpg",
       "time": 30,
       "difficulty": 3,
       "instruction": "1. Отварите лапшу до полуготовности согласно инструкции на упаковке.\n2. Нарежьте куриное филе тонкими полосками и обжарьте на масле 5 минут.\n3. Добавьте нарезанные соломкой морковь, перец и лук, готовьте еще 5 минут.\n4. Добавьте лапшу, соевый соус, тертый имбирь и чеснок, перемешайте и прогрейте 3 минуты.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "SOY"],
 
@@ -141,11 +142,12 @@
     },
     {
       "name": "Шакшука",
-      "photoUrl": "https://images.pexels.com/photos/6275160/pexels-photo-6275160.jpeg",
+      "photoUrl": "/images/recipes/shakshuka.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Обжарьте нарезанные лук и перец на масле 5 минут.\n2. Добавьте тертые помидоры и чеснок, тушите 7 минут до загустения.\n3. Сделайте углубления и вбейте яйца, не повредив желтки.\n4. Готовьте под крышкой 5 минут, посыпьте зеленью.",
       
+      "mealTypes": ["BREAKFAST", "DINNER"],
       "dietaryPreferences": ["LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["EGGS"],
 
@@ -161,11 +163,12 @@
     },
     {
       "name": "Омлет с сыром и помидорами",
-      "photoUrl": "https://images.unsplash.com/photo-1510693206972-df098062cb71?q=80&w=1598&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "photoUrl": "/images/recipes/omlet_cheese_tomatoes.jpg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Взбейте яйца с молоком и щепоткой соли.\n2. Вылейте смесь на сковороду с маслом и готовьте 3 минуты.\n3. Выложите ломтики помидоров и тертый сыр.\n4. Накройте крышкой и готовьте еще 4 минуты до расплавления сыра.",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["EGGS", "LACTOSE"],
 
@@ -186,6 +189,7 @@
       "allergens": ["EGGS", "LACTOSE"],
       "instruction": "1. Взбейте яйца со сливками.\n2. Вылейте на сковороду с маслом и постоянно помешивайте на слабом огне 3-4 минуты.\n3. Снимите с огня, когда яйца еще слегка влажные.\n4. Выложите страчателлу и половинки помидоров, подавайте сразу.",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "LACTOSE"],
 
@@ -204,6 +208,7 @@
       "difficulty": 2,
       "instruction": "1. Нарезать чеснок на мелкие слайсы.\n2. Обжарить чеснок на сливочном масле.\n3. Нарезанный кубиками черный хлеб выложить на сковороду.\n4. Обжарить хлеб минуты 2 и разбить яйца. \n5. Готовить до момента схватывания яиц",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN"],
 
@@ -217,11 +222,12 @@
     },
     {
       "name": "Паста альфредо",
-      "photoUrl": "https://plus.unsplash.com/premium_photo-1778342449541-20a22fa5b4e2?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "photoUrl": "/images/recipes/alfredo.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Растопите масло и прогрейте измельченный чеснок 1 минуту.\n3. Влейте сливки и доведите до легкого загустения.\n4. Добавьте пасту и тертый сыр, перемешайте до однородного соуса.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -240,6 +246,7 @@
       "difficulty": 2,
       "instruction": "1. Обжарьте куриное филе небольшими кусочками до готовности.\n2. Нарежьте помидор и зелень, натрите сыр.\n3. Смешайте начинку со сметаной и заверните в лаваш конвертиками.\n4. Обжарьте конвертики на сухой сковороде по 2 минуты с каждой стороны.",
       
+      "mealTypes": ["SNACK", "LUNCH"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"], 
 
@@ -259,6 +266,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите картофель, морковь и яйца до готовности и остудите.\n2. Нарежьте все ингредиенты мелкими кубиками.\n3. Добавьте зеленый горошек и нарезанный огурец.\n4. Заправьте майонезом, посолите и перемешайте.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["EGGS"],
 
@@ -279,6 +287,7 @@
       "difficulty": 1,
       "instruction": "1. Обжарьте нарезанные лук и морковь на масле 5 минут.\n2. Добавьте тушенку и прогрейте, разминая мясо вилкой.\n3. Всыпьте промытую гречку и залейте водой в пропорции 1:2.\n4. Варите под крышкой 20 минут до впитывания воды.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -292,11 +301,12 @@
     },
     {
       "name": "Драники",
-      "photoUrl": "https://images.pexels.com/photos/22711483/pexels-photo-22711483.jpeg",
+      "photoUrl": "/images/recipes/draniki.jpg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Натрите картофель и чеснок на мелкой терке и отожмите лишнюю жидкость.\n2. Добавьте яйцо, муку и соль, перемешайте до однородности.\n3. Выкладывайте тесто ложкой на разогретое масло и жарьте по 3 минуты с каждой стороны.\n4. Подавайте со сметаной.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -314,11 +324,12 @@
 
     {
       "name": "Оладьи на кефире",
-      "photoUrl": "https://images.pexels.com/photos/36457612/pexels-photo-36457612.jpeg",
+      "photoUrl": "/images/recipes/oladi_na_kefire.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Взбейте яйцо с сахаром и кефиром.\n2. Введите муку и перемешайте до густоты сметаны.\n3. Жарьте оладьи на разогретом масле по 2-3 минуты с каждой стороны.\n4. Подавайте со сметаной.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -333,11 +344,12 @@
     },
     {
       "name": "Блины классические",
-      "photoUrl": "https://images.pexels.com/photos/4725641/pexels-photo-4725641.jpeg",
+      "photoUrl": "/images/recipes/blini.jpg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром и половиной молока.\n2. Введите муку и замесите густое тесто без комочков.\n3. Разведите оставшимся молоком до жидкой консистенции, добавьте масло.\n4. Жарьте тонкие блины на разогретой сковороде по 1-2 минуты с каждой стороны.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -356,6 +368,7 @@
       "difficulty": 4,
       "instruction": "1. Растопите масло с сахаром в форме и выложите яблоки дольками.\n2. Карамелизуйте яблоки на плите 10 минут.\n3. Накройте раскатанным тестом, заправив края внутрь формы.\n4. Запекайте при 190 градусах 25 минут и переверните горячим.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -370,11 +383,12 @@
     },
     {
       "name": "Винегрет",
-      "photoUrl": "https://images.pexels.com/photos/32705781/pexels-photo-32705781.jpeg",
+      "photoUrl": "/images/recipes/vinegret.jpg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Отварите свеклу, картофель и морковь до готовности и остудите.\n2. Нарежьте все овощи мелкими кубиками.\n3. Добавьте горошек, нарезанный соленый огурец и лук.\n4. Заправьте маслом, перемешайте и дайте настояться 15 минут.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": [],
 
@@ -390,11 +404,12 @@
     },
     {
       "name": "Удон с курицей и овощами",
-      "photoUrl": "https://images.pexels.com/photos/10692540/pexels-photo-10692540.jpeg",
+      "photoUrl": "/images/recipes/udon.jpg",
       "time": 30,
       "difficulty": 3,
       "instruction": "1. Отварите удон до готовности и промойте.\n2. Обжарьте курицу полосками 5 минут на сильном огне.\n3. Добавьте овощи соломкой и жарьте еще 4 минуты.\n4. Верните лапшу, влейте соевый соус с имбирем и чесноком, прогрейте 2 минуты.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "SOY"],
 
@@ -411,11 +426,12 @@
     },
     {
       "name": "Фунчоза с овощами",
-      "photoUrl": "https://images.pexels.com/photos/20244036/pexels-photo-20244036.jpeg",
+      "photoUrl": "/images/recipes/funchosa.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Залейте фунчозу кипятком на 5 минут и откиньте на дуршлаг.\n2. Нарежьте овощи тонкой соломкой.\n3. Соедините лапшу с овощами, чесноком и соевым соусом.\n4. Заправьте маслом и охладите 10 минут перед подачей.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -431,11 +447,12 @@
     },
     {
       "name": "Макароны с креветками в сливочном соусе",
-      "photoUrl": "https://images.pexels.com/photos/4518881/pexels-photo-4518881.jpeg",
+      "photoUrl": "/images/recipes/macarony_crevetki.jpg",
       "time": 25,
       "difficulty": 3,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Обжарьте креветки на сливочном масле с чесноком 3 минуты.\n3. Влейте сливки, добавьте нарезанный помидор и прогрейте 4 минуты.\n4. Соедините соус с пастой и перемешайте.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "SEAFOOD"],
 
@@ -450,14 +467,15 @@
     },
     {
       "name": "Плов с бараниной",
-      "photoUrl": "https://images.pexels.com/photos/32558904/pexels-photo-32558904.jpeg",
+      "photoUrl": "/images/recipes/plov_baranina.jpg",
       "time": 60,
       "difficulty": 4,
       "instruction": "1. Обжарьте мясо кусочками на масле до корочки.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше и добавьте чеснок.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": [],
-      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
+
       "recipeIngredients": [
         { "ingredientName": "Рис белый (сухой)", "amountGrams": 150 },
         { "ingredientName": "Баранина", "amountGrams": 200 },
@@ -469,14 +487,15 @@
     },
     {
       "name": "Рамен с курицей",
-      "photoUrl": "https://images.pexels.com/photos/27219797/pexels-photo-27219797.jpeg",
+      "photoUrl": "/images/recipes/ramen-chicken.jpg",
       "time": 45,
       "difficulty": 4,
       "instruction": "1. Сварите бульон из филе с имбирем и чесноком 20 минут.\n2. Отдельно отварите лапшу и яйцо всмятку.\n3. Соберите тарелку: лапша, нарезанное филе, половинка яйца.\n4. Залейте бульоном с соевым соусом и посыпьте зеленым луком.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "EGGS", "SOY"],
-      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
+
       "recipeIngredients": [
         { "ingredientName": "Лапша рамен (сухая)", "amountGrams": 100 },
         { "ingredientName": "Куриное филе", "amountGrams": 150 },
@@ -490,14 +509,15 @@
     },
     {
       "name": "Лазанья болоньезе",
-      "photoUrl": "https://images.pexels.com/photos/31119111/pexels-photo-31119111.jpeg",
+      "photoUrl": "/images/recipes/lasania_bolon.jpg",
       "time": 90,
       "difficulty": 5,
       "instruction": "1. Обжарьте говядину с луком и чесноком, добавьте тертые помидоры и тушите 15 минут.\n2. Сварите соус бешамель из молока, муки и сливочного масла.\n3. Соберите лазанью слоями: листы, мясной соус, бешамель, сыр.\n4. Запекайте при 180 градусах 40 минут до румяной корочки.",
-
+      
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
-      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
+
       "recipeIngredients": [
         { "ingredientName": "Листы лазаньи (сухие)", "amountGrams": 120 },
         { "ingredientName": "Говядина", "amountGrams": 250 },
@@ -513,16 +533,17 @@
 
  
 
-    {
+        {
       "name": "Курица в кисло-сладком соусе",
-      "photoUrl": "https://images.pexels.com/photos/5848527/pexels-photo-5848527.jpeg",
+      "photoUrl": "/images/recipes/chicken_kislo-slad.jpg",
       "time": 40,
       "difficulty": 3,
       "instruction": "1. Обжарьте курицу кусочками на сильном огне 7 минут.\n2. Добавьте овощи соломкой и жарьте еще 5 минут.\n3. Влейте соус из соевого соуса, томатной пасты, сахара, уксуса и чеснока, тушите 5 минут.\n4. Подавайте с отварным рисом.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["SOY", "GLUTEN"],
-      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
+
       "recipeIngredients": [
         { "ingredientName": "Куриное филе", "amountGrams": 300 },
         { "ingredientName": "Перец болгарский", "amountGrams": 80 },
@@ -544,6 +565,7 @@
       "difficulty": 1,
       "instruction": "1. Промойте гречку и отварите в воде 10 минут до полуготовности.\n2. Влейте горячее молоко, добавьте сахар и соль.\n3. Варите на слабом огне 15 минут до мягкости крупы.\n4. Снимите с огня и добавьте сливочное масло.",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -556,14 +578,15 @@
     },
     {
       "name": "Куриное филе с овощами в сливочном соусе",
-      "photoUrl": "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+      "photoUrl": "/images/recipes/chicken-slivki.jpg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Обжарьте курицу кусочками 7 минут до румяности.\n2. Добавьте нарезанные кабачок, перец, морковь и лук, готовьте 7 минут.\n3. Влейте сливки с чесноком и тушите под крышкой 10 минут.\n4. Посолите и подавайте горячим.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
-      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
+
       "recipeIngredients": [
         { "ingredientName": "Куриное филе", "amountGrams": 250 },
         { "ingredientName": "Кабачок", "amountGrams": 150 },
@@ -582,6 +605,7 @@
       "difficulty": 3,
       "instruction": "1. Пропустите филе минтая, размоченный хлеб и лук через мясорубку, добавьте яйцо.\n2. Сформуйте котлеты, обваляйте в муке и обжарьте по 4 минуты с каждой стороны.\n3. Отварите картофель и приготовьте пюре с молоком и сливочным маслом.\n4. Подавайте котлеты с пюре.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["FISH", "GLUTEN", "LACTOSE", "EGGS"],
 
@@ -599,14 +623,15 @@
     },
     {
       "name": "Карбонара со сливками",
-      "photoUrl": "https://images.pexels.com/photos/35622107/pexels-photo-35622107.jpeg",
+      "photoUrl": "/images/recipes/karbonara.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Обжарьте бекон с чесноком до хруста.\n3. Влейте сливки, прогрейте 2 минуты и снимите с огня.\n4. Смешайте пасту с соусом, яйцом и тертым сыром, быстро перемешайте.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
-      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER", "SNACK"],
+
       "recipeIngredients": [
         { "ingredientName": "Паста сухая", "amountGrams": 150 },
         { "ingredientName": "Бекон", "amountGrams": 100 },
@@ -618,11 +643,12 @@
     },
     {
       "name": "Сливочный суп-пюре из тыквы",
-      "photoUrl": "https://images.pexels.com/photos/36555132/pexels-photo-36555132.jpeg",
+      "photoUrl": "/images/recipes/soup-pure.jpg",
       "time": 35,
       "difficulty": 2,
       "instruction": "1. Обжарьте лук и чеснок на сливочном масле 3 минуты.\n2. Добавьте кубики тыквы, залейте водой и варите 15 минут до мягкости.\n3. Пробейте суп блендером до однородности.\n4. Влейте сливки, прогрейте 3 минуты и подавайте.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -636,11 +662,12 @@
     },
     {
       "name": "Овощное рагу с индейкой и томатной пастой",
-      "photoUrl": "https://images.pexels.com/photos/12931100/pexels-photo-12931100.jpeg",
+      "photoUrl": "/images/recipes/ovoshnoe_ragu.jpg",
       "time": 50,
       "difficulty": 2,
       "instruction": "1. Обжарьте индейку кусочками 7 минут.\n2. Добавьте картофель, кабачок, морковь и лук, жарьте 10 минут.\n3. Разведите томатную пасту с чесноком в стакане воды и влейте в рагу.\n4. Тушите под крышкой 25 минут до мягкости овощей.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -657,11 +684,12 @@
     },
     {
       "name": "Салат с тунцом и яйцом",
-      "photoUrl": "https://images.pexels.com/photos/6896393/pexels-photo-6896393.jpeg",
+      "photoUrl": "/images/recipes/salat-tunec.jpg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Отварите яйца вкрутую и нарежьте кубиками.\n2. Нарежьте огурец и порвите листья салата руками.\n3. Добавьте тунца, размятый вилкой.\n4. Заправьте майонезом и аккуратно перемешайте.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["FISH", "EGGS"],
 
@@ -675,11 +703,12 @@
     },
     {
       "name": "Курица с грибами в сливочном соусе",
-      "photoUrl": "https://images.pexels.com/photos/37336685/pexels-photo-37336685.jpeg",
+      "photoUrl": "/images/recipes/chick-mashrooms.jpg",
       "time": 40,
       "difficulty": 2,
       "instruction": "1. Обжарьте курицу кусочками 7 минут до румяности.\n2. Добавьте шампиньоны пластинами и лук, жарьте 8 минут.\n3. Влейте сливки с чесноком и тушите 10 минут на слабом огне.\n4. Подавайте с любым гарниром.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -694,11 +723,12 @@
     },
     {
       "name": "Жюльен с грибами",
-      "photoUrl": "https://images.pexels.com/photos/4408037/pexels-photo-4408037.jpeg",
+      "photoUrl": "/images/recipes/zhulien.jpg",
       "time": 45,
       "difficulty": 3,
       "instruction": "1. Обжарьте шампиньоны с луком до выпаривания жидкости.\n2. Влейте сливки и тушите 5 минут до загустения.\n3. Разложите массу по кокотницам и посыпьте тертым сыром.\n4. Запекайте при 200 градусах 15 минут до золотистой корочки.",
       
+      "mealTypes": ["SNACK", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -713,13 +743,14 @@
 
  
 
-    {
+        {
       "name": "Борщ",
-      "photoUrl": "https://images.pexels.com/photos/18955541/pexels-photo-18955541.jpeg",
+      "photoUrl": "/images/recipes/borsh.jpg",
       "time": 90,
       "difficulty": 4,
       "instruction": "1. Сварите бульон из говядины 40 минут.\n2. Спассеруйте лук, морковь и свеклу с томатной пастой.\n3. Добавьте в бульон картофель и капусту, варите 15 минут.\n4. Введите пассеровку и чеснок, варите еще 10 минут; подавайте со сметаной и укропом.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -739,11 +770,12 @@
     },
     {
       "name": "Том ям",
-      "photoUrl": "https://images.pexels.com/photos/34699479/pexels-photo-34699479.jpeg",
+      "photoUrl": "/images/recipes/tom-yam.jpg",
       "time": 40,
       "difficulty": 4,
       "instruction": "1. Сварите бульон с имбирем, чесноком и чили 10 минут.\n2. Добавьте грибы и помидоры, варите 5 минут.\n3. Влейте кокосовое молоко и соевый соус, доведите до кипения.\n4. Положите креветки и влейте сок лайма, варите еще 3 минуты.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["SEAFOOD", "SOY"],
 
@@ -761,11 +793,12 @@
     },
     {
       "name": "Цезарь с курицей",
-      "photoUrl": "https://images.pexels.com/photos/35532838/pexels-photo-35532838.jpeg",
+      "photoUrl": "/images/recipes/cesar.jpeg",
       "time": 30,
       "difficulty": 3,
       "instruction": "1. Приготовьте сухарики из хлеба с чесноком и маслом в духовке 10 минут.\n2. Обжарьте филе до готовности и нарежьте ломтиками.\n3. Смешайте соус из яйца, майонеза и тертого сыра.\n4. Соберите салат: листья, курица, помидоры, сухарики, соус.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -788,6 +821,7 @@
       "difficulty": 2,
       "instruction": "1. Замаринуйте филе в майонезе с чесноком на 15 минут.\n2. Смешайте с картофелем и морковью крупными кусками.\n3. Переложите в рукав для запекания и закрепите края.\n4. Запекайте при 190 градусах 40 минут.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -807,6 +841,7 @@
       "difficulty": 3,
       "instruction": "1. Нарежьте говядину тонкими полосками и обжарьте на масле 7 минут.\n2. Добавьте лук и жарьте еще 5 минут.\n3. Посыпьте мукой, влейте сметану и тушите 10 минут.\n4. Подавайте с отварными макаронами.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -821,11 +856,12 @@
     },
     {
       "name": "Паста по-итальянски",
-      "photoUrl": "https://images.pexels.com/photos/39022061/pexels-photo-39022061.jpeg",
+      "photoUrl": "/images/recipes/italy_pasta.jpg",
       "time": 25,
       "difficulty": 2,
       "instruction": "1. Отварите пасту до состояния аль денте.\n2. Спассеруйте лук и чеснок на масле 3 минуты.\n3. Добавьте нарезанные помидоры и базилик, тушите 10 минут.\n4. Смешайте соус с пастой и посыпьте тертым сыром.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -841,11 +877,12 @@
     },
     {
       "name": "Творог со сметаной",
-      "photoUrl": "https://images.pexels.com/photos/6851930/pexels-photo-6851930.jpeg",
+      "photoUrl": "/images/recipes/tvorog.jpeg",
       "time": 5,
       "difficulty": 1,
       "instruction": "1. Выложите творог в тарелку.\n2. Добавьте сахар, мед, джем или варенье и перемешайте.\n3. Полейте сметаной.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -857,11 +894,12 @@
     },
     {
       "name": "Картошка в мундире",
-      "photoUrl": "https://images.pexels.com/photos/18058371/pexels-photo-18058371.jpeg",
+      "photoUrl": "/images/recipes/ptato-mundir.jpg",
       "time": 45,
       "difficulty": 1,
       "instruction": "1. Тщательно вымойте картофель и нарежьте дольками, не очищая.\n2. Смешайте с маслом, чесноком и солью.\n3. Запекайте при 200 градусах 30 минут до румяности.\n4. Посыпьте укропом и подавайте со сметаной.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": ["LACTOSE"],
 
@@ -875,11 +913,12 @@
     },
     {
       "name": "Панкейки",
-      "photoUrl": "https://images.pexels.com/photos/11729184/pexels-photo-11729184.jpeg",
+      "photoUrl": "/images/recipes/pancackes.jpeg",
       "time": 30,
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром и молоком.\n2. Смешайте муку с разрыхлителем и введите в жидкую часть без комочков.\n3. Жарьте на сливочном масле по 2 минуты с каждой стороны.\n4. Сложите стопкой и подавайте.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -894,11 +933,12 @@
     },
     {
       "name": "Пирожное картошка",
-      "photoUrl": "https://images.pexels.com/photos/7333059/pexels-photo-7333059.jpeg",
+      "photoUrl": "/images/recipes/pirzhn-kartoshka.jpg",
       "time": 40,
       "difficulty": 3,
       "instruction": "1. Измельчите печенье в мелкую крошку.\n2. Смешайте размягченное масло со сгущенкой и какао.\n3. Соедините с крошкой и сформуйте пирожные.\n4. Охладите в холодильнике 2 часа.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -912,13 +952,14 @@
 
  
 
-    {
+        {
       "name": "Чизкейк",
-      "photoUrl": "https://images.pexels.com/photos/19534470/pexels-photo-19534470.jpeg",
+      "photoUrl": "/images/recipes/chizkeyk.jpg",
       "time": 90,
       "difficulty": 4,
       "instruction": "1. Измельчите печенье и смешайте с растопленным сливочным маслом, утрамбуйте на дно формы.\n2. Взбейте сливочный сыр с яйцами и сахаром до однородности.\n3. Вылейте массу на основу и выпекайте при 160 градусах 50 минут.\n4. Остудите и охладите в холодильнике 4 часа перед подачей.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -932,11 +973,12 @@
     },
     {
       "name": "Греческий салат",
-      "photoUrl": "https://images.pexels.com/photos/724669/pexels-photo-724669.jpeg",
+      "photoUrl": "/images/recipes/grechesky.jpg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Нарежьте помидоры, огурцы и перец крупными кубиками.\n2. Добавьте кольца красного лука и маслины.\n3. Сверху положите кубики сыра фета.\n4. Заправьте оливковым маслом, посолите и аккуратно перемешайте.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -957,6 +999,7 @@
       "difficulty": 1,
       "instruction": "1. Нарежьте помидоры и огурцы кубиками.\n2. Порвите листья салата руками.\n3. Смешайте овощи в миске.\n4. Заправьте подсолнечным маслом, посолите по вкусу.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -969,11 +1012,12 @@
     },
     {
       "name": "Манная каша",
-      "photoUrl": "https://images.pexels.com/photos/7352790/pexels-photo-7352790.jpeg",
+      "photoUrl": "/images/recipes/manka.jpg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Вскипятите молоко с сахаром.\n2. Тонкой струйкой всыпьте манную крупу, постоянно помешивая венчиком.\n3. Варите на медленном огне 5 минут до загустения.\n4. Снимите с огня и добавьте кусочек сливочного масла.\n5. По желанию можно добавить ягоды иьи варенье",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -986,11 +1030,12 @@
     },
     {
       "name": "Овсянка на молоке",
-      "photoUrl": "https://images.pexels.com/photos/19745775/pexels-photo-19745775.jpeg",
+      "photoUrl": "/images/recipes/ovsanka.jpg",
       "time": 15,
       "difficulty": 1,
       "instruction": "1. Вскипятите молоко.\n2. Всыпьте овсяные хлопья и варите, помешивая, 5-7 минут.\n3. Добавьте сахар и щепотку соли.\n4. Снимите с огня, накройте крышкой и дайте настояться 3 минуты, добавьте масло.",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -1008,6 +1053,7 @@
       "difficulty": 2,
       "instruction": "1. Тщательно промойте пшенную крупу горячей водой до прозрачной воды.\n2. Залейте молоком, доведите до кипения.\n3. Варите на слабом огне под крышкой 20 минут, периодически помешивая.\n4. Добавьте сахар и щедрый кусок сливочного масла.",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1020,11 +1066,12 @@
     },
     {
       "name": "Французский тост",
-      "photoUrl": "https://images.pexels.com/photos/15820912/pexels-photo-15820912.jpeg",
+      "photoUrl": "/images/recipes/tosty.jpg",
       "time": 10,
       "difficulty": 1,
       "instruction": "1. Взбейте яйца с молоком и сахаром.\n2. Обмакните ломтики хлеба в смесь с двух сторон.\n3. Обжарьте на сливочном масле по 2 минуты с каждой стороны до золотистой корочки.\n4. Подавайте теплыми, можно с медом или ягодами.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -1038,11 +1085,12 @@
     },
     {
       "name": "Сэндвичи",
-      "photoUrl": "https://images.pexels.com/photos/36863863/pexels-photo-36863863.jpeg",
+      "photoUrl": "/images/recipes/sandwich.jpg",
       "time": 10,
       "difficulty": 1,
       "instruction": "1. Смажьте ломтики хлеба мягким сливочным маслом.\n2. Выложите на один ломтик ветчину и кружочки помидора.\n3. Посыпьте тертым сыром.\n4. Накройте вторым ломтиком хлеба и разрежьте по диагонали.",
       
+      "mealTypes": ["BREAKFAST", "SNACK", "LUNCH"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE"],
 
@@ -1061,6 +1109,7 @@
       "difficulty": 3,
       "instruction": "1. Отварите картофель, морковь и яйца, остудите и натрите на терке.\n2. Мелко нарежьте лук и разомните сайру вилкой.\n3. Выкладывайте слоями: картофель, лук, сайра, морковь, яйцо.\n4. Каждый слой промазывайте майонезом. Дайте настояться 1 час.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": ["FISH", "EGGS"],
 
@@ -1082,6 +1131,7 @@
       "difficulty": 1,
       "instruction": "1. Слейте жидкость с фасоли и выложите её в миску.\n2. Добавьте сухарики и измельченный чеснок.\n3. Заправьте майонезом и аккуратно перемешайте.\n4. Посыпьте свежим укропом перед подачей.",
       
+      "mealTypes": ["SNACK", "LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["GLUTEN"],
 
@@ -1100,6 +1150,7 @@
       "difficulty": 3,
       "instruction": "1. Сварите бульон из говядины 40 минут, мясо достаньте и нарежьте.\n2. Добавьте в бульон нашинкованную капусту и варите 10 минут.\n3. Спассеруйте лук и морковь с томатной пастой, добавьте в суп.\n4. Верните мясо, варите 5 минут; подавайте со сметаной.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1121,6 +1172,7 @@
       "difficulty": 3,
       "instruction": "1. Отварите перловку до полуготовности.\n2. Сварите бульон из говядины, добавьте картофель и перловку.\n3. Спассеруйте лук, морковь и нарезанные соленые огурцы.\n4. Добавьте пассеровку в суп, варите 10 минут; подавайте со сметаной.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1142,6 +1194,7 @@
       "difficulty": 3,
       "instruction": "1. Замочите горох на 2 часа, затем отварите до мягкости.\n2. Добавьте нарезанный картофель и варите 15 минут.\n3. Спассеруйте лук и морковь, добавьте в суп.\n4. Добавьте нарезанную ветчину, варите 5 минут и подавайте.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN"],
       "allergens": [],
 
@@ -1161,6 +1214,7 @@
       "difficulty": 2,
       "instruction": "1. Обжарьте лук на сливочном масле 3 минуты.\n2. Добавьте соцветия брокколи и картофель, залейте водой и варите 15 минут.\n3. Пробейте суп блендером до однородности.\n4. Влейте сливки, добавьте плавленый сыр и прогрейте до его растворения.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "LOW_CARB", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1180,6 +1234,7 @@
       "difficulty": 2,
       "instruction": "1. Нарежьте шампиньоны и обжарьте с луком до золотистости.\n2. Добавьте нарезанный картофель в кипящую воду и варите 10 минут.\n3. Введите грибы с луком, варите еще 10 минут.\n4. Добавьте сметану, посолите и подавайте с укропом.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1200,6 +1255,7 @@
       "difficulty": 2,
       "instruction": "1. Обжарьте лук и чеснок на масле 3 минуты.\n2. Добавьте нарезанные помидоры и тушите 10 минут до мягкости.\n3. Залейте водой, пробейте блендером и верните на плиту.\n4. Влейте сливки, добавьте базилик и прогрейте 3 минуты.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": ["LACTOSE"],
 
@@ -1219,6 +1275,7 @@
       "difficulty": 2,
       "instruction": "1. Сварите бульон из куриного филе 20 минут, достаньте и нарежьте мясо.\n2. Добавьте в бульон нарезанный картофель, морковь и лук.\n3. Варите 10 минут, затем добавьте пасту.\n4. Верните мясо, варите до готовности пасты и подавайте.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN"],
 
@@ -1238,6 +1295,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите пасту до готовности и откиньте на дуршлаг.\n2. Обжарьте куриное филе с луком до румяности.\n3. Добавьте пасту к мясу, перемешайте и прогрейте 2 минуты.\n4. Посолите, поперчите и подавайте горячим.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN"],
 
@@ -1255,6 +1313,7 @@
       "difficulty": 3,
       "instruction": "1. Смешайте мед, соевый соус, тертый имбирь и чеснок.\n2. Замаринуйте крылья в соусе на 20 минут.\n3. Выложите крылья на противень и запекайте при 200 градусах 35 минут.\n4. Периодически поливайте выделившимся соком.",
       
+      "mealTypes": ["SNACK", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["SOY"],
 
@@ -1267,6 +1326,8 @@
       ]
     },
 
+    
+
     {
       "name": "Плов с говядиной",
       "photoUrl": "https://images.pexels.com/photos/14286683/pexels-photo-14286683.jpeg",
@@ -1274,6 +1335,7 @@
       "difficulty": 4,
       "instruction": "1. Обжарьте говядину кусочками на сильном огне до корочки.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше, добавьте чеснок и зиру.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -1294,6 +1356,7 @@
       "difficulty": 2,
       "instruction": "1. Нарежьте филе трески порционными кусками.\n2. Обваляйте рыбу в муке, затем во взбитом яйце.\n3. Обжарьте на разогретом масле по 4 минуты с каждой стороны до золотистой корочки.\n4. Подавайте с долькой лимона.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["FISH", "GLUTEN", "EGGS"],
 
@@ -1311,6 +1374,7 @@
       "difficulty": 1,
       "instruction": "1. Нарежьте кабачки кружочками толщиной 1 см.\n2. Обжарьте на масле по 3 минуты с каждой стороны.\n3. Выложите на бумажное полотенце, чтобы убрать лишнее масло.\n4. Смажьте каждый кружок смесью сметаны с чесноком и посыпьте укропом.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": ["LACTOSE"],
 
@@ -1329,6 +1393,7 @@
       "difficulty": 2,
       "instruction": "1. Нарежьте баклажаны кружочками и обжарьте на масле до мягкости.\n2. Нарежьте помидоры кружочками того же размера.\n3. Выложите слоями: баклажан, помидор, чеснок.\n4. Посыпьте базиликом и полейте оливковым маслом.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1347,6 +1412,7 @@
       "difficulty": 2,
       "instruction": "1. Нарежьте все овощи кубиками.\n2. Обжарьте лук и морковь, добавьте баклажан и кабачок, жарьте 10 минут.\n3. Добавьте помидоры и томатную пасту, тушите под крышкой 20 минут.\n4. Посолите, поперчите и посыпьте зеленью перед подачей.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1367,6 +1433,7 @@
       "difficulty": 1,
       "instruction": "1. Тщательно вымойте картофель и нарежьте дольками, не очищая.\n2. Смешайте с маслом, паприкой, чесноком и солью.\n3. Выложите на противень в один слой.\n4. Запекайте при 200 градусах 30 минут до румяности.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1384,6 +1451,7 @@
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром и ванильным сахаром до пышной пены.\n2. Аккуратно вмешайте муку.\n3. Нарежьте яблоки дольками и выложите на дно формы, залейте тестом.\n4. Запекайте при 180 градусах 35-40 минут до золотистой корочки.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -1402,6 +1470,7 @@
       "difficulty": 2,
       "instruction": "1. Смешайте творог с яйцом, сахаром и манной крупой.\n2. Добавьте размягченное сливочное масло и тщательно перемешайте.\n3. Выложите массу в смазанную форму.\n4. Запекайте при 180 градусах 35-40 минут до румяности.",
       
+      "mealTypes": ["BREAKFAST", "SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1421,6 +1490,7 @@
       "difficulty": 4,
       "instruction": "1. Замесите дрожжевое тесто из муки, молока, дрожжей и масла, дайте подняться.\n2. Сформируйте лодочки и выложите на противень.\n3. Наполните тертым сулугуни и выпекайте 15 минут при 220 градусах.\n4. Достаньте, вбейте в центр яйцо и запекайте еще 3 минуты.",
       
+      "mealTypes": ["BREAKFAST", "LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1440,6 +1510,7 @@
       "difficulty": 3,
       "instruction": "1. Замесите тесто из муки, молока, дрожжей и масла, дайте подняться.\n2. Раскатайте основу и смажьте томатной пастой.\n3. Выложите нарезанную ветчину и помидоры, посыпьте сыром.\n4. Запекайте при 220 градусах 15-20 минут.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1454,6 +1525,9 @@
         { "ingredientName": "Масло подсолнечное", "amountGrams": 15 }
       ]
     },
+
+
+
     {
       "name": "Вареники с творогом",
       "photoUrl": "https://images.pexels.com/photos/8601684/pexels-photo-8601684.jpeg",
@@ -1461,6 +1535,7 @@
       "difficulty": 3,
       "instruction": "1. Замесите тесто из муки, яйца и воды, дайте ему отдохнуть.\n2. Смешайте творог с сахаром и яйцом для начинки.\n3. Раскатайте тесто, вырежьте кружки, положите начинку и залепите края.\n4. Варите в кипящей подсоленной воде 5-7 минут после всплытия. Подавайте со сметаной.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1480,6 +1555,7 @@
       "difficulty": 2,
       "instruction": "1. Взбейте яйца с сахаром до пышной пены.\n2. Аккуратно вмешайте муку и растопленное сливочное масло.\n3. Нарежьте яблоки дольками, выложите на дно формы и залейте тестом.\n4. Запекайте при 180 градусах 35-40 минут до золотистой корочки.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -1499,6 +1575,7 @@
       "difficulty": 3,
       "instruction": "1. Обжарьте фарш с луком до готовности, посолите и поперчите.\n2. Замесите простое тесто из муки, яйца и масла.\n3. Выложите половину теста в форму, распределите мясную начинку.\n4. Накройте второй половиной теста, смажьте яйцом и выпекайте 40 минут при 180 градусах.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1518,6 +1595,7 @@
       "difficulty": 2,
       "instruction": "1. Залейте манную крупу кефиром и оставьте на 30 минут для набухания.\n2. Добавьте яйца, сахар и растопленное масло, тщательно перемешайте.\n3. Всыпьте разрыхлитель и снова перемешайте.\n4. Выпекайте в смазанной форме при 180 градусах 35-40 минут.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1537,6 +1615,7 @@
       "difficulty": 2,
       "instruction": "1. Замочите изюм в теплой воде на 10 минут, затем обсушите.\n2. Взбейте мягкое масло с сахаром, добавьте яйца по одному.\n3. Вмешайте муку с разрыхлителем и подготовленный изюм.\n4. Разложите тесто по формочкам и выпекайте 25 минут при 180 градусах.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN", "LACTOSE", "EGGS"],
 
@@ -1556,6 +1635,7 @@
       "difficulty": 3,
       "instruction": "1. Растопите сливочное масло с горьким шоколадом на водяной бане.\n2. Взбейте яйца с сахаром до легкой пены.\n3. Соедините шоколадную смесь с яичной, аккуратно всыпьте муку и какао.\n4. Выпекайте в квадратной форме 25 минут при 180 градусах (середина должна оставаться влажной).",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "GLUTEN", "LACTOSE"],
 
@@ -1575,6 +1655,7 @@
       "difficulty": 1,
       "instruction": "1. Замочите желатин в холодной воде на 30 минут.\n2. Нагрейте воду с сахаром и ягодами, но не кипятите.\n3. Растворите набухший желатин в теплой ягодной смеси.\n4. Разлейте по формам и уберите в холодильник до полного застывания (около 3 часов).",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1591,6 +1672,7 @@
       "difficulty": 3,
       "instruction": "1. Обжарьте куриное филе кусочками на сильном огне.\n2. Добавьте лук и морковь соломкой, жарьте 10 минут.\n3. Всыпьте промытый рис, залейте водой на 2 см выше, добавьте чеснок и зиру.\n4. Варите под крышкой 25 минут до полного впитывания воды.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -1611,6 +1693,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите рис до готовности и откиньте на дуршлаг.\n2. Обжарьте на масле нарезанные кубиками морковь и лук.\n3. Добавьте зеленый горошек и прогрейте 3 минуты.\n4. Смешайте овощи с рисом, посолите и подавайте.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1629,6 +1712,7 @@
       "difficulty": 2,
       "instruction": "1. Нарежьте картофель кубиками и поставьте вариться.\n2. Добавьте нарезанные морковь и лук.\n3. Через 10 минут добавьте кусочки рыбы, лавровый лист и перец.\n4. Варите 15 минут, в конце посыпьте свежим укропом.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["FISH"],
 
@@ -1642,6 +1726,9 @@
         { "ingredientName": "Укроп свежий", "amountGrams": 10 }
       ]
     },
+
+
+
     {
       "name": "Окрошка на квасе",
       "photoUrl": "https://images.pexels.com/photos/25389798/pexels-photo-25389798.jpeg",
@@ -1649,6 +1736,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите картофель и яйца, остудите и нарежьте мелкими кубиками.\n2. Нарежьте колбасу, редис и огурец.\n3. Смешайте все ингредиенты в кастрюле.\n4. Залейте холодным квасом, добавьте сметану и укроп перед подачей.",
       
+      "mealTypes": ["LUNCH"],
       "dietaryPreferences": ["HALAL", "NO_PORK"],
       "allergens": ["EGGS", "LACTOSE"],
 
@@ -1670,6 +1758,7 @@
       "difficulty": 1,
       "instruction": "1. Отварите свеклу до мягкости, остудите и натрите на крупной терке.\n2. Измельчите чеснок и грецкие орехи.\n3. Смешайте свеклу с чесноком и орехами.\n4. Заправьте майонезом и дайте настояться 15 минут.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": ["NUTS"],
 
@@ -1687,6 +1776,7 @@
       "difficulty": 1,
       "instruction": "1. Отварите куриное филе и нарежьте кубиками.\n2. Нарежьте ананас и сыр небольшими кусочками.\n3. Смешайте курицу, ананас и сыр.\n4. Заправьте майонезом и выложите на листья салата.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1705,6 +1795,7 @@
       "difficulty": 3,
       "instruction": "1. Нарежьте копчености и вареную колбасу соломкой.\n2. Обжарьте лук с томатной пастой.\n3. Сварите бульон, добавьте мясо, пассеровку, каперсы и оливки.\n4. Подавайте с долькой лимона и сметаной.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": [],
       "allergens": ["LACTOSE"],
 
@@ -1726,6 +1817,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите рис и остудите (лучше использовать вчерашний).\n2. Обжарьте на сильном огне нарезанные овощи 3 минуты.\n3. Добавьте рис и разбитое яйцо, быстро перемешивайте.\n4. Влейте соевый соус и жарьте еще 2 минуты.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
       "allergens": ["EGGS", "SOY", "GLUTEN"],
 
@@ -1745,6 +1837,7 @@
       "difficulty": 3,
       "instruction": "1. Нарежьте говядину кубиками и обжарьте на сильном огне до корочки.\n2. Добавьте лук и жарьте 5 минут.\n3. Всыпьте паприку, добавьте томатную пасту и залейте водой.\n4. Тушите под крышкой 60 минут до мягкости мяса.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": ["GLUTEN"],
 
@@ -1764,6 +1857,7 @@
       "difficulty": 1,
       "instruction": "1. Отварите нут до мягкости (или используйте консервированный).\n2. Смешайте нут с тахини, лимонным соком и чесноком в блендере.\n3. Добавьте оливковое масло и взбивайте до однородности.\n4. Подавайте с нарезанными овощами и лавашом.",
       
+      "mealTypes": ["SNACK", "LUNCH"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1784,6 +1878,7 @@
       "difficulty": 2,
       "instruction": "1. Промойте чечевицу и залейте водой, доведите до кипения.\n2. Добавьте нарезанные картофель, морковь и лук.\n3. Варите 25 минут до мягкости чечевицы.\n4. Добавьте томатную пасту, специи и варите еще 5 минут.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
       "allergens": [],
 
@@ -1803,6 +1898,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите булгур согласно инструкции на упаковке.\n2. Обжарьте нут с луком и морковью 5 минут.\n3. Добавьте нарезанные помидоры и тушите 10 минут.\n4. Смешайте булгур с овощной смесью и подавайте.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
       "allergens": ["GLUTEN"],
 
@@ -1822,6 +1918,7 @@
       "difficulty": 3,
       "instruction": "1. Нарежьте все овощи тонкими кружочками одинаковой толщины.\n2. Приготовьте соус: обжарьте лук, чеснок, добавьте томаты и тушите 15 минут.\n3. Выложите соус в форму, сверху чередуйте овощи по спирали.\n4. Запекайте при 180 градусах 40 минут, полив оливковым маслом.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1835,8 +1932,10 @@
         { "ingredientName": "Масло оливковое", "amountGrams": 30 },
         { "ingredientName": "Базилик (сушеный)", "amountGrams": 3 }
       ]
-    }, 
+    },
     
+
+
     {
       "name": "Картофель отварной с укропом",
       "photoUrl": "https://images.pexels.com/photos/8056683/pexels-photo-8056683.jpeg",
@@ -1844,6 +1943,7 @@
       "difficulty": 1,
       "instruction": "1. Очистите картофель и отварите в подсоленной воде до готовности.\n2. Слейте воду и обсушите картофель на плите 1 минуту.\n3. Добавьте сливочное масло и мелко нарезанный укроп.\n4. Аккуратно перемешайте и подавайте горячим.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": ["LACTOSE"],
 
@@ -1860,6 +1960,7 @@
       "difficulty": 2,
       "instruction": "1. Промойте кукурузную крупу и засыпьте в кипящее молоко.\n2. Варите на медленном огне, постоянно помешивая, 20 минут.\n3. Добавьте сахар и щепотку соли.\n4. Снимите с огня, добавьте сливочное масло и дайте настояться 10 минут.",
       
+      "mealTypes": ["BREAKFAST"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
       "allergens": ["LACTOSE"],
 
@@ -1877,6 +1978,7 @@
       "difficulty": 1,
       "instruction": "1. Залейте филе индейки холодной водой и доведите до кипения.\n2. Снимите пену, добавьте лавровый лист и перец горошком.\n3. Варите на слабом огне 30 минут до готовности.\n4. Достаньте мясо, остудите и нарежьте порционными кусками.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -1893,6 +1995,7 @@
       "difficulty": 1,
       "instruction": "1. Залейте куриное филе водой, добавьте целую морковь и луковицу.\n2. Доведите до кипения, снимите пену и варите 25 минут.\n3. Проверьте готовность, проткнув мясо вилкой.\n4. Достаньте филе, остудите и нарежьте ломтиками.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
       "allergens": [],
 
@@ -1910,6 +2013,7 @@
       "difficulty": 1,
       "instruction": "1. Вырежьте у яблок сердцевину, не прорезая дно.\n2. Смешайте сахар с корицей и насыпьте в углубления.\n3. Полейте сверху медом.\n4. Запекайте при 180 градусах 20 минут до мягкости.",
       
+      "mealTypes": ["SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1927,6 +2031,7 @@
       "difficulty": 2,
       "instruction": "1. Нашинкуйте капусту и обжарьте на масле 10 минут.\n2. Добавьте нарезанные лук и морковь, жарьте еще 5 минут.\n3. Влейте разведенную в воде томатную пасту.\n4. Тушите под крышкой 20 минут до мягкости.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1945,6 +2050,7 @@
       "difficulty": 2,
       "instruction": "1. Нарежьте тофу кубиками и обсушите бумажным полотенцем.\n2. Обжарьте на сильном огне до золотистой корочки.\n3. Добавьте тертый имбирь, чеснок и соевый соус.\n4. Тушите 2 минуты, пока соус не загустеет.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB", "HIGH_PROTEIN"],
       "allergens": ["SOY", "GLUTEN"],
 
@@ -1963,6 +2069,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите киноа согласно инструкции и остудите.\n2. Нарежьте огурцы и помидоры мелкими кубиками.\n3. Смешайте киноа с овощами.\n4. Заправьте оливковым маслом и соком лимона.",
       
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "LOW_CARB"],
       "allergens": [],
 
@@ -1981,6 +2088,7 @@
       "difficulty": 2,
       "instruction": "1. Отварите нут до мягкости и пробейте блендером в пюре.\n2. Добавьте мелко нарезанный лук, чеснок и муку.\n3. Сформируйте котлеты и обжарьте на масле по 4 минуты с каждой стороны.\n4. Подавайте со сметаной или свежими овощами.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
       "allergens": ["GLUTEN"],
 
@@ -1999,6 +2107,7 @@
       "difficulty": 2,
       "instruction": "1. Промойте чечевицу и залейте водой, варите 15 минут.\n2. Обжарьте нарезанные лук и морковь на масле.\n3. Добавьте нарезанные помидоры и тушите 5 минут.\n4. Смешайте овощи с чечевицей и прогрейте вместе 5 минут.",
       
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK", "HIGH_PROTEIN"],
       "allergens": [],
 
@@ -2010,12 +2119,16 @@
         { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
       ]
     },
+
+
+
     {
       "name": "Филе с ананасом и сыром в духовке",
       "photoUrl": "/images/recipes/file_cheese.jpg",
       "time": 45,
       "difficulty": 2,
       "instruction": "1. Нарежьте куриное филе на порционные куски и слегка отбейте.\n2. Выложите мясо на противень, смажьте майонезом.\n3. Сверху выложите кусочки ананаса и обильно посыпьте тертым сыром.\n4. Запекайте в духовке при 180 градусах 30-35 минут до золотистой корочки.",
+      "mealTypes": ["LUNCH", "DINNER"],
       "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
       "allergens": ["LACTOSE", "EGGS"],
       "recipeIngredients": [
@@ -2023,6 +2136,348 @@
         { "ingredientName": "Ананас консервированный", "amountGrams": 100 },
         { "ingredientName": "Сыр твердый", "amountGrams": 80 },
         { "ingredientName": "Майонез", "amountGrams": 40 }
+      ]
+    },
+
+
+
+    {
+      "name": "Сырники со сметаной",
+      "photoUrl": "/images/recipes/syrnyky.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Смешайте творог с яйцом, сахаром и ванильным сахаром.\n2. Добавьте муку и перемешайте до однородности.\n3. Сформируйте сырники и обваляйте в муке.\n4. Обжарьте на масле по 3 минуты с каждой стороны. Подавайте со сметаной.",
+      "mealTypes": ["BREAKFAST", "SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE", "EGGS", "GLUTEN"],
+      "recipeIngredients": [
+        { "ingredientName": "Творог 5%", "amountGrams": 400 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Сахар", "amountGrams": 40 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 60 },
+        { "ingredientName": "Ванильный сахар", "amountGrams": 5 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 50 }
+      ]
+    },
+    {
+      "name": "Голубцы с мясом",
+      "photoUrl": "/images/recipes/golubcy.jpg",
+      "time": 90,
+      "difficulty": 4,
+      "instruction": "1. Разберите капусту на листья и бланшируйте 3 минуты.\n2. Смешайте фарш с отварным рисом, луком и специями.\n3. Заверните начинку в капустные листья конвертиком.\n4. Уложите в кастрюлю, залейте томатным соусом и тушите 40 минут.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": [],
+      "recipeIngredients": [
+        { "ingredientName": "Капуста белокочанная", "amountGrams": 500 },
+        { "ingredientName": "Фарш говяжий", "amountGrams": 400 },
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 80 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 100 },
+        { "ingredientName": "Томатная паста", "amountGrams": 60 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 30 }
+      ]
+    },
+    {
+      "name": "Перец фаршированный",
+      "photoUrl": "/images/recipes/percy.jpg",
+      "time": 70,
+      "difficulty": 3,
+      "instruction": "1. Срежьте верхушки перцев и удалите семена.\n2. Смешайте фарш с отварным рисом, луком и зеленью.\n3. Наполните перцы начинкой и уложите в кастрюлю.\n4. Залейте томатно-сметанным соусом и тушите 40 минут.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+      "recipeIngredients": [
+        { "ingredientName": "Перец болгарский", "amountGrams": 600 },
+        { "ingredientName": "Фарш говяжий", "amountGrams": 400 },
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 100 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 80 },
+        { "ingredientName": "Томатная паста", "amountGrams": 50 },
+        { "ingredientName": "Сметана 15%", "amountGrams": 80 }
+      ]
+    },
+    {
+      "name": "Куриные наггетсы домашние",
+      "photoUrl": "/images/recipes/nagetsy.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте куриное филе небольшими кусочками.\n2. Обваляйте каждый кусочек в муке, затем во взбитом яйце и в панировочных сухарях.\n3. Выложите на противень и сбрызните маслом.\n4. Запекайте при 200 градусах 20 минут до золотистой корочки.",
+      "mealTypes": ["LUNCH", "DINNER", "SNACK"],
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "EGGS"],
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 400 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 50 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сухари панировочные", "amountGrams": 100 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Шашлык из курицы",
+      "photoUrl": "/images/recipes/shashlyk-chkn.jpg",
+      "time": 60,
+      "difficulty": 2,
+      "instruction": "1. Нарежьте куриное филе крупными кубиками.\n2. Замаринуйте в смеси лука, специй и лимонного сока на 30 минут.\n3. Нанижите на шампуры, чередуя с луком.\n4. Жарьте на углях 15-20 минут, периодически переворачивая.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": [],
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 500 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 150 },
+        { "ingredientName": "Лимон", "amountGrams": 50 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Рыба запеченная в фольге с лимоном",
+      "photoUrl": "/images/recipes/fish-lemon.jpg",
+      "time": 35,
+      "difficulty": 2,
+      "instruction": "1. Промойте филе трески и обсушите.\n2. Выложите на фольгу, посолите, поперчите.\n3. Сверху положите дольки лимона и веточки укропа.\n4. Заверните фольгу и запекайте при 180 градусах 20 минут.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HIGH_PROTEIN", "LOW_CARB", "HALAL", "NO_PORK"],
+      "allergens": ["FISH"],
+      "recipeIngredients": [
+        { "ingredientName": "Треска (филе)", "amountGrams": 400 },
+        { "ingredientName": "Лимон", "amountGrams": 50 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 },
+        { "ingredientName": "Масло оливковое", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Творожные пончики",
+      "photoUrl": "/images/recipes/ponchiki.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Смешайте творог с яйцом, сахаром и ванильным сахаром.\n2. Добавьте муку и разрыхлитель, замесите мягкое тесто.\n3. Сформируйте шарики и обжарьте в разогретом масле по 2 минуты.\n4. Выложите на бумажное полотенце и посыпьте сахарной пудрой.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE", "EGGS", "GLUTEN"],
+      "recipeIngredients": [
+        { "ingredientName": "Творог 5%", "amountGrams": 300 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 55 },
+        { "ingredientName": "Сахар", "amountGrams": 60 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 150 },
+        { "ingredientName": "Разрыхлитель теста", "amountGrams": 5 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 200 },
+        { "ingredientName": "Сахарная пудра", "amountGrams": 30 }
+      ]
+    },
+    {
+      "name": "Картофельная запеканка с фаршем",
+      "photoUrl": "/images/recipes/zapekanka.jpg",
+      "time": 70,
+      "difficulty": 3,
+      "instruction": "1. Отварите картофель и приготовьте пюре с молоком и маслом.\n2. Обжарьте фарш с луком до готовности.\n3. Выложите слоями в форму: половина пюре, фарш, оставшееся пюре.\n4. Посыпьте тертым сыром и запекайте при 180 градусах 25 минут.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE", "GLUTEN"],
+      "recipeIngredients": [
+        { "ingredientName": "Картофель", "amountGrams": 600 },
+        { "ingredientName": "Фарш говяжий", "amountGrams": 400 },
+        { "ingredientName": "Лук репчатый", "amountGrams": 100 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 150 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 50 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 100 }
+      ]
+    },
+    {
+      "name": "Куриный шницель",
+      "photoUrl": "/images/recipes/shnitsel.jpg",
+      "time": 25,
+      "difficulty": 2,
+      "instruction": "1. Отбейте куриное филе до толщины 1 см.\n2. Посолите, поперчите и обваляйте в муке.\n3. Окуните во взбитое яйцо и обсыпьте панировочными сухарями.\n4. Обжарьте на масле по 4 минуты с каждой стороны до золотистой корочки.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "EGGS"],
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 400 },
+        { "ingredientName": "Мука пшеничная", "amountGrams": 50 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Сухари панировочные", "amountGrams": 100 },
+        { "ingredientName": "Масло подсолнечное", "amountGrams": 50 }
+      ]
+    },
+    {
+      "name": "Буррито с курицей",
+      "photoUrl": "/images/recipes/burito.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Обжарьте нарезанное куриное филе со специями 7 минут.\n2. Подогрейте тортилью на сухой сковороде.\n3. Выложите на тортилью рис, курицу, фасоль, помидоры и сыр.\n4. Сверните в рулет и обжарьте на сковороде по 1 минуте с каждой стороны.",
+      "mealTypes": ["LUNCH", "DINNER"],
+      "dietaryPreferences": ["HIGH_PROTEIN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "LACTOSE"],
+      "recipeIngredients": [
+        { "ingredientName": "Куриное филе", "amountGrams": 200 },
+        { "ingredientName": "Тортилья пшеничная", "amountGrams": 80 },
+        { "ingredientName": "Рис белый (сухой)", "amountGrams": 80 },
+        { "ingredientName": "Фасоль красная консервированная", "amountGrams": 80 },
+        { "ingredientName": "Помидор", "amountGrams": 80 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 50 }
+      ]
+    },
+    {
+      "name": "Фокачча с розмарином",
+      "photoUrl": "/images/recipes/fokacha.jpg",
+      "time": 90,
+      "difficulty": 3,
+      "instruction": "1. Замесите тесто из муки, воды, дрожжей, масла и соли, дайте подняться 1 час.\n2. Распределите тесто по противню, сделайте углубления пальцами.\n3. Посыпьте крупной солью, розмарином и полейте оливковым маслом.\n4. Запекайте при 220 градусах 20 минут до золотистой корочки.",
+      "mealTypes": ["SNACK", "LUNCH"],
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["GLUTEN"],
+      "recipeIngredients": [
+        { "ingredientName": "Мука пшеничная", "amountGrams": 400 },
+        { "ingredientName": "Дрожжи сухие", "amountGrams": 7 },
+        { "ingredientName": "Масло оливковое", "amountGrams": 60 },
+        { "ingredientName": "Розмарин свежий", "amountGrams": 10 },
+        { "ingredientName": "Соль морская", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Тирамису",
+      "photoUrl": "/images/recipes/tiramisu.jpg",
+      "time": 40,
+      "difficulty": 3,
+      "instruction": "1. Взбейте желтки с сахаром до пышной массы, добавьте маскарпоне.\n2. Отдельно взбейте белки в крепкую пену и аккуратно вмешайте в крем.\n3. Обмакните печенье савоярди в крепкий кофе и выложите слоем.\n4. Чередуйте слои крема и печенья, посыпьте какао и уберите в холодильник на 4 часа.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE", "EGGS", "GLUTEN"],
+      "recipeIngredients": [
+        { "ingredientName": "Маскарпоне", "amountGrams": 500 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 165 },
+        { "ingredientName": "Сахар", "amountGrams": 100 },
+        { "ingredientName": "Печенье савоярди", "amountGrams": 200 },
+        { "ingredientName": "Кофе эспрессо", "amountGrams": 200 },
+        { "ingredientName": "Какао-порошок", "amountGrams": 20 }
+      ]
+    },
+    {
+      "name": "Панна котта",
+      "photoUrl": "/images/recipes/pana-kotta.jpg",
+      "time": 30,
+      "difficulty": 2,
+      "instruction": "1. Замочите желатин в холодной воде на 10 минут.\n2. Нагрейте сливки с сахаром и ванильным сахаром, но не кипятите.\n3. Растворите отжатый желатин в горячих сливках.\n4. Разлейте по формочкам и уберите в холодильник на 4 часа до застывания.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+      "recipeIngredients": [
+        { "ingredientName": "Сливки 20%", "amountGrams": 400 },
+        { "ingredientName": "Сахар", "amountGrams": 60 },
+        { "ingredientName": "Желатин", "amountGrams": 10 },
+        { "ingredientName": "Ванильный сахар", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Мороженое ванильное домашнее",
+      "photoUrl": "/images/recipes/",
+      "time": 240,
+      "difficulty": 3,
+      "instruction": "1. Взбейте желтки с сахаром до пышной массы.\n2. Нагрейте сливки с ванильным сахаром до 80 градусов.\n3. Тонкой струйкой влейте сливки в желтки, постоянно помешивая.\n4. Остудите массу, перелейте в форму и уберите в морозилку на 4 часа, перемешивая каждый час.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE", "EGGS"],
+      "recipeIngredients": [
+        { "ingredientName": "Сливки 33%", "amountGrams": 400 },
+        { "ingredientName": "Яйцо куриное (желтки)", "amountGrams": 80 },
+        { "ingredientName": "Сахар", "amountGrams": 100 },
+        { "ingredientName": "Ванильный сахар", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Компот из сухофруктов",
+      "photoUrl": "/images/recipes/kompot-suhofrkt.jpg",
+      "time": 40,
+      "difficulty": 1,
+      "instruction": "1. Промойте сухофрукты и замочите в холодной воде на 15 минут.\n2. Доведите 2 литра воды до кипения, добавьте сахар.\n3. Положите сухофрукты и варите 20 минут на медленном огне.\n4. Остудите и процедите перед подачей.",
+      "mealTypes": ["SNACK", "BREAKFAST"],
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": [],
+      "recipeIngredients": [
+        { "ingredientName": "Сухофрукты (смесь)", "amountGrams": 200 },
+        { "ingredientName": "Сахар", "amountGrams": 100 },
+        { "ingredientName": "Вода", "amountGrams": 2000 }
+      ]
+    },
+    {
+      "name": "Милкшейк шоколадный",
+      "photoUrl": "/images/recipes/milkshake.jpg",
+      "time": 5,
+      "difficulty": 1,
+      "instruction": "1. Охладите молоко и мороженое.\n2. Поместите все ингредиенты в блендер.\n3. Взбивайте 30 секунд до однородной пышной массы.\n4. Разлейте по высоким стаканам и подавайте сразу.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+      "recipeIngredients": [
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 300 },
+        { "ingredientName": "Мороженое ванильное", "amountGrams": 200 },
+        { "ingredientName": "Какао-порошок", "amountGrams": 20 },
+        { "ingredientName": "Сахар", "amountGrams": 15 }
+      ]
+    },
+    {
+      "name": "Смузи ягодный",
+      "photoUrl": "/images/recipes/smuzi.jpg",
+      "time": 5,
+      "difficulty": 1,
+      "instruction": "1. Поместите замороженные ягоды в блендер.\n2. Добавьте банан и йогурт.\n3. Влейте апельсиновый сок.\n4. Взбивайте 1 минуту до однородной консистенции. Подавайте сразу.",
+      "mealTypes": ["BREAKFAST", "SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["LACTOSE"],
+      "recipeIngredients": [
+        { "ingredientName": "Ягоды замороженные", "amountGrams": 150 },
+        { "ingredientName": "Банан", "amountGrams": 100 },
+        { "ingredientName": "Йогурт натуральный", "amountGrams": 150 },
+        { "ingredientName": "Сок апельсиновый", "amountGrams": 100 }
+      ]
+    },
+    {
+      "name": "Морс клюквенный",
+      "photoUrl": "/images/recipes/mors.jpg",
+      "time": 30,
+      "difficulty": 1,
+      "instruction": "1. Разомните клюкву деревянной толкушкой и отожмите сок.\n2. Жмых залейте водой, добавьте сахар и доведите до кипения.\n3. Варите 5 минут, затем процедите.\n4. Остудите отвар и смешайте с отжатым соком. Подавайте охлажденным.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": [],
+      "recipeIngredients": [
+        { "ingredientName": "Клюква", "amountGrams": 200 },
+        { "ingredientName": "Сахар", "amountGrams": 80 },
+        { "ingredientName": "Вода", "amountGrams": 1500 }
+      ]
+    },
+    {
+      "name": "Лимонад домашний",
+      "photoUrl": "/images/recipes/lemonade.jpg",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Выжмите сок из лимонов и отставьте в сторону.\n2. Сварите сироп из воды и сахара, остудите.\n3. Смешайте лимонный сок с сиропом и газированной водой.\n4. Добавьте лед и мяту перед подачей.",
+      "mealTypes": ["SNACK"],
+      "dietaryPreferences": ["VEGAN", "VEGETARIAN", "HALAL", "KOSHER", "NO_PORK"],
+      "allergens": ["CITRUSES"],
+      "recipeIngredients": [
+        { "ingredientName": "Лимон", "amountGrams": 200 },
+        { "ingredientName": "Сахар", "amountGrams": 100 },
+        { "ingredientName": "Вода газированная", "amountGrams": 1000 },
+        { "ingredientName": "Мята свежая", "amountGrams": 10 }
+      ]
+    },
+    {
+      "name": "Гренки с сыром и зеленью",
+      "photoUrl": "/images/recipes/grenki.jpg",
+      "time": 15,
+      "difficulty": 1,
+      "instruction": "1. Взбейте яйца с молоком, солью и нарезанной зеленью.\n2. Нарежьте хлеб ломтиками.\n3. Обмакните каждый ломтик в яичную смесь.\n4. Обжарьте на масле по 2 минуты с каждой стороны, посыпьте тертым сыром.",
+      "mealTypes": ["BREAKFAST", "SNACK"],
+      "dietaryPreferences": ["VEGETARIAN", "HALAL", "NO_PORK"],
+      "allergens": ["GLUTEN", "EGGS", "LACTOSE"],
+      "recipeIngredients": [
+        { "ingredientName": "Хлеб пшеничный", "amountGrams": 200 },
+        { "ingredientName": "Яйцо куриное", "amountGrams": 110 },
+        { "ingredientName": "Молоко 2.5%", "amountGrams": 50 },
+        { "ingredientName": "Сыр твердый", "amountGrams": 50 },
+        { "ingredientName": "Укроп свежий", "amountGrams": 10 },
+        { "ingredientName": "Масло сливочное", "amountGrams": 30 }
       ]
     }
 
