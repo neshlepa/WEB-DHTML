@@ -22,7 +22,7 @@ public class UserService {
     // Регулярное выражение из ТЗ: только латинские буквы, цифры и знак подчеркивания.
     // "^" означает начало строки, "$" - конец строки
     // "[a-zA-Z0-9_]" означает любой разрешенный символ. "+" означает, что их может быть сколько угодно, но минимум один
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9_]+$");
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9_]{8,}$");
 
     public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) { // конструктор
         this.userRepository = userRepository;
@@ -36,8 +36,8 @@ public class UserService {
         if (userRepository.existsByEmail(email)) {
             throw new IllegalArgumentException("Пользователь с таким email уже существует");
         }
-        if (!PASSWORD_PATTERN.matcher(rawPassword).matches()) {
-            throw new IllegalArgumentException("Пароль может содержать только латинские буквы, цифры и знак нижнего подчеркивания");
+        if (rawPassword == null || !PASSWORD_PATTERN.matcher(rawPassword).matches()) {
+            throw new IllegalArgumentException("Пароль должен содержать минимум 8 символов (латинские буквы, цифры или знак нижнего подчеркивания)");
         }
 
         User user = new User();
