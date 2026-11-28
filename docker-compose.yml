@@ -24,6 +24,18 @@ services:
       - SPRING_DATASOURCE_PASSWORD=root
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - JAVA_TOOL_OPTIONS=-Xms128m -Xmx512m
+      
+      - SPRING_MAIL_HOST=${SMTP_HOST}
+      - SPRING_MAIL_PORT=${SMTP_PORT}
+      - SPRING_MAIL_USERNAME=${SMTP_USERNAME}
+      - SPRING_MAIL_PASSWORD=${SMTP_PASSWORD}
+      
+      # --- НАСТРОЙКИ ДЛЯ ЯНДЕКСА (ПОРТ 465) ---
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_SSL_ENABLE=true
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=false
+      
+      - APP_MAIL_FROM=${SMTP_USERNAME}
     depends_on:
       - postgres
     networks:
@@ -46,6 +58,7 @@ services:
 volumes:
   postgres_data:
 
+# ЭТОТ БЛОК БЫЛ УТЕРЯН - ОН ОБЯЗАТЕЛЕН
 networks:
   ft_network:
     driver: bridge

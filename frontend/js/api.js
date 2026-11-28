@@ -93,14 +93,20 @@ async function fetchApi(endpoint, options = {}) {
 
     const response = await fetch(`${API_URL}${endpoint}`, config);
 
+    // Публичные эндпоинты авторизации — не считаем 401/403 «сессией»
+    const publicAuthEndpoints = [
+        '/users/login',
+        '/users/register',
+        '/users/verify-email',
+        '/users/resend-verification',
+        '/users/forgot-password',
+        '/users/reset-password'
+    ];
+    const isPublicAuth = publicAuthEndpoints.includes(endpoint);
+
     // Spring Security возвращает 403 при отсутствии/невалидности JWT на защищённых маршрутах
-    if (response.status === 401 || (response.status === 403 && endpoint !== '/users/login' && endpoint !== '/users/register')) {
+    if ((response.status === 401 || response.status === 403) && !isPublicAuth) {
         const errText = await response.text();
-        if (endpoint === '/users/login') {
-            const err = new Error(extractErrorMessage(errText, 401) || 'Неверный email или пароль');
-            err.status = 401;
-            throw err;
-        }
         clearToken();
         const isPublicPage = window.location.pathname.includes('login.html') ||
             window.location.pathname.includes('main.html') ||
@@ -116,6 +122,21 @@ async function fetchApi(endpoint, options = {}) {
 
     if (!response.ok) {
         const errorText = await response.text();
+        // Для логина при неподтверждённом email сервер отдаёт JSON с error: EMAIL_NOT_VERIFIED
+        if (endpoint === '/users/login' && response.status === 403) {
+            try {
+                const parsed = JSON.parse(errorText);
+                if (parsed.error === 'EMAIL_NOT_VERIFIED') {
+                    const err = new Error(parsed.message || 'Email не подтверждён');
+                    err.status = 403;
+                    err.email = parsed.email;
+                    err.code = 'EMAIL_NOT_VERIFIED';
+                    throw err;
+                }
+            } catch (e) {
+                if (e.code === 'EMAIL_NOT_VERIFIED') throw e;
+            }
+        }
         const message = extractErrorMessage(errorText, response.status);
         const err = new Error(message);
         err.status = response.status;

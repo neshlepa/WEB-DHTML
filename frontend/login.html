@@ -12,6 +12,8 @@
         <p class="auth-subtitle" id="formTitle">Вход в аккаунт</p>
         <div id="error-message" class="error-message" style="display: none;"></div>
         <div id="success-message" class="success-message" style="display: none;"></div>
+
+        <!-- ===== Форма входа / регистрации ===== -->
         <form id="authForm">
             <div class="input-group">
                 <label for="email">Email</label>
@@ -20,12 +22,57 @@
             <div class="input-group">
                 <label for="password">Пароль</label>
                 <input type="password" id="password" required placeholder="Password123_" autocomplete="current-password">
-                <small class="input-hint" id="passwordHint" style="display: none;">Только латинские буквы, цифры и знак _</small>
+                <small class="input-hint" id="passwordHint" style="display: none;">Только латинские буквы, цифры и знак _ (мин. 8 символов)</small>
             </div>
             <button type="submit" id="submitBtn" class="btn-primary">Войти</button>
         </form>
+
+        <!-- ===== Форма подтверждения email ===== -->
+        <form id="verifyForm" style="display: none;">
+            <p class="auth-hint" style="margin-bottom: 16px; color: #666; font-size: 0.95rem;">
+                Мы отправили 6-значный код на <strong id="verifyEmailLabel"></strong>. Введите его ниже.
+            </p>
+            <div class="input-group">
+                <label for="verifyCode">Код подтверждения</label>
+                <input type="text" id="verifyCode" required maxlength="6" placeholder="123456" inputmode="numeric" pattern="[0-9]{6}">
+            </div>
+            <button type="submit" id="verifyBtn" class="btn-primary">Подтвердить email</button>
+            <button type="button" id="resendCodeBtn" class="btn-toggle" style="margin-top: 10px;">Отправить код ещё раз</button>
+        </form>
+
+        <!-- ===== Форма «Забыли пароль» (запрос кода) ===== -->
+        <form id="forgotForm" style="display: none;">
+            <p class="auth-hint" style="margin-bottom: 16px; color: #666; font-size: 0.95rem;">
+                Введите email — мы пришлём код для сброса пароля.
+            </p>
+            <div class="input-group">
+                <label for="forgotEmail">Email</label>
+                <input type="email" id="forgotEmail" required placeholder="test@planfood.com" autocomplete="email">
+            </div>
+            <button type="submit" id="forgotBtn" class="btn-primary">Отправить код</button>
+        </form>
+
+        <!-- ===== Форма сброса пароля (код + новый пароль) ===== -->
+        <form id="resetForm" style="display: none;">
+            <p class="auth-hint" style="margin-bottom: 16px; color: #666; font-size: 0.95rem;">
+                Введите код из письма и новый пароль для <strong id="resetEmailLabel"></strong>.
+            </p>
+            <div class="input-group">
+                <label for="resetCode">Код из письма</label>
+                <input type="text" id="resetCode" required maxlength="6" placeholder="123456" inputmode="numeric" pattern="[0-9]{6}">
+            </div>
+            <div class="input-group">
+                <label for="newPassword">Новый пароль</label>
+                <input type="password" id="newPassword" required placeholder="NewPassword1_" autocomplete="new-password">
+                <small class="input-hint">Только латинские буквы, цифры и знак _ (мин. 8 символов)</small>
+            </div>
+            <button type="submit" id="resetBtn" class="btn-primary">Сменить пароль</button>
+        </form>
+
         <div class="auth-actions">
             <button type="button" id="toggleBtn" class="btn-toggle">Нет аккаунта? Зарегистрироваться</button>
+            <button type="button" id="forgotLink" class="btn-toggle">Забыли пароль?</button>
+            <button type="button" id="backToLoginBtn" class="btn-toggle" style="display: none;">← Вернуться ко входу</button>
             <button type="button" onclick="window.location.href='main.html'" class="btn-guest">Продолжить без авторизации</button>
         </div>
     </div>

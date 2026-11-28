@@ -1,66 +1,100 @@
 package com.planfood.backend.controller;
 
-import com.planfood.backend.dto.AuthResponseDto;
-import com.planfood.backend.dto.LoginRequestDto;
-import com.planfood.backend.dto.RegisterRequest;
+import com.planfood.backend.dto.*;
 import com.planfood.backend.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.planfood.backend.dto.UserProfileDto;
-import java.security.Principal;
 
-@RestController // значит, что класс принимает и возвращает ответы в json формате
-// @RequestMapping задает базовый адрес. Все методы внутри этого класса будут доступны по ссылке,
-// начинающейся с http://localhost:8080/api/users
+import java.security.Principal;
+import java.util.Map;
+
+@RestController
 @RequestMapping("/api/users")
 public class UserController {
 
-    private final UserService userService; // Ссылка на слой бизнес-логики
+    private final UserService userService;
 
-    public UserController(UserService userService) { // Конструктор
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
-
-    // @PostMapping указывает, что метод сработает только при HTTP-запросе типа POST
-    // на адрес /api/users/register (POST используется для отправки скрытых данных и создания записей)
     @PostMapping("/register")
-    // @RequestBody берет сырой JSON из входящего запроса и автоматически конвертирует его в Java-объект RegisterRequest
-    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
-        /** это системный Java-класс из Spring Web, который представляет собой полноценный HTTP-ответ целиком
-         * внутри лежит код статус ответа, http заголовки и тело ответа (в нашем случае строку)
-         */
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         try {
-            userService.registerUser(request.getEmail(), request.getPassword()); // передаем данные в сервис регистрации
-
-            // Если сервис отработал без ошибок возвращаем клиенту успешный статус HTTP 200 (OK) и текстовое сообщение
-            return ResponseEntity.ok("Пользователь успешно зарегистрирован!");
-
+            userService.registerUser(request.getEmail(), request.getPassword());
+            return ResponseEntity.ok(Map.of(
+                    "message", "Регистрация успешна! Проверьте почту и введите код подтверждения.",
+                    "email", request.getEmail()
+            ));
         } catch (IllegalArgumentException e) {
-            // Если сервис выбросил ошибку, возвращаем клиенту статус HTTP 400 (Bad Request)
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(500).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("/verify-email")
+    public ResponseEntity<?> verifyEmail(@RequestBody VerifyEmailRequest request) {
+        try {
+            userService.verifyEmail(request.getEmail(), request.getCode());
+            return ResponseEntity.ok("Email успешно подтверждён! Теперь можно войти.");
+}       catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+}
+    }
+
+    @PostMapping("/resend-verification")
+    public ResponseEntity<?> resendVerification(@RequestBody ResendCodeRequest request) {
+        try {
+            userService.resendVerificationCode(request.getEmail());
+            return ResponseEntity.ok("Новый код подтверждения отправлен на почту.");
+        } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDto request) {
         try {
-            String jwtToken = userService.authenticateUser(request); // отдаем данные в сервис
-            AuthResponseDto responseBody = new AuthResponseDto(jwtToken); // упаковываем строку токена в будущий json
-            return ResponseEntity.ok(responseBody); // Возвращаем статус 200 OK и JSON с токеном
-
+            String jwtToken = userService.authenticateUser(request);
+            AuthResponseDto responseBody = new AuthResponseDto(jwtToken);
+            return ResponseEntity.ok(responseBody);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(401).body(e.getMessage()); // 401 Unauthorized в случае ошибки
+            String msg = e.getMessage();
+            if ("EMAIL_NOT_VERIFIED".equals(msg)) {
+                return ResponseEntity.status(403).body(Map.of(
+                        "error", "EMAIL_NOT_VERIFIED",
+                        "message", "Email не подтверждён. Введите код из письма.",
+                        "email", request.getEmail()
+                ));
+            }
+            return ResponseEntity.status(401).body(msg);
         }
     }
 
+    @PostMapping("/forgot-password")
+    public ResponseEntity<?> forgotPassword(@RequestBody ForgotPasswordRequest request) {
+        try {
+            userService.requestPasswordReset(request.getEmail());
+            return ResponseEntity.ok("Код для сброса пароля отправлен на почту.");
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
-    // Получить данные профиля
+    @PostMapping("/reset-password")
+    public ResponseEntity<?> resetPassword(@RequestBody ResetPasswordRequest request) {
+        try {
+            userService.resetPassword(request.getEmail(), request.getCode(), request.getNewPassword());
+            return ResponseEntity.ok("Пароль успешно изменён! Теперь можно войти.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile(Principal principal) {
         try {
-            // principal.getName() возвращает email пользователя из JWT токена
             String email = principal.getName();
             UserProfileDto profile = userService.getUserProfile(email);
             return ResponseEntity.ok(profile);
@@ -69,8 +103,6 @@ public class UserController {
         }
     }
 
-
-    // Сохранить изменения профиля
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(Principal principal, @RequestBody UserProfileDto updateDto) {
         try {

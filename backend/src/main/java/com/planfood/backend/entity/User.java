@@ -2,6 +2,7 @@ package com.planfood.backend.entity;
 
 import jakarta.persistence.*; // инструменты Jakarta Persistence API (стандарт Java для баз данных)
 import lombok.Data; // чтобы не писать технический код руками
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,4 +58,21 @@ public class User {
     )
     @Column(name = "preference")
     private Set<DietaryPreference> preferences = new HashSet<>();
+
+    // Подтверждение email
+    @Column(name = "email_verified", nullable = false)
+    private boolean emailVerified = false;
+
+    @Column(name = "verification_code")
+    private String verificationCode;
+
+    @Column(name = "verification_code_expiry")
+    private LocalDateTime verificationCodeExpiry;
+
+    // Сброс пароля
+    @Column(name = "reset_code")
+    private String resetCode;
+
+    @Column(name = "reset_code_expiry")
+    private LocalDateTime resetCodeExpiry;
 }
