@@ -1,0 +1,6 @@
+{
+  "name": "food-tinder-frontend-tests",
+  "private": true,
+  "scripts": { "test": "node --test tests/*.test.js",
+    "coverage": "node tests/coverage.js" }
+}

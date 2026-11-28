@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -34,7 +35,7 @@ public class SecurityConfig {
     // использует его в ходе программы, вместо того, чтобы снова создавать объект
     @Bean
     public PasswordEncoder passwordEncoder() { // PasswordEncoder этот интерфейс из библиотеки Spring Security
-        /** мы создаем экземпляр готового класса BCryptPasswordEncoder, который реализует этот интерфейс
+        /* мы создаем экземпляр готового класса BCryptPasswordEncoder, который реализует этот интерфейс
          - Он автоматически добавляет случайную "соль" к каждому паролю,
 
          - поэтому даже два одинаковых пароля в базе будут иметь разные хэши.
@@ -46,7 +47,7 @@ public class SecurityConfig {
     // Этот метод настраивает правила доступа к нашим ссылкам (эндпоинтам)
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        /** SecurityFilterChain это интерфейс из библиотеки Spring Security
+        /* SecurityFilterChain это интерфейс из библиотеки Spring Security
          - каждый входящий сетевой HTTP-запрос от фронтенда должен пройти через цепочку проверок
 
          - (проверка пароля, проверка токена, проверка прав доступа)
@@ -62,7 +63,7 @@ public class SecurityConfig {
         // ШАГ 1. Создаем отдельное правило для CSRF-защиты:
         // Мы объявляем переменную типа Customizer для управления настройками CSRF
         // и прямо говорим вызвать метод отключения .disable()
-        Customizer<CsrfConfigurer<HttpSecurity>> disableCsrf = csrf -> csrf.disable();
+        Customizer<CsrfConfigurer<HttpSecurity>> disableCsrf = AbstractHttpConfigurer::disable;
 
         // Передаем это отдельное правило в наш строитель http
         http.csrf(disableCsrf);
@@ -70,7 +71,15 @@ public class SecurityConfig {
         // ШАГ 2. Создаем отдельное правило для доступа к сетевым адресам (эндпоинтам):
         Customizer<AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry> accessRules = rules -> {
             // Открываем полный доступ (без токена) только для регистрации и логина
-            rules.requestMatchers("/api/users/register", "/api/users/login", "/api/recipes/feed").permitAll();
+            rules.requestMatchers("/api/users/register", "/api/users/login", "/api/recipes/feed","/api/auth/**",       // эндпоинты авторизации/регистрации
+                    "/",
+                    "/login.html",        // страницы фронтенда
+                    "/main.html",
+                    "/profile.html",
+                    "/css/**",            // стили
+                    "/js/**",             // скрипты
+                    "/images/**",
+                    "/favicon.ico").permitAll();
 
             // Все остальные запросы к серверу требуют обязательной авторизации (наличия валидного токена)
             rules.anyRequest().authenticated();
@@ -85,10 +94,9 @@ public class SecurityConfig {
         // ШАГ 3. Финальная сборка:
         // Вызываем метод build(), который собирает все переданные выше правила
         // воедино и создает готовую цепочку безопасности (SecurityFilterChain)
-        SecurityFilterChain readyFilterChain = http.build();
 
         // Возвращаем собранный объект Spring'у в его внутреннее хранилище бинов
-        return readyFilterChain;
+        return http.build();
     }
 
     // Этот метод детально настраивает правила CORS (Cross-Origin Resource Sharing).

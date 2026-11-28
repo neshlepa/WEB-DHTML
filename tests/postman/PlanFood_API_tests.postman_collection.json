@@ -1,0 +1,3952 @@
+{
+  "info": {
+    "name": "PlanFood / Food-Tinder — API tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Тесты авторизации, профиля, ленты и реакций. Порядок: запускать папку целиком (Runner) сверху вниз.\nТесты с пометкой [БАГ?] и [ТРЕБОВАНИЕ?] описывают ожидаемое поведение; падение = найденный дефект/вопрос к команде."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost"
+    },
+    {
+      "key": "email",
+      "value": ""
+    },
+    {
+      "key": "password",
+      "value": "Pass_123"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "guestFeed1",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Авторизация",
+      "item": [
+        {
+          "name": "1.1 Регистрация — успешная",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.collectionVariables.set('email', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');",
+                  "pm.collectionVariables.set('password', 'Pass_123');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "pm.test('Текст ответа содержит «успешно»', () => pm.expect(pm.response.text()).to.include(\"успешно\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.2 Регистрация — дубликат email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));",
+                  "pm.test('Текст ответа содержит «уже существует»', () => pm.expect(pm.response.text()).to.include(\"уже существует\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.3 Регистрация — пароль со спецсимволом (!)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{freshEmail}}\",\n  \"password\": \"Pass!word1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.variables.set('freshEmail', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));",
+                  "pm.test('Текст ответа содержит «латинские буквы»', () => pm.expect(pm.response.text()).to.include(\"латинские буквы\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.4 Регистрация — пароль кириллицей",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{freshEmail}}\",\n  \"password\": \"Пароль123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.variables.set('freshEmail', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));",
+                  "pm.test('Текст ответа содержит «латинские буквы»', () => pm.expect(pm.response.text()).to.include(\"латинские буквы\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.5 Регистрация — пароль с пробелом",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{freshEmail}}\",\n  \"password\": \"Pass 1234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.variables.set('freshEmail', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));",
+                  "pm.test('Текст ответа содержит «латинские буквы»', () => pm.expect(pm.response.text()).to.include(\"латинские буквы\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.6 Регистрация — пустой пароль",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{freshEmail}}\",\n  \"password\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.variables.set('freshEmail', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.7 [БАГ?] Регистрация — слишком короткий пароль (1 символ)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{freshEmail}}\",\n  \"password\": \"a\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "В коде проверяется только набор символов, длина не проверяется. Если слабым считается короткий пароль — это дефект."
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.variables.set('freshEmail', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.8 [БАГ?] Регистрация — email неверного формата",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"not-an-email\",\n  \"password\": \"Pass_123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "Формат email в коде не проверяется."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.9 [БАГ?] Регистрация — пустой email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"\",\n  \"password\": \"Pass_123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.10 [БАГ?] Регистрация — поле password отсутствует",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{freshEmail}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "По коду: PASSWORD_PATTERN.matcher(null) → NullPointerException, который контроллер не ловит → 500."
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.variables.set('freshEmail', 'qa_' + Date.now() + '_' + Math.floor(Math.random()*1e6) + '@test.com');"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));",
+                  "pm.test('Не 500 (нет необработанного исключения)', () => pm.expect(pm.response.code).to.not.equal(500));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.11 [БАГ?] Регистрация — поле email отсутствует",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"Pass_123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "email=null: в коде нет проверки; запись с email=null нарушит ограничение nullable=false в БД, ожидается 500 (или 200, если проверка не сработает) вместо 400."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));",
+                  "pm.test('Не 500', () => pm.expect(pm.response.code).to.not.equal(500));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.12 Регистрация — битый JSON",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "register"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"a@b.c\", \"password\": ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.13 Вход — успешный (сохраняет токен)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "pm.test('В ответе есть JWT из трёх частей', () => {",
+                  "  const t = pm.response.json().token;",
+                  "  pm.expect(t).to.be.a('string');",
+                  "  pm.expect(t.split('.')).to.have.lengthOf(3);",
+                  "  pm.collectionVariables.set('token', t);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.14 Вход — неверный пароль",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"WrongPass_1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401', () => pm.expect(pm.response.code).to.be.oneOf([401]));",
+                  "pm.test('Текст ответа содержит «Неверный email или пароль»', () => pm.expect(pm.response.text()).to.include(\"Неверный email или пароль\"));",
+                  "pm.test('Токен не выдан', () => pm.expect(pm.response.text()).to.not.include('token'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.15 Вход — несуществующий email (то же сообщение, что и при неверном пароле)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"nobody_{{$timestamp}}@test.com\",\n  \"password\": \"Pass_123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "Одинаковое сообщение нужно, чтобы нельзя было узнать, какие email зарегистрированы."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401', () => pm.expect(pm.response.code).to.be.oneOf([401]));",
+                  "pm.test('Текст ответа содержит «Неверный email или пароль»', () => pm.expect(pm.response.text()).to.include(\"Неверный email или пароль\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.16 Вход — пустое тело {}",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400/401', () => pm.expect(pm.response.code).to.be.oneOf([400, 401]));",
+                  "pm.test('Не 500', () => pm.expect(pm.response.code).to.not.equal(500));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.17 Вход — SQL-инъекция в email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"' OR '1'='1\",\n  \"password\": \"x\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401', () => pm.expect(pm.response.code).to.be.oneOf([401]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "1.18 Вход — SQL-инъекция в пароле для существующего email",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"' OR '1'='1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401', () => pm.expect(pm.response.code).to.be.oneOf([401]));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Профиль",
+      "item": [
+        {
+          "name": "2.1 Профиль GET — без токена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401/403', () => pm.expect(pm.response.code).to.be.oneOf([401, 403]));",
+                  "// Spring Security по умолчанию отдаёт 403, фронтенд ждёт 401 — зафиксировать фактический код в баг-репорте",
+                  "pm.test('Информируем: фактический код = ' + pm.response.code, () => true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.2 Профиль GET — мусорный токен",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer abc.def.ghi"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401/403', () => pm.expect(pm.response.code).to.be.oneOf([401, 403]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.3 Профиль GET — успешно",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "const j = pm.response.json();",
+                  "pm.test('email совпадает с зарегистрированным', () => pm.expect(j.email).to.equal(pm.collectionVariables.get('email')));",
+                  "pm.test('Есть поля профиля', () => ['gender','age','height','weight','allergens','preferences'].forEach(k => pm.expect(j).to.have.property(k)));",
+                  "pm.test('Хэш пароля не утекает в ответ', () => pm.expect(pm.response.text().toLowerCase()).to.not.include('passwordhash'));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.4 Профиль PUT — успешное сохранение",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "const j = pm.response.json();",
+                  "pm.test('Ответ отражает сохранённые данные', () => {",
+                  "  pm.expect(j.age).to.equal(30); pm.expect(j.height).to.equal(180); pm.expect(j.weight).to.equal(75.5);",
+                  "  pm.expect(j.allergens).to.have.members(['LACTOSE','EGGS']);",
+                  "  pm.expect(j.preferences).to.have.members(['VEGAN','HIGH_PROTEIN']);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.5 Профиль GET — данные сохранились",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "pm.test('allergens сохранены', () => pm.expect(pm.response.json().allergens).to.have.members(['LACTOSE','EGGS']));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.6 Профиль PUT — неизвестный аллерген (PIZZA)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"PIZZA\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.7 Профиль PUT — неизвестное предпочтение",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"CARNIVORE\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.8 [БАГ?] Профиль PUT — отрицательный возраст",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": -5,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Валидации биометрии в коде нет."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.9 [БАГ?] Профиль PUT — нереальный рост (99999)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 99999,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.10 [БАГ?] Профиль PUT — произвольная строка в gender",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"<script>alert(1)</script>\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.11 Профиль PUT — без токена",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401/403', () => pm.expect(pm.response.code).to.be.oneOf([401, 403]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.12 Профиль PUT — битый JSON",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"age\": ",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.13 Профиль PUT — попытка сменить email через тело",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [\n    \"LACTOSE\",\n    \"EGGS\"\n  ],\n  \"preferences\": [\n    \"VEGAN\",\n    \"HIGH_PROTEIN\"\n  ],\n  \"email\": \"hacker@evil.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('email не изменился', () => pm.expect(pm.response.json().email).to.equal(pm.collectionVariables.get('email')));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "2.14 Профиль PUT — пустые списки очищают аллергены и предпочтения",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gender\": \"male\",\n  \"age\": 30,\n  \"height\": 180,\n  \"weight\": 75.5,\n  \"allergens\": [],\n  \"preferences\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "pm.test('Списки пусты', () => { const j = pm.response.json(); pm.expect(j.allergens).to.be.empty; pm.expect(j.preferences).to.be.empty; });"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Лента — гость",
+      "item": [
+        {
+          "name": "3.1 Лента гостя — структура ответа",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "const arr = pm.response.json();",
+                  "pm.test('Ответ — массив', () => pm.expect(arr).to.be.an('array'));",
+                  "pm.test('Ровно 10 карточек', () => pm.expect(arr).to.have.lengthOf(10));",
+                  "pm.test('ID в пачке уникальны', () => pm.expect(new Set(arr.map(c => c.id)).size).to.equal(arr.length));",
+                  "pm.test('У каждой карточки есть все поля', () => arr.forEach(c => ['id','name','photoUrl','time','difficulty','instruction','totalCalories','totalProtein','totalFat','totalCarbohydrates','ingredients'].forEach(k => pm.expect(c, 'нет поля ' + k).to.have.property(k))));",
+                  "pm.test('Сложность 1..5, время > 0, КБЖУ >= 0', () => arr.forEach(c => { pm.expect(c.difficulty).to.be.within(1, 5); pm.expect(c.time).to.be.above(0); pm.expect(c.totalCalories).to.be.at.least(0); }));",
+                  "pm.test('У каждой карточки есть ингредиенты', () => arr.forEach(c => pm.expect(c.ingredients).to.be.an('array').that.is.not.empty));",
+                  "pm.test('Время ответа < 1500 мс', () => pm.expect(pm.response.responseTime).to.be.below(1500));",
+                  "pm.collectionVariables.set('guestFeed1', JSON.stringify(pm.response.json().map(c => c.id)));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.2 Лента гостя — вторая пачка отличается от первой",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "const a = JSON.parse(pm.collectionVariables.get('guestFeed1') || '[]');",
+                  "const b = pm.response.json().map(c => c.id);",
+                  "const common = b.filter(id => a.includes(id));",
+                  "console.log('Общих рецептов с предыдущей пачкой: ' + common.length + ' (' + common.join(',') + ')');",
+                  "pm.test('Пачки не совпадают полностью', () => pm.expect(JSON.stringify(a.slice().sort())).to.not.equal(JSON.stringify(b.slice().sort())));",
+                  "pm.test('[ТРЕБОВАНИЕ?] Пачки не пересекаются вообще', () => pm.expect(common, 'Повторились ID: ' + common.join(',')).to.be.empty);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.3 Лента гостя — 10 запросов подряд",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "(async () => {",
+                  "  const batches = [];",
+                  "  for (let i = 0; i < 10; i++) { const r = await send('GET', '/api/recipes/feed'); batches.push(r.json().map(c => c.id)); }",
+                  "  let identical = 0, overlaps = [];",
+                  "  for (let i = 1; i < batches.length; i++) {",
+                  "    const common = batches[i].filter(id => batches[i-1].includes(id)); overlaps.push(common.length);",
+                  "    if (common.length === 10) identical++;",
+                  "  }",
+                  "  const uniq = new Set([].concat(...batches)).size;",
+                  "  console.log('Пересечения соседних пачек: ' + overlaps.join(',') + '; уникальных рецептов за 100 показов: ' + uniq);",
+                  "  pm.test('Каждая пачка содержит 10 уникальных рецептов', () => batches.forEach(b => pm.expect(new Set(b).size).to.equal(10)));",
+                  "  pm.test('Нет двух одинаковых пачек подряд', () => pm.expect(identical).to.equal(0));",
+                  "  pm.test('[ТРЕБОВАНИЕ?] Соседние пачки не пересекаются (ожидаемо падает: случайная выборка из 100 даёт ~1 повтор)', () => pm.expect(overlaps.every(o => o === 0), 'Пересечения: ' + overlaps.join(',')).to.be.true);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.4 Лента с мусорным токеном — отдаётся как гостю (200)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer abc.def.ghi"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "pm.test('10 карточек', () => pm.expect(pm.response.json()).to.have.lengthOf(10));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "3.5 Лента — метод POST не разрешён",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 405/403/404', () => pm.expect(pm.response.code).to.be.oneOf([405, 403, 404]));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Реакции",
+      "item": [
+        {
+          "name": "4.1 Реакция — без токена",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/1/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "1",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401/403', () => pm.expect(pm.response.code).to.be.oneOf([401, 403]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.2 Реакция LIKE — успешно",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/1/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "1",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "pm.test('Текст ответа содержит «Реакция сохранена»', () => pm.expect(pm.response.text()).to.include(\"Реакция сохранена\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.3 Реакция DISLIKE — успешно",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/2/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "2",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"DISLIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.4 Реакция FAVORITE — успешно",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/3/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "3",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"FAVORITE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.5 Реакция — неизвестный тип (LOVE)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/4/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "4",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LOVE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.6 Реакция — тип в нижнем регистре (like)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/4/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "4",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"like\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.7 Реакция — поле reaction отсутствует",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/4/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "4",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.8 Реакция — reaction = null",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/4/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "4",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.9 Реакция — несуществующий рецепт (999999)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/999999/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "999999",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400/404', () => pm.expect(pm.response.code).to.be.oneOf([400, 404]));",
+                  "pm.test('Текст ответа содержит «рецепт не найден»', () => pm.expect(pm.response.text()).to.include(\"рецепт не найден\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.10 Реакция — id не число (abc)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/abc/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "abc",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400', () => pm.expect(pm.response.code).to.be.oneOf([400]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.11 Реакция — отрицательный id",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/-1/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "-1",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400/404', () => pm.expect(pm.response.code).to.be.oneOf([400, 404]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.12 Реакция — пустое тело",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/1/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "1",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 400/415', () => pm.expect(pm.response.code).to.be.oneOf([400, 415]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.13 Реакция — мусорный токен",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer abc.def.ghi"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/1/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "1",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 401/403', () => pm.expect(pm.response.code).to.be.oneOf([401, 403]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "4.14 Повторная реакция на тот же рецепт — не должна ронять сервер",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/1/react",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "1",
+                "react"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reaction\": \"LIKE\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "// Фактически создаётся дубль записи в interaction_history (нет уникального ограничения) — см. отчёт"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Сценарии выдачи (авторизованный)",
+      "item": [
+        {
+          "name": "5.A LACTOSE — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Омлет с сыром и помидорами\", \"Скрамбл со страчателлой\", \"Паста альфредо\", \"Конвертики из лаваша с курицей\", \"Драники\", \"Оладьи на кефире\", \"Блины классические\", \"Тарт татен\", \"Макароны с креветками в сливочном соусе\", \"Лазанья болоньезе\", \"Гречка на молоке\", \"Куриное филе с овощами в сливочном соусе\", \"Рыбные котлеты с картофельным пюре\", \"Карбонара со сливками\", \"Сливочный суп-пюре из тыквы\", \"Курица с грибами в сливочном соусе\", \"Жюльен с грибами\", \"Борщ\", \"Цезарь с курицей\", \"Бефстроганов\", \"Паста по-итальянски\", \"Творог со сметаной\", \"Картошка в мундире\", \"Панкейки\", \"Пирожное картошка\", \"Чизкейк\", \"Греческий салат\", \"Манная каша\", \"Овсянка на молоке\", \"Пшенная каша с маслом\", \"Французский тост\", \"Сэндвичи\", \"Щи из свежей капусты\", \"Рассольник\", \"Суп-пюре из брокколи\", \"Грибовница\", \"Томатный суп\", \"Кабачки жареные\", \"Шарлотка\", \"Творожная запеканка\", \"Хачапури по-аджарски\", \"Пицца домашняя\", \"Вареники с творогом\", \"Пирог с яблоками\", \"Мясной пирог\", \"Манник\", \"Кекс с изюмом\", \"Брауни\", \"Окрошка на квасе\", \"Салат с курицей и ананасом\", \"Мясная солянка\", \"Картофель отварной с укропом\", \"Кукурузная каша\", \"Филе с ананасом и сыром в духовке\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['LACTOSE'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('LACTOSE: в выдаче нет ни одного рецепта с аллергеном (54 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('LACTOSE: пользователь увидел все безопасные рецепты (46 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('LACTOSE: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A GLUTEN — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Китайская лапша с курицей и овощами\", \"Яичница по-Ленинградски\", \"Паста альфредо\", \"Конвертики из лаваша с курицей\", \"Драники\", \"Оладьи на кефире\", \"Блины классические\", \"Тарт татен\", \"Удон с курицей и овощами\", \"Макароны с креветками в сливочном соусе\", \"Рамен с курицей\", \"Лазанья болоньезе\", \"Курица в кисло-сладком соусе\", \"Рыбные котлеты с картофельным пюре\", \"Карбонара со сливками\", \"Цезарь с курицей\", \"Бефстроганов\", \"Паста по-итальянски\", \"Панкейки\", \"Пирожное картошка\", \"Чизкейк\", \"Манная каша\", \"Овсянка на молоке\", \"Французский тост\", \"Сэндвичи\", \"Салат из фасоли с сухариками\", \"Куриный суп с лапшой\", \"Макароны по-флотски\", \"Рыба жареная\", \"Шарлотка\", \"Творожная запеканка\", \"Хачапури по-аджарски\", \"Пицца домашняя\", \"Вареники с творогом\", \"Пирог с яблоками\", \"Мясной пирог\", \"Манник\", \"Кекс с изюмом\", \"Брауни\", \"Рис с овощами и яйцом по-китайски\", \"Гуляш из говядины\", \"Булгур с нутом и овощами\", \"Тофу в соевом соусе\", \"Котлеты из нута\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['GLUTEN'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('GLUTEN: в выдаче нет ни одного рецепта с аллергеном (44 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('GLUTEN: пользователь увидел все безопасные рецепты (56 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('GLUTEN: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A EGGS — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Шакшука\", \"Омлет с сыром и помидорами\", \"Скрамбл со страчателлой\", \"Яичница по-Ленинградски\", \"Оливье\", \"Драники\", \"Оладьи на кефире\", \"Блины классические\", \"Рамен с курицей\", \"Лазанья болоньезе\", \"Рыбные котлеты с картофельным пюре\", \"Карбонара со сливками\", \"Салат с тунцом и яйцом\", \"Цезарь с курицей\", \"Панкейки\", \"Чизкейк\", \"Французский тост\", \"Мимоза\", \"Рыба жареная\", \"Шарлотка\", \"Творожная запеканка\", \"Хачапури по-аджарски\", \"Пицца домашняя\", \"Вареники с творогом\", \"Пирог с яблоками\", \"Мясной пирог\", \"Манник\", \"Кекс с изюмом\", \"Брауни\", \"Окрошка на квасе\", \"Рис с овощами и яйцом по-китайски\", \"Филе с ананасом и сыром в духовке\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['EGGS'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('EGGS: в выдаче нет ни одного рецепта с аллергеном (32 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('EGGS: пользователь увидел все безопасные рецепты (68 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('EGGS: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A SOY — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Китайская лапша с курицей и овощами\", \"Удон с курицей и овощами\", \"Рамен с курицей\", \"Курица в кисло-сладком соусе\", \"Том ям\", \"Куриные крылья в медовом соусе\", \"Рис с овощами и яйцом по-китайски\", \"Тофу в соевом соусе\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['SOY'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('SOY: в выдаче нет ни одного рецепта с аллергеном (8 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('SOY: пользователь увидел все безопасные рецепты (92 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('SOY: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A FISH — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Рыбные котлеты с картофельным пюре\", \"Салат с тунцом и яйцом\", \"Мимоза\", \"Рыба жареная\", \"Уха\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['FISH'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('FISH: в выдаче нет ни одного рецепта с аллергеном (5 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('FISH: пользователь увидел все безопасные рецепты (95 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('FISH: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A SEAFOOD — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Макароны с креветками в сливочном соусе\", \"Том ям\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['SEAFOOD'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('SEAFOOD: в выдаче нет ни одного рецепта с аллергеном (2 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('SEAFOOD: пользователь увидел все безопасные рецепты (98 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('SEAFOOD: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A NUTS — жёсткий фильтр аллергена",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Свекольный салат с чесноком и орехами\"]);",
+                  "const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['NUTS'] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('NUTS: в выдаче нет ни одного рецепта с аллергеном (1 шт. исключаются)', () => {",
+                  "    const viol = seen.filter(n => BAD.has(n));",
+                  "    pm.expect(viol, 'Показаны рецепты с аллергеном: ' + viol.join('; ')).to.be.empty;",
+                  "  });",
+                  "  pm.test('NUTS: пользователь увидел все безопасные рецепты (99 шт.)', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "  pm.test('NUTS: повторов в выдаче нет', () => pm.expect(seen.length).to.equal(new Set(seen).size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A+ LACTOSE+GLUTEN+EGGS — несколько аллергенов сразу",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const BAD = new Set([\"Бефстроганов\", \"Блины классические\", \"Борщ\", \"Брауни\", \"Булгур с нутом и овощами\", \"Вареники с творогом\", \"Греческий салат\", \"Гречка на молоке\", \"Грибовница\", \"Гуляш из говядины\", \"Драники\", \"Жюльен с грибами\", \"Кабачки жареные\", \"Карбонара со сливками\", \"Картофель отварной с укропом\", \"Картошка в мундире\", \"Кекс с изюмом\", \"Китайская лапша с курицей и овощами\", \"Конвертики из лаваша с курицей\", \"Котлеты из нута\", \"Кукурузная каша\", \"Куриное филе с овощами в сливочном соусе\", \"Куриный суп с лапшой\", \"Курица в кисло-сладком соусе\", \"Курица с грибами в сливочном соусе\", \"Лазанья болоньезе\", \"Макароны по-флотски\", \"Макароны с креветками в сливочном соусе\", \"Манная каша\", \"Манник\", \"Мимоза\", \"Мясная солянка\", \"Мясной пирог\", \"Овсянка на молоке\", \"Окрошка на квасе\", \"Оладьи на кефире\", \"Оливье\", \"Омлет с сыром и помидорами\", \"Панкейки\", \"Паста альфредо\", \"Паста по-итальянски\", \"Пирог с яблоками\", \"Пирожное картошка\", \"Пицца домашняя\", \"Пшенная каша с маслом\", \"Рамен с курицей\", \"Рассольник\", \"Рис с овощами и яйцом по-китайски\", \"Рыба жареная\", \"Рыбные котлеты с картофельным пюре\", \"Салат из фасоли с сухариками\", \"Салат с курицей и ананасом\", \"Салат с тунцом и яйцом\", \"Скрамбл со страчателлой\", \"Сливочный суп-пюре из тыквы\", \"Суп-пюре из брокколи\", \"Сэндвичи\", \"Тарт татен\", \"Творог со сметаной\", \"Творожная запеканка\", \"Томатный суп\", \"Тофу в соевом соусе\", \"Удон с курицей и овощами\", \"Филе с ананасом и сыром в духовке\", \"Французский тост\", \"Хачапури по-аджарски\", \"Цезарь с курицей\", \"Чизкейк\", \"Шакшука\", \"Шарлотка\", \"Щи из свежей капусты\", \"Яичница по-Ленинградски\"]); const TOTAL = 100;",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: [\"LACTOSE\", \"GLUTEN\", \"EGGS\"] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  pm.test('Ни одного рецепта с любым из 3 аллергенов', () => pm.expect(seen.filter(n => BAD.has(n))).to.be.empty);",
+                  "  pm.test('Увидел все 28 безопасных рецептов', () => pm.expect(new Set(seen).size).to.equal(TOTAL - BAD.size));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.A0 PEANUTS и CITRUSES — в базе нет таких рецептов (проверить фильтр невозможно)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "(async () => {",
+                  "  const user = await newUser({ allergens: ['PEANUTS','CITRUSES'] });",
+                  "  const seen = await walk(user.token);",
+                  "  pm.test('Профиль принимает PEANUTS/CITRUSES и пользователь видит все 100 рецептов (в данных нет рецептов с этими аллергенами)', () => pm.expect(new Set(seen.map(c => c.name)).size).to.equal(100));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.H История — просмотренное не возвращается",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "(async () => {",
+                  "  const user = await newUser();",
+                  "  const f1 = (await send('GET', '/api/recipes/feed', undefined, user.token)).json();",
+                  "  const types = ['LIKE', 'DISLIKE', 'FAVORITE'];",
+                  "  await Promise.all(f1.map((c, i) => send('POST', '/api/recipes/' + c.id + '/react', { reaction: types[i % 3] }, user.token)));",
+                  "  const f2 = (await send('GET', '/api/recipes/feed', undefined, user.token)).json();",
+                  "  const ids1 = f1.map(c => c.id);",
+                  "  pm.test('Вторая пачка не содержит рецептов из первой (LIKE/DISLIKE/FAVORITE все считаются просмотренными)', () => pm.expect(f2.filter(c => ids1.includes(c.id))).to.be.empty);",
+                  "  pm.test('Вторая пачка тоже из 10 карточек', () => pm.expect(f2).to.have.lengthOf(10));",
+                  "  // повторный вход тем же пользователем — история хранится на сервере",
+                  "  const login = await send('POST', '/api/users/login', { email: user.email, password: 'Pass_123' });",
+                  "  const f3 = (await send('GET', '/api/recipes/feed', undefined, login.json().token)).json();",
+                  "  pm.test('После повторного входа просмотренные рецепты по-прежнему не показываются', () => pm.expect(f3.filter(c => ids1.includes(c.id))).to.be.empty);",
+                  "  const rest = await walk(user.token);",
+                  "  const all = new Set(ids1.concat(f2.map(c => c.id)).concat(rest.map(c => c.id)));",
+                  "  pm.test('Пролистав всё, пользователь увидел ровно 100 разных рецептов и лента закончилась', async () => {",
+                  "    pm.expect(all.size).to.equal(100);",
+                  "  });",
+                  "  const end = (await send('GET', '/api/recipes/feed', undefined, user.token)).json();",
+                  "  pm.test('Когда всё просмотрено, лента пустая []', () => pm.expect(end).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P VEGAN — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 0, \"Омлет с сыром и помидорами\": 0, \"Скрамбл со страчателлой\": 0, \"Яичница по-Ленинградски\": 0, \"Паста альфредо\": 0, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 0, \"Драники\": 0, \"Оладьи на кефире\": 0, \"Блины классические\": 0, \"Тарт татен\": 0, \"Винегрет\": 1, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 1, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 0, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 0, \"Куриное филе с овощами в сливочном соусе\": 0, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 0, \"Овощное рагу с индейкой и томатной пастой\": 0, \"Салат с тунцом и яйцом\": 0, \"Курица с грибами в сливочном соусе\": 0, \"Жюльен с грибами\": 0, \"Борщ\": 0, \"Том ям\": 0, \"Цезарь с курицей\": 0, \"Курица с картофелем в рукаве для запекания\": 0, \"Бефстроганов\": 0, \"Паста по-итальянски\": 0, \"Творог со сметаной\": 0, \"Картошка в мундире\": 1, \"Панкейки\": 0, \"Пирожное картошка\": 0, \"Чизкейк\": 0, \"Греческий салат\": 0, \"Овощной салат\": 1, \"Манная каша\": 0, \"Овсянка на молоке\": 0, \"Пшенная каша с маслом\": 1, \"Французский тост\": 0, \"Сэндвичи\": 0, \"Мимоза\": 0, \"Салат из фасоли с сухариками\": 1, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 0, \"Суп-пюре из брокколи\": 0, \"Грибовница\": 0, \"Томатный суп\": 1, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 0, \"Плов с говядиной\": 0, \"Рыба жареная\": 0, \"Кабачки жареные\": 1, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Шарлотка\": 0, \"Творожная запеканка\": 0, \"Хачапури по-аджарски\": 0, \"Пицца домашняя\": 0, \"Вареники с творогом\": 0, \"Пирог с яблоками\": 0, \"Мясной пирог\": 0, \"Манник\": 0, \"Кекс с изюмом\": 0, \"Брауни\": 0, \"Фруктовое желе\": 1, \"Плов с курицей\": 0, \"Рис с овощами\": 1, \"Уха\": 0, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 1, \"Салат с курицей и ананасом\": 0, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 0, \"Гуляш из говядины\": 0, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 1, \"Булгур с нутом и овощами\": 1, \"Рататуй\": 1, \"Картофель отварной с укропом\": 1, \"Кукурузная каша\": 1, \"Индейка отварная\": 0, \"Курица отварная\": 0, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Тофу в соевом соусе\": 1, \"Салат из киноа и овощей\": 1, \"Котлеты из нута\": 1, \"Тушёная чечевица с овощами\": 1, \"Филе с ананасом и сыром в духовке\": 0};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 26;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"VEGAN\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 26)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (26 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P VEGETARIAN — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 0, \"Омлет с сыром и помидорами\": 0, \"Скрамбл со страчателлой\": 0, \"Яичница по-Ленинградски\": 0, \"Паста альфредо\": 1, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 0, \"Драники\": 1, \"Оладьи на кефире\": 1, \"Блины классические\": 1, \"Тарт татен\": 1, \"Винегрет\": 1, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 1, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 0, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 1, \"Куриное филе с овощами в сливочном соусе\": 0, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 1, \"Овощное рагу с индейкой и томатной пастой\": 0, \"Салат с тунцом и яйцом\": 0, \"Курица с грибами в сливочном соусе\": 0, \"Жюльен с грибами\": 1, \"Борщ\": 0, \"Том ям\": 0, \"Цезарь с курицей\": 0, \"Курица с картофелем в рукаве для запекания\": 0, \"Бефстроганов\": 0, \"Паста по-итальянски\": 1, \"Творог со сметаной\": 1, \"Картошка в мундире\": 1, \"Панкейки\": 1, \"Пирожное картошка\": 1, \"Чизкейк\": 1, \"Греческий салат\": 1, \"Овощной салат\": 1, \"Манная каша\": 1, \"Овсянка на молоке\": 1, \"Пшенная каша с маслом\": 1, \"Французский тост\": 1, \"Сэндвичи\": 0, \"Мимоза\": 0, \"Салат из фасоли с сухариками\": 1, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 0, \"Суп-пюре из брокколи\": 1, \"Грибовница\": 1, \"Томатный суп\": 1, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 0, \"Плов с говядиной\": 0, \"Рыба жареная\": 0, \"Кабачки жареные\": 1, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Шарлотка\": 1, \"Творожная запеканка\": 1, \"Хачапури по-аджарски\": 1, \"Пицца домашняя\": 0, \"Вареники с творогом\": 1, \"Пирог с яблоками\": 1, \"Мясной пирог\": 0, \"Манник\": 1, \"Кекс с изюмом\": 1, \"Брауни\": 1, \"Фруктовое желе\": 1, \"Плов с курицей\": 0, \"Рис с овощами\": 1, \"Уха\": 0, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 1, \"Салат с курицей и ананасом\": 0, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 1, \"Гуляш из говядины\": 0, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 1, \"Булгур с нутом и овощами\": 1, \"Рататуй\": 1, \"Картофель отварной с укропом\": 1, \"Кукурузная каша\": 1, \"Индейка отварная\": 0, \"Курица отварная\": 0, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Тофу в соевом соусе\": 1, \"Салат из киноа и овощей\": 1, \"Котлеты из нута\": 1, \"Тушёная чечевица с овощами\": 1, \"Филе с ананасом и сыром в духовке\": 0};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 54;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"VEGETARIAN\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 54)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (54 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P HIGH_PROTEIN — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 0, \"Омлет с сыром и помидорами\": 0, \"Скрамбл со страчателлой\": 0, \"Яичница по-Ленинградски\": 0, \"Паста альфредо\": 0, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 1, \"Драники\": 0, \"Оладьи на кефире\": 0, \"Блины классические\": 0, \"Тарт татен\": 0, \"Винегрет\": 0, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 0, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 1, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 0, \"Куриное филе с овощами в сливочном соусе\": 1, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 0, \"Овощное рагу с индейкой и томатной пастой\": 1, \"Салат с тунцом и яйцом\": 1, \"Курица с грибами в сливочном соусе\": 1, \"Жюльен с грибами\": 0, \"Борщ\": 0, \"Том ям\": 1, \"Цезарь с курицей\": 1, \"Курица с картофелем в рукаве для запекания\": 1, \"Бефстроганов\": 1, \"Паста по-итальянски\": 0, \"Творог со сметаной\": 0, \"Картошка в мундире\": 0, \"Панкейки\": 0, \"Пирожное картошка\": 0, \"Чизкейк\": 0, \"Греческий салат\": 0, \"Овощной салат\": 0, \"Манная каша\": 0, \"Овсянка на молоке\": 0, \"Пшенная каша с маслом\": 0, \"Французский тост\": 0, \"Сэндвичи\": 0, \"Мимоза\": 1, \"Салат из фасоли с сухариками\": 0, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 1, \"Суп-пюре из брокколи\": 0, \"Грибовница\": 0, \"Томатный суп\": 0, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 1, \"Плов с говядиной\": 1, \"Рыба жареная\": 1, \"Кабачки жареные\": 0, \"Баклажаны с помидорами\": 0, \"Овощное рагу\": 0, \"Картофель по-деревенски\": 0, \"Шарлотка\": 0, \"Творожная запеканка\": 1, \"Хачапури по-аджарски\": 0, \"Пицца домашняя\": 0, \"Вареники с творогом\": 0, \"Пирог с яблоками\": 0, \"Мясной пирог\": 0, \"Манник\": 0, \"Кекс с изюмом\": 0, \"Брауни\": 0, \"Фруктовое желе\": 0, \"Плов с курицей\": 1, \"Рис с овощами\": 0, \"Уха\": 1, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 0, \"Салат с курицей и ананасом\": 1, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 0, \"Гуляш из говядины\": 1, \"Хумус с овощами\": 0, \"Суп из чечевицы\": 1, \"Булгур с нутом и овощами\": 1, \"Рататуй\": 0, \"Картофель отварной с укропом\": 0, \"Кукурузная каша\": 0, \"Индейка отварная\": 1, \"Курица отварная\": 1, \"Печеные яблоки\": 0, \"Капуста тушеная\": 0, \"Тофу в соевом соусе\": 1, \"Салат из киноа и овощей\": 0, \"Котлеты из нута\": 1, \"Тушёная чечевица с овощами\": 1, \"Филе с ананасом и сыром в духовке\": 1};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 28;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"HIGH_PROTEIN\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 28)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (28 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P LOW_CARB — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 1, \"Омлет с сыром и помидорами\": 1, \"Скрамбл со страчателлой\": 1, \"Яичница по-Ленинградски\": 1, \"Паста альфредо\": 0, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 0, \"Драники\": 0, \"Оладьи на кефире\": 0, \"Блины классические\": 0, \"Тарт татен\": 0, \"Винегрет\": 0, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 1, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 0, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 0, \"Куриное филе с овощами в сливочном соусе\": 1, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 0, \"Овощное рагу с индейкой и томатной пастой\": 1, \"Салат с тунцом и яйцом\": 1, \"Курица с грибами в сливочном соусе\": 1, \"Жюльен с грибами\": 1, \"Борщ\": 0, \"Том ям\": 1, \"Цезарь с курицей\": 1, \"Курица с картофелем в рукаве для запекания\": 1, \"Бефстроганов\": 1, \"Паста по-итальянски\": 0, \"Творог со сметаной\": 1, \"Картошка в мундире\": 1, \"Панкейки\": 0, \"Пирожное картошка\": 0, \"Чизкейк\": 0, \"Греческий салат\": 1, \"Овощной салат\": 1, \"Манная каша\": 0, \"Овсянка на молоке\": 0, \"Пшенная каша с маслом\": 0, \"Французский тост\": 0, \"Сэндвичи\": 0, \"Мимоза\": 0, \"Салат из фасоли с сухариками\": 0, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 0, \"Суп-пюре из брокколи\": 1, \"Грибовница\": 0, \"Томатный суп\": 1, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 1, \"Плов с говядиной\": 0, \"Рыба жареная\": 1, \"Кабачки жареные\": 1, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Шарлотка\": 0, \"Творожная запеканка\": 0, \"Хачапури по-аджарски\": 0, \"Пицца домашняя\": 0, \"Вареники с творогом\": 0, \"Пирог с яблоками\": 0, \"Мясной пирог\": 0, \"Манник\": 0, \"Кекс с изюмом\": 0, \"Брауни\": 0, \"Фруктовое желе\": 1, \"Плов с курицей\": 0, \"Рис с овощами\": 1, \"Уха\": 1, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 1, \"Салат с курицей и ананасом\": 1, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 0, \"Гуляш из говядины\": 1, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 0, \"Булгур с нутом и овощами\": 0, \"Рататуй\": 1, \"Картофель отварной с укропом\": 1, \"Кукурузная каша\": 0, \"Индейка отварная\": 1, \"Курица отварная\": 1, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Тофу в соевом соусе\": 1, \"Салат из киноа и овощей\": 1, \"Котлеты из нута\": 0, \"Тушёная чечевица с овощами\": 0, \"Филе с ананасом и сыром в духовке\": 0};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 41;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"LOW_CARB\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 41)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (41 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P KOSHER — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 1, \"Омлет с сыром и помидорами\": 1, \"Скрамбл со страчателлой\": 0, \"Яичница по-Ленинградски\": 1, \"Паста альфредо\": 0, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 0, \"Драники\": 1, \"Оладьи на кефире\": 1, \"Блины классические\": 0, \"Тарт татен\": 0, \"Винегрет\": 1, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 1, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 0, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 1, \"Куриное филе с овощами в сливочном соусе\": 0, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 1, \"Овощное рагу с индейкой и томатной пастой\": 0, \"Салат с тунцом и яйцом\": 0, \"Курица с грибами в сливочном соусе\": 0, \"Жюльен с грибами\": 1, \"Борщ\": 0, \"Том ям\": 0, \"Цезарь с курицей\": 0, \"Курица с картофелем в рукаве для запекания\": 0, \"Бефстроганов\": 0, \"Паста по-итальянски\": 0, \"Творог со сметаной\": 1, \"Картошка в мундире\": 1, \"Панкейки\": 0, \"Пирожное картошка\": 0, \"Чизкейк\": 0, \"Греческий салат\": 1, \"Овощной салат\": 1, \"Манная каша\": 1, \"Овсянка на молоке\": 0, \"Пшенная каша с маслом\": 1, \"Французский тост\": 0, \"Сэндвичи\": 0, \"Мимоза\": 0, \"Салат из фасоли с сухариками\": 1, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 0, \"Суп-пюре из брокколи\": 1, \"Грибовница\": 1, \"Томатный суп\": 1, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 0, \"Плов с говядиной\": 0, \"Рыба жареная\": 0, \"Кабачки жареные\": 1, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Шарлотка\": 0, \"Творожная запеканка\": 0, \"Хачапури по-аджарски\": 0, \"Пицца домашняя\": 0, \"Вареники с творогом\": 0, \"Пирог с яблоками\": 0, \"Мясной пирог\": 0, \"Манник\": 0, \"Кекс с изюмом\": 0, \"Брауни\": 0, \"Фруктовое желе\": 1, \"Плов с курицей\": 0, \"Рис с овощами\": 1, \"Уха\": 0, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 1, \"Салат с курицей и ананасом\": 0, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 0, \"Гуляш из говядины\": 0, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 1, \"Булгур с нутом и овощами\": 1, \"Рататуй\": 1, \"Картофель отварной с укропом\": 1, \"Кукурузная каша\": 1, \"Индейка отварная\": 0, \"Курица отварная\": 0, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Тофу в соевом соусе\": 1, \"Салат из киноа и овощей\": 1, \"Котлеты из нута\": 1, \"Тушёная чечевица с овощами\": 1, \"Филе с ананасом и сыром в духовке\": 0};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 39;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"KOSHER\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 39)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (39 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P VEGAN+HIGH_PROTEIN — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 0, \"Омлет с сыром и помидорами\": 0, \"Скрамбл со страчателлой\": 0, \"Яичница по-Ленинградски\": 0, \"Паста альфредо\": 0, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 1, \"Драники\": 0, \"Оладьи на кефире\": 0, \"Блины классические\": 0, \"Тарт татен\": 0, \"Винегрет\": 1, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 1, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 1, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 0, \"Куриное филе с овощами в сливочном соусе\": 1, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 0, \"Овощное рагу с индейкой и томатной пастой\": 1, \"Салат с тунцом и яйцом\": 1, \"Курица с грибами в сливочном соусе\": 1, \"Жюльен с грибами\": 0, \"Борщ\": 0, \"Том ям\": 1, \"Цезарь с курицей\": 1, \"Курица с картофелем в рукаве для запекания\": 1, \"Бефстроганов\": 1, \"Паста по-итальянски\": 0, \"Творог со сметаной\": 0, \"Картошка в мундире\": 1, \"Панкейки\": 0, \"Пирожное картошка\": 0, \"Чизкейк\": 0, \"Греческий салат\": 0, \"Овощной салат\": 1, \"Манная каша\": 0, \"Овсянка на молоке\": 0, \"Пшенная каша с маслом\": 1, \"Французский тост\": 0, \"Сэндвичи\": 0, \"Мимоза\": 1, \"Салат из фасоли с сухариками\": 1, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 1, \"Суп-пюре из брокколи\": 0, \"Грибовница\": 0, \"Томатный суп\": 1, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 1, \"Плов с говядиной\": 1, \"Рыба жареная\": 1, \"Кабачки жареные\": 1, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Шарлотка\": 0, \"Творожная запеканка\": 1, \"Хачапури по-аджарски\": 0, \"Пицца домашняя\": 0, \"Вареники с творогом\": 0, \"Пирог с яблоками\": 0, \"Мясной пирог\": 0, \"Манник\": 0, \"Кекс с изюмом\": 0, \"Брауни\": 0, \"Фруктовое желе\": 1, \"Плов с курицей\": 1, \"Рис с овощами\": 1, \"Уха\": 1, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 1, \"Салат с курицей и ананасом\": 1, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 0, \"Гуляш из говядины\": 1, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 2, \"Булгур с нутом и овощами\": 2, \"Рататуй\": 1, \"Картофель отварной с укропом\": 1, \"Кукурузная каша\": 1, \"Индейка отварная\": 1, \"Курица отварная\": 1, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Тофу в соевом соусе\": 2, \"Салат из киноа и овощей\": 1, \"Котлеты из нута\": 2, \"Тушёная чечевица с овощами\": 2, \"Филе с ананасом и сыром в духовке\": 1};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 49;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"VEGAN\", \"HIGH_PROTEIN\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 49)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (49 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P LOW_CARB+HIGH_PROTEIN+VEGETARIAN — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 1, \"Омлет с сыром и помидорами\": 1, \"Скрамбл со страчателлой\": 1, \"Яичница по-Ленинградски\": 1, \"Паста альфредо\": 1, \"Конвертики из лаваша с курицей\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 1, \"Драники\": 1, \"Оладьи на кефире\": 1, \"Блины классические\": 1, \"Тарт татен\": 1, \"Винегрет\": 1, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 2, \"Макароны с креветками в сливочном соусе\": 0, \"Плов с бараниной\": 1, \"Рамен с курицей\": 0, \"Лазанья болоньезе\": 0, \"Курица в кисло-сладком соусе\": 0, \"Гречка на молоке\": 1, \"Куриное филе с овощами в сливочном соусе\": 2, \"Рыбные котлеты с картофельным пюре\": 0, \"Карбонара со сливками\": 0, \"Сливочный суп-пюре из тыквы\": 1, \"Овощное рагу с индейкой и томатной пастой\": 2, \"Салат с тунцом и яйцом\": 2, \"Курица с грибами в сливочном соусе\": 2, \"Жюльен с грибами\": 2, \"Борщ\": 0, \"Том ям\": 2, \"Цезарь с курицей\": 2, \"Курица с картофелем в рукаве для запекания\": 2, \"Бефстроганов\": 2, \"Паста по-итальянски\": 1, \"Творог со сметаной\": 2, \"Картошка в мундире\": 2, \"Панкейки\": 1, \"Пирожное картошка\": 1, \"Чизкейк\": 1, \"Греческий салат\": 2, \"Овощной салат\": 2, \"Манная каша\": 1, \"Овсянка на молоке\": 1, \"Пшенная каша с маслом\": 1, \"Французский тост\": 1, \"Сэндвичи\": 0, \"Мимоза\": 1, \"Салат из фасоли с сухариками\": 1, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 1, \"Суп-пюре из брокколи\": 2, \"Грибовница\": 1, \"Томатный суп\": 2, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 2, \"Плов с говядиной\": 1, \"Рыба жареная\": 2, \"Кабачки жареные\": 2, \"Баклажаны с помидорами\": 2, \"Овощное рагу\": 2, \"Картофель по-деревенски\": 2, \"Шарлотка\": 1, \"Творожная запеканка\": 2, \"Хачапури по-аджарски\": 1, \"Пицца домашняя\": 0, \"Вареники с творогом\": 1, \"Пирог с яблоками\": 1, \"Мясной пирог\": 0, \"Манник\": 1, \"Кекс с изюмом\": 1, \"Брауни\": 1, \"Фруктовое желе\": 2, \"Плов с курицей\": 1, \"Рис с овощами\": 2, \"Уха\": 2, \"Окрошка на квасе\": 0, \"Свекольный салат с чесноком и орехами\": 2, \"Салат с курицей и ананасом\": 2, \"Мясная солянка\": 0, \"Рис с овощами и яйцом по-китайски\": 1, \"Гуляш из говядины\": 2, \"Хумус с овощами\": 2, \"Суп из чечевицы\": 2, \"Булгур с нутом и овощами\": 2, \"Рататуй\": 2, \"Картофель отварной с укропом\": 2, \"Кукурузная каша\": 1, \"Индейка отварная\": 2, \"Курица отварная\": 2, \"Печеные яблоки\": 2, \"Капуста тушеная\": 2, \"Тофу в соевом соусе\": 3, \"Салат из киноа и овощей\": 2, \"Котлеты из нута\": 2, \"Тушёная чечевица с овощами\": 2, \"Филе с ананасом и сыром в духовке\": 1};",
+                  "const ALLERGEN_NAMES = new Set([]);",
+                  "const MATCHED = 80;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"LOW_CARB\", \"HIGH_PROTEIN\", \"VEGETARIAN\"], allergens: [] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 80)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (80 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 100 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(100));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P VEGAN с аллергеном LACTOSE — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Китайская лапша с курицей и овощами\": 0, \"Шакшука\": 0, \"Яичница по-Ленинградски\": 0, \"Оливье\": 0, \"Гречка с тушенкой\": 0, \"Винегрет\": 1, \"Удон с курицей и овощами\": 0, \"Фунчоза с овощами\": 1, \"Плов с бараниной\": 0, \"Рамен с курицей\": 0, \"Курица в кисло-сладком соусе\": 0, \"Овощное рагу с индейкой и томатной пастой\": 0, \"Салат с тунцом и яйцом\": 0, \"Том ям\": 0, \"Курица с картофелем в рукаве для запекания\": 0, \"Овощной салат\": 1, \"Мимоза\": 0, \"Салат из фасоли с сухариками\": 1, \"Гороховый суп\": 0, \"Куриный суп с лапшой\": 0, \"Макароны по-флотски\": 0, \"Куриные крылья в медовом соусе\": 0, \"Плов с говядиной\": 0, \"Рыба жареная\": 0, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Фруктовое желе\": 1, \"Плов с курицей\": 0, \"Рис с овощами\": 1, \"Уха\": 0, \"Свекольный салат с чесноком и орехами\": 1, \"Рис с овощами и яйцом по-китайски\": 0, \"Гуляш из говядины\": 0, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 1, \"Булгур с нутом и овощами\": 1, \"Рататуй\": 1, \"Индейка отварная\": 0, \"Курица отварная\": 0, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Тофу в соевом соусе\": 1, \"Салат из киноа и овощей\": 1, \"Котлеты из нута\": 1, \"Тушёная чечевица с овощами\": 1};",
+                  "const ALLERGEN_NAMES = new Set([\"Бефстроганов\", \"Блины классические\", \"Борщ\", \"Брауни\", \"Вареники с творогом\", \"Греческий салат\", \"Гречка на молоке\", \"Грибовница\", \"Драники\", \"Жюльен с грибами\", \"Кабачки жареные\", \"Карбонара со сливками\", \"Картофель отварной с укропом\", \"Картошка в мундире\", \"Кекс с изюмом\", \"Конвертики из лаваша с курицей\", \"Кукурузная каша\", \"Куриное филе с овощами в сливочном соусе\", \"Курица с грибами в сливочном соусе\", \"Лазанья болоньезе\", \"Макароны с креветками в сливочном соусе\", \"Манная каша\", \"Манник\", \"Мясная солянка\", \"Мясной пирог\", \"Овсянка на молоке\", \"Окрошка на квасе\", \"Оладьи на кефире\", \"Омлет с сыром и помидорами\", \"Панкейки\", \"Паста альфредо\", \"Паста по-итальянски\", \"Пирог с яблоками\", \"Пирожное картошка\", \"Пицца домашняя\", \"Пшенная каша с маслом\", \"Рассольник\", \"Рыбные котлеты с картофельным пюре\", \"Салат с курицей и ананасом\", \"Скрамбл со страчателлой\", \"Сливочный суп-пюре из тыквы\", \"Суп-пюре из брокколи\", \"Сэндвичи\", \"Тарт татен\", \"Творог со сметаной\", \"Творожная запеканка\", \"Томатный суп\", \"Филе с ананасом и сыром в духовке\", \"Французский тост\", \"Хачапури по-аджарски\", \"Цезарь с курицей\", \"Чизкейк\", \"Шарлотка\", \"Щи из свежей капусты\"]);",
+                  "const MATCHED = 20;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"VEGAN\"], allergens: [\"LACTOSE\"] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 20)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (20 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 46 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(46));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.P HIGH_PROTEIN+LOW_CARB с аллергеном EGGS+GLUTEN — предпочтения",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "const SCORE = {\"Гречка с тушенкой\": 1, \"Винегрет\": 0, \"Фунчоза с овощами\": 1, \"Плов с бараниной\": 1, \"Гречка на молоке\": 0, \"Куриное филе с овощами в сливочном соусе\": 2, \"Сливочный суп-пюре из тыквы\": 0, \"Овощное рагу с индейкой и томатной пастой\": 2, \"Курица с грибами в сливочном соусе\": 2, \"Жюльен с грибами\": 1, \"Борщ\": 0, \"Том ям\": 2, \"Курица с картофелем в рукаве для запекания\": 2, \"Творог со сметаной\": 1, \"Картошка в мундире\": 1, \"Греческий салат\": 1, \"Овощной салат\": 1, \"Пшенная каша с маслом\": 0, \"Щи из свежей капусты\": 0, \"Рассольник\": 0, \"Гороховый суп\": 1, \"Суп-пюре из брокколи\": 1, \"Грибовница\": 0, \"Томатный суп\": 1, \"Куриные крылья в медовом соусе\": 2, \"Плов с говядиной\": 1, \"Кабачки жареные\": 1, \"Баклажаны с помидорами\": 1, \"Овощное рагу\": 1, \"Картофель по-деревенски\": 1, \"Фруктовое желе\": 1, \"Плов с курицей\": 1, \"Рис с овощами\": 1, \"Уха\": 2, \"Свекольный салат с чесноком и орехами\": 1, \"Салат с курицей и ананасом\": 2, \"Мясная солянка\": 0, \"Хумус с овощами\": 1, \"Суп из чечевицы\": 1, \"Рататуй\": 1, \"Картофель отварной с укропом\": 1, \"Кукурузная каша\": 0, \"Индейка отварная\": 2, \"Курица отварная\": 2, \"Печеные яблоки\": 1, \"Капуста тушеная\": 1, \"Салат из киноа и овощей\": 1, \"Тушёная чечевица с овощами\": 1};",
+                  "const ALLERGEN_NAMES = new Set([\"Бефстроганов\", \"Блины классические\", \"Брауни\", \"Булгур с нутом и овощами\", \"Вареники с творогом\", \"Гуляш из говядины\", \"Драники\", \"Карбонара со сливками\", \"Кекс с изюмом\", \"Китайская лапша с курицей и овощами\", \"Конвертики из лаваша с курицей\", \"Котлеты из нута\", \"Куриный суп с лапшой\", \"Курица в кисло-сладком соусе\", \"Лазанья болоньезе\", \"Макароны по-флотски\", \"Макароны с креветками в сливочном соусе\", \"Манная каша\", \"Манник\", \"Мимоза\", \"Мясной пирог\", \"Овсянка на молоке\", \"Окрошка на квасе\", \"Оладьи на кефире\", \"Оливье\", \"Омлет с сыром и помидорами\", \"Панкейки\", \"Паста альфредо\", \"Паста по-итальянски\", \"Пирог с яблоками\", \"Пирожное картошка\", \"Пицца домашняя\", \"Рамен с курицей\", \"Рис с овощами и яйцом по-китайски\", \"Рыба жареная\", \"Рыбные котлеты с картофельным пюре\", \"Салат из фасоли с сухариками\", \"Салат с тунцом и яйцом\", \"Скрамбл со страчателлой\", \"Сэндвичи\", \"Тарт татен\", \"Творожная запеканка\", \"Тофу в соевом соусе\", \"Удон с курицей и овощами\", \"Филе с ананасом и сыром в духовке\", \"Французский тост\", \"Хачапури по-аджарски\", \"Цезарь с курицей\", \"Чизкейк\", \"Шакшука\", \"Шарлотка\", \"Яичница по-Ленинградски\"]);",
+                  "const MATCHED = 38;",
+                  "(async () => {",
+                  "  const user = await newUser({ preferences: [\"HIGH_PROTEIN\", \"LOW_CARB\"], allergens: [\"EGGS\", \"GLUTEN\"] });",
+                  "  const seen = (await walk(user.token)).map(c => c.name);",
+                  "  const scores = seen.map(n => SCORE[n]);",
+                  "  pm.test('Первые 10 рецептов — все подходят под предпочтения (в базе подходящих: 38)', () => pm.expect(scores.slice(0, Math.min(10, MATCHED)).every(s => s > 0), 'Оценки совпадений первых 10: ' + scores.slice(0, 10).join(',')).to.be.true);",
+                  "  pm.test('Сначала идут все подходящие (38 шт.), потом остальные', () => pm.expect(scores.slice(0, MATCHED).every(s => s > 0), 'Оценки: ' + scores.join(',')).to.be.true);",
+                  "  pm.test('Порядок по числу совпадений не возрастает', () => { for (let i = 1; i < scores.length; i++) pm.expect(scores[i], 'позиция ' + i).to.be.at.most(scores[i-1]); });",
+                  "  pm.test('Мягкий фильтр ничего не скрывает: показаны все 48 доступных рецептов', () => pm.expect(new Set(seen).size).to.equal(48));",
+                  "  pm.test('Аллергенные рецепты не показаны', () => pm.expect(seen.filter(n => ALLERGEN_NAMES.has(n))).to.be.empty);",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "5.X Лента без предпочтений у авторизованного — детерминирована (инфо)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/recipes/feed",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "recipes",
+                "feed"
+              ]
+            },
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Статус ответа: 200', () => pm.expect(pm.response.code).to.be.oneOf([200]));",
+                  "",
+                  "const base = pm.collectionVariables.get('baseUrl');",
+                  "const send = (method, path, body, token) => new Promise((resolve, reject) => {",
+                  "  const opts = { url: base + path, method: method, header: { 'Content-Type': 'application/json' } };",
+                  "  if (token) opts.header['Authorization'] = 'Bearer ' + token;",
+                  "  if (body !== undefined) opts.body = { mode: 'raw', raw: JSON.stringify(body) };",
+                  "  pm.sendRequest(opts, (err, res) => err ? reject(err) : resolve(res));",
+                  "});",
+                  "const newUser = async (profile) => {",
+                  "  const email = 'qa_' + Date.now() + '_' + Math.floor(Math.random() * 1e6) + '@test.com';",
+                  "  await send('POST', '/api/users/register', { email: email, password: 'Pass_123' });",
+                  "  const login = await send('POST', '/api/users/login', { email: email, password: 'Pass_123' });",
+                  "  const token = login.json().token;",
+                  "  if (profile) {",
+                  "    await send('PUT', '/api/users/profile',",
+                  "      Object.assign({ gender: 'male', age: 30, height: 180, weight: 75, allergens: [], preferences: [] }, profile), token);",
+                  "  }",
+                  "  return { email: email, token: token };",
+                  "};",
+                  "// Листает ленту до конца, каждую карточку \"оценивает\" DISLIKE. Возвращает плоский массив {id, name} в порядке показа.",
+                  "const walk = async (token, maxPages) => {",
+                  "  const seen = [];",
+                  "  for (let i = 0; i < (maxPages || 15); i++) {",
+                  "    const res = await send('GET', '/api/recipes/feed', undefined, token);",
+                  "    const cards = res.json();",
+                  "    if (!cards.length) break;",
+                  "    cards.forEach(c => seen.push({ id: c.id, name: c.name }));",
+                  "    await Promise.all(cards.map(c => send('POST', '/api/recipes/' + c.id + '/react', { reaction: 'DISLIKE' }, token)));",
+                  "  }",
+                  "  return seen;",
+                  "};",
+                  "",
+                  "(async () => {",
+                  "  const user = await newUser();",
+                  "  const a = (await send('GET', '/api/recipes/feed', undefined, user.token)).json().map(c => c.id);",
+                  "  const b = (await send('GET', '/api/recipes/feed', undefined, user.token)).json().map(c => c.id);",
+                  "  console.log('Два запроса подряд без реакций: ' + a.join(',') + ' | ' + b.join(','));",
+                  "  pm.test('[ИНФО] Без реакций авторизованный получает одну и ту же пачку (нет перемешивания)', () => pm.expect(a).to.eql(b));",
+                  "})();"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
